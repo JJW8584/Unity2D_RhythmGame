@@ -653,6 +653,7 @@ RectTransform:
   - {fileID: 365744565}
   - {fileID: 1678992295}
   - {fileID: 1179520060}
+  - {fileID: 637601214}
   m_Father: {fileID: 1163493496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -740,7 +741,7 @@ GameObject:
   - component: {fileID: 625916432}
   - component: {fileID: 625916431}
   m_Layer: 5
-  m_Name: OptionPanel
+  m_Name: SettingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -832,14 +833,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637601213}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.034899585, w: 0.99939084}
-  m_LocalPosition: {x: 1.36, y: -1.33, z: -9.950642}
+  m_LocalRotation: {x: -0, y: -0, z: -0.034899585, w: 0.99939084}
+  m_LocalPosition: {x: -958.64, y: -541.33, z: -9.950642}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1485350624}
   - {fileID: 1861686685}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 561163050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4}
 --- !u!1 &713738975
 GameObject:
@@ -1523,7 +1524,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9C8\uCE58\uAE30"
+  m_Text: "\uC885\uB8CC"
 --- !u!222 &1288781078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2528,4 +2529,3 @@ SceneRoots:
   - {fileID: 25062695}
   - {fileID: 1163493496}
   - {fileID: 596142365}
-  - {fileID: 637601214}
