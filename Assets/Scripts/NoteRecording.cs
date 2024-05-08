@@ -7,14 +7,19 @@ using System;
 public class NoteRecording : MonoBehaviour
 {
     public AudioSource mAudio;
-    private string filePath; //파일입력
+    public string filePath;
+    public string fileName; //파일입력
     private float audioCurTime0;
     private float audioCurTime1;
     private float audioCurTime2;
     private float audioCurTime3;
     private float audioCurTime4;
     private float audioCurTime5;
+    private string noteData;
     private List<Tuple<float, int, int, float>> noteSet; //재생시간 생성위치 노트종류 지속시간
+                                                         //노트종류 0 : 단일노트
+                                                         //         1 : 동시노트
+                                                         //         2 : 롱노트
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +59,7 @@ public class NoteRecording : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.G))
         {
-            noteSet.Add(Tuple.Create(audioCurTime4, 0, 0, mAudio.time - audioCurTime4));
+            noteSet.Add(Tuple.Create(audioCurTime4, 0, 2, mAudio.time - audioCurTime4));
         }
         if(Input.GetKeyDown(KeyCode.H))
         {
@@ -62,7 +67,7 @@ public class NoteRecording : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.H))
         {
-            noteSet.Add(Tuple.Create(audioCurTime5, 1, 0, mAudio.time - audioCurTime5));
+            noteSet.Add(Tuple.Create(audioCurTime5, 1, 2, mAudio.time - audioCurTime5));
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
@@ -73,12 +78,22 @@ public class NoteRecording : MonoBehaviour
 
     public void RecordNote()
     {
-        filePath = Path.Combine("X:\\", "song1.txt"); 
+        string file = Path.Combine(filePath, fileName); 
         for(int i = 0; i < noteSet.Count; i++)
         {
             //재생시간 생성위치 노트종류 지속시간
-            string noteData = noteSet[i].Item1.ToString("0.000") + " " + noteSet[i].Item2.ToString() + " " + noteSet[i].Item3.ToString() + " " + noteSet[i].Item4.ToString("0.000");
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+            //동시노트 처리
+            if ((noteSet[i].Item3 == 0) && (i < noteSet.Count - 1) && (noteSet[i].Item2 != noteSet[i + 1].Item2) && (noteSet[i + 1].Item1 - noteSet[i].Item1 < 0.05f)) 
+            //단일노트 && 다음인덱스 존재 && 생성위치 다름 && 입력 시간 차이가 0.05초 미만
+            //시간은 소수점 3자리 형식
+            {
+                noteData = noteSet[i++].Item1.ToString("0.000") + " 0 1 0.000";
+            }
+            else
+            {
+                noteData = noteSet[i].Item1.ToString("0.000") + " " + noteSet[i].Item2.ToString() + " " + noteSet[i].Item3.ToString() + " " + noteSet[i].Item4.ToString("0.000");
+            }
+            using (StreamWriter writer = new StreamWriter(file, true))
             {
                 writer.WriteLine(noteData);
             }
