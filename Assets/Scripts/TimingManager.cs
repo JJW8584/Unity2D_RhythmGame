@@ -11,13 +11,9 @@ public class TimingManager : MonoBehaviour
     [SerializeField] GameObject[] timingRect = null; // 다양한 판정 범위
     Vector2[] timingBoxs = null; // 판정 범위 최소값 x, 최대값 y
 
-    NoteManager noteManager;
 
-
-    void Start()
+    void Awake()
     {
-        noteManager = GetComponent<NoteManager>();
-
         timingBoxs = new Vector2[timingRect.Length];
 
         for (int i = 0; i < timingRect.Length; i++)
