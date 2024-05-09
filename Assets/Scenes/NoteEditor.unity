@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAudio: {fileID: 537231112}
-  filePath: X:\
+  filePath: "D:\\\uAC8C\uC784\uD504\uB85C\uADF8\uB798\uBC0D\\\uAE30\uB9D0 \uACFC\uC81C\\"
   fileName: song1.txt
 --- !u!4 &2101979376
 Transform:
