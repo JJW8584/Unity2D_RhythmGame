@@ -30,7 +30,7 @@ public class NoteManager : MonoBehaviour
     public Transform notePos1;
 
     //플레이 노래
-    AudioSource playSong;
+    public AudioSource playSong;
 
     private void Awake()
     {
@@ -48,6 +48,7 @@ public class NoteManager : MonoBehaviour
 
     private void Start()
     {
+        readNoteFile("X:\\게임프로그래밍\\달려라 고양이\\song1.txt");
         playSong.Play();
     }
 
@@ -148,29 +149,27 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    IEnumerator PlayGame()
+    IEnumerator PlayGame() //한 번에 모든 노트가 생성됨 수정필요
     {
         yield return null;
-        for(int i = 0; i < noteData.Count; i++)
+
+        for (int i = 0; i < noteData.Count; i++)
         {
-            while(true)
+            while(playSong.time < noteData[i].Item1)
             {
-                if (playSong.time >= noteData[i].Item1)
-                {
-                    switch (noteData[i].Item3)
-                    {
-                        //재생시간 생성위치 노트종류 지속시간
-                        case 0: //단일노트
-                            CreateNote(noteData[i].Item2, noteData[i].Item3);
-                            break;
-                        case 1: //이중노트
-                            break;
-                        case 2: //롱노트
-                            break;
-                    }
-                    break;
-                }
                 yield return null;
+            }
+
+            switch (noteData[i].Item3)
+            {
+                //재생시간 생성위치 노트종류 지속시간
+                case 0: //단일노트
+                    CreateNote(noteData[i].Item2, noteData[i].Item3);
+                    break;
+                case 1: //이중노트
+                    break;
+                case 2: //롱노트
+                    break;
             }
         }
     }
@@ -178,16 +177,24 @@ public class NoteManager : MonoBehaviour
     void CreateNote(int noteLoc, int noteType)
     {
         GameObject note;
-        switch (noteLoc)
+        if(noteType == 0)
         {
-            case 0: //위쪽
-                note = MakeObj("note0");
-                note.gameObject.transform.position = notePos0.position;
-                break;
-            case 1: //아래쪽
-                note = MakeObj("note1");
-                note.gameObject.transform.position = notePos1.position;
-                break;
+            switch (noteLoc)
+            {
+                case 0: //위쪽
+                    note = MakeObj("note0");
+                    note.transform.position = notePos0.position;
+                    break;
+                case 1: //아래쪽
+                    note = MakeObj("note1");
+                    note.transform.position = notePos1.position;
+                    break;
+            }
+        }
+        else if(noteType == 1) 
+        {
+            note = MakeObj("doubleNote");
+            note.transform.position = (notePos0.position + notePos1.position) / 2;
         }
     }
 }

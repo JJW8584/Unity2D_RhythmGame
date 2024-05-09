@@ -1293,7 +1293,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAudio: {fileID: 537231112}
+<<<<<<< Updated upstream
   filePath: X:\
+=======
+<<<<<<< HEAD
+  filePath: "X:\\\uAC8C\uC784\uD504\uB85C\uADF8\uB798\uBC0D\\\uB2EC\uB824\uB77C \uACE0\uC591\uC774\\"
+=======
+  filePath: X:\
+>>>>>>> 45f347536ee05bff237270e923c715d5f9f67051
+>>>>>>> Stashed changes
   fileName: song1.txt
 --- !u!4 &2101979376
 Transform:
