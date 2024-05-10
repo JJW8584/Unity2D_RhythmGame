@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f8468060bc07da44a59cfd94e3d6cfc
+guid: 1581eccce46ba384596a1dce7936ab19
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -7,12 +7,12 @@ ScriptedImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-  script: {fileID: 11500000, guid: 335092b7d4e7e6c45969990b96a221ff, type: 3}
+  script: {fileID: 11500000, guid: fe56ec25963759b49955809beeb4324b, type: 3}
   detectedRenderPipeline: Built-In Render Pipeline
   strippedLinesCount: 113
   shaderSourceCode: "//--------------------------------------------------------------------------------------------------------------------------------\r\n//
     Cartoon FX\r\n// (c) 2012-2020 Jean Moreno\r\n//--------------------------------------------------------------------------------------------------------------------------------\r\n\r\nShader
-    \"Cartoon FX/Remaster/Particle Procedural Ring\"\r\n{\r\n\tProperties\r\n\t{\r\n\t//#
+    \"Cartoon FX/Remaster/Particle Procedural Ring NEW\"\r\n{\r\n\tProperties\r\n\t{\r\n\t//#
     Blending\r\n\t//#\r\n\t\t[Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend (\"Blend
     Source\", Float) = 5\r\n\t\t[Enum(UnityEngine.Rendering.BlendMode)] _DstBlend
     (\"Blend Destination\", Float) = 10\r\n\t\r\n\t//# --------------------------------------------------------\r\n\r\n\t\t[Toggle(_CFXR_DISSOLVE)]
@@ -63,7 +63,7 @@ ScriptedImporter:
     target 3.0\t\t//needed for VPOS\r\n\t\t\t#endif\r\n\r\n\t\t\t\t#define PASS_SHADOW_CASTER\r\n\t\t\t\t#define
     CFXR_PROCEDURAL_RING_SHADER\r\n\t\t\t\t#include \"CFXR_PASSES.cginc\"\r\n\r\n\t\t\t\tENDCG\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n\tCustomEditor
     \"CartoonFX.MaterialInspector\"\r\n}\r\n\r\n"
-  shaderName: Cartoon FX/Remaster/Particle Procedural Ring
+  shaderName: Cartoon FX/Remaster/Particle Procedural Ring NEW
   shaderErrors: []
   variantCount: 6080
   variantCountUsed: 4
