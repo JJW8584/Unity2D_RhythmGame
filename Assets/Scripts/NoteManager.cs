@@ -12,25 +12,28 @@ public class NoteManager : MonoBehaviour
     public GameObject note1Prefab;
     public GameObject doubleNotePrefab;
     public GameObject longNoteFrontPrefab;
-    public GameObject longNoteBackPrefab;
+    public GameObject longNoteMidPrefab;
+    public GameObject longNoteEndPrefab;
     public GameObject noteEffectPrefab;
 
     GameObject[] note0;
     GameObject[] note1;
     GameObject[] doubleNote;
     GameObject[] longNoteFront;
-    GameObject[] longNoteBack;
+    GameObject[] longNoteMid;
+    GameObject[] longNoteEnd;
     GameObject[] noteEffect;
 
     GameObject[] targetPool;
 
     //노트 정보 저장
     private List<Tuple<float, int, int, float>> noteData;
+    private bool[] noteCreateCheck; //노트가 생성되었는지 체크
     public Transform notePos0;
     public Transform notePos1;
 
     //플레이 노래
-    AudioSource playSong;
+    public AudioSource playSong;
 
     private void Awake()
     {
@@ -38,7 +41,8 @@ public class NoteManager : MonoBehaviour
         note1 = new GameObject[40];
         doubleNote = new GameObject[30];
         longNoteFront = new GameObject[5];
-        longNoteBack = new GameObject[30];
+        longNoteMid = new GameObject[30];
+        longNoteEnd = new GameObject[5];
         noteEffect = new GameObject[20];
 
         Generate();
@@ -48,12 +52,13 @@ public class NoteManager : MonoBehaviour
 
     private void Start()
     {
+        ReadNoteFile("X:\\song1.txt");
         playSong.Play();
     }
 
     private void Update()
     {
-        StartCoroutine(PlayGame());
+        PlayGame();
     }
     void Generate()
     {
@@ -77,10 +82,15 @@ public class NoteManager : MonoBehaviour
             longNoteFront[i] = Instantiate(longNoteFrontPrefab);
             longNoteFront[i].SetActive(false);
         }
-        for (int i = 0; i < longNoteBack.Length; i++)
+        for (int i = 0; i < longNoteMid.Length; i++)
         {
-            longNoteBack[i] = Instantiate(longNoteBackPrefab);
-            longNoteBack[i].SetActive(false);
+            longNoteMid[i] = Instantiate(longNoteMidPrefab);
+            longNoteMid[i].SetActive(false);
+        }
+        for (int i = 0; i < longNoteEnd.Length; i++)
+        {
+            longNoteEnd[i] = Instantiate(longNoteEndPrefab);
+            longNoteEnd[i].SetActive(false);
         }
         for (int i = 0; i < noteEffect.Length; i++)
         {
@@ -105,8 +115,11 @@ public class NoteManager : MonoBehaviour
             case "longNoteFront":
                 targetPool = longNoteFront;
                 break;
-            case "longNoteBack":
-                targetPool = longNoteBack;
+            case "longNoteMid":
+                targetPool = longNoteMid;
+                break;
+            case "longNoteEnd":
+                targetPool = longNoteEnd;
                 break;
             case "noteEffect":
                 targetPool = noteEffect;
@@ -125,7 +138,7 @@ public class NoteManager : MonoBehaviour
         return null;
     }
 
-    public void readNoteFile(string filePath)
+    public void ReadNoteFile(string filePath)
     {
         using (StreamReader reader = new StreamReader(filePath))
         {
@@ -145,32 +158,33 @@ public class NoteManager : MonoBehaviour
                     }
                 }
             }
+            noteCreateCheck = new bool[noteData.Count];
+            for(int i = 0; i < noteData.Count; i++) //노트 생성 체크 초기화
+            {
+                noteCreateCheck[i] = false;
+            }
         }
     }
 
-    IEnumerator PlayGame()
+    void PlayGame()
     {
-        yield return null;
         for(int i = 0; i < noteData.Count; i++)
         {
-            while(true)
+            if ((playSong.time >= noteData[i].Item1) && !noteCreateCheck[i]) //노트가 생성되지 않았을 때 시간에 맞춰서 생성
             {
-                if (playSong.time >= noteData[i].Item1)
+                noteCreateCheck[i] = true;
+                switch (noteData[i].Item3)
                 {
-                    switch (noteData[i].Item3)
-                    {
-                        //재생시간 생성위치 노트종류 지속시간
-                        case 0: //단일노트
-                            CreateNote(noteData[i].Item2, noteData[i].Item3);
-                            break;
-                        case 1: //이중노트
-                            break;
-                        case 2: //롱노트
-                            break;
-                    }
-                    break;
+                    //재생시간 생성위치 노트종류 지속시간
+                    case 0: //단일노트
+                        CreateNote(noteData[i].Item2, noteData[i].Item3);
+                        break;
+                    case 1: //이중노트
+                        break;
+                    case 2: //롱노트
+                        break;
                 }
-                yield return null;
+                break;
             }
         }
     }
