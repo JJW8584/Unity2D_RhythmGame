@@ -59,7 +59,7 @@ public class TimingManager : MonoBehaviour
             }
         }
 
-        //Debug.Log("Miss");
+        Debug.Log("Miss");
     }
 
     public void CheckTiming_1() //¾Æ·¡
@@ -94,6 +94,11 @@ public class TimingManager : MonoBehaviour
             }
         }
 
-        //Debug.Log("Miss");
+        Debug.Log("Miss");
+    }
+
+    public void Check_Long()
+    {
+
     }
 }
