@@ -12,33 +12,33 @@ public class PlayerController : MonoBehaviour
     private float elapsedTime_1 = 0.0f; //아래
     private bool isClicked_1 = false;
 
-    private float BothTime1 = 0.0f;
-    private float BothTime2 = 0.0f;
-    private float BothTime3 = 0.0f;
-
     TimingManager theTimingManager;
+    NoteManager theNoteManager;
     Animator animator;
 
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
+        theNoteManager = FindObjectOfType<NoteManager>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))    //위
+        //위
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            theTimingManager.CheckTiming_0(); // 판정 체크
+            //Debug.Log("판정시작");
+            theTimingManager.CheckTiming(); // 판정 체크
             isClicked_0 = true;
         }
-        if (isClicked_0 == true)
+        if (isClicked_0 == true) //롱노트
         {
             elapsedTime_0 += Time.deltaTime;
             if (longNoteTime < elapsedTime_0)
             {
-                //Debug.Log("long note");
-                //롱노트가 존재하냐, 없으면 판정끝 hit 멈추기
+                Debug.Log("long note");
+                //롱노트 존재여부, 없으면 판정끝 hit 멈추기
             }
         }
         if (Input.GetKeyUp(KeyCode.F))
@@ -52,17 +52,19 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.J))    //아래
+        //아래
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            theTimingManager.CheckTiming_1(); // 판정 체크
+            //Debug.Log("판정시작");
+            theTimingManager.CheckTiming(); // 판정 체크
             isClicked_1 = true;
         }
-        if (isClicked_1 == true)
+        if (isClicked_1 == true) //롱노트
         {
             elapsedTime_1 += Time.deltaTime;
             if (longNoteTime < elapsedTime_1)
             {
-                //Debug.Log("long note");
+                Debug.Log("long note");
                 //롱노트 존재여부, 없으면 판정끝 hit 멈추기
             }
         }
@@ -76,7 +78,20 @@ public class PlayerController : MonoBehaviour
             elapsedTime_1 = 0.0f;
         }
 
+        //동시노트
+        if (Input.GetKey(KeyCode.F) && Input.GetKeyDown(KeyCode.J))
+        {
+            Debug.Log("동시입력");
+            theTimingManager.CheckTiming(); // 판정 체크
+        }
+        else if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.J))
+        {
+            Debug.Log("동시입력");
+            theTimingManager.CheckTiming(); // 판정 체크
+        }
+
     }
+
 
     void attackMotion()   //코드작성 : 지재원
     {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 //코드작성 : 지재원
@@ -35,6 +36,8 @@ public class NoteManager : MonoBehaviour
     //플레이 노래
     public AudioSource playSong;
 
+    TimingManager theTimingManager;
+
     private void Awake()
     {
         note0 = new GameObject[40];
@@ -48,6 +51,8 @@ public class NoteManager : MonoBehaviour
         Generate();
 
         noteData = new List<Tuple<float, int, int, float>>();
+
+        theTimingManager = FindObjectOfType<TimingManager>();
     }
 
     private void Start()
@@ -131,6 +136,7 @@ public class NoteManager : MonoBehaviour
             if (!targetPool[i].activeSelf)
             {
                 targetPool[i].SetActive(true);
+                theTimingManager.boxNoteList.Add(targetPool[i]); //타이밍 리스트에 추가
                 return targetPool[i];
             }
         }

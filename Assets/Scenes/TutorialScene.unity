@@ -2204,10 +2204,12 @@ MonoBehaviour:
   note1Prefab: {fileID: 0}
   doubleNotePrefab: {fileID: 0}
   longNoteFrontPrefab: {fileID: 0}
-  longNoteBackPrefab: {fileID: 0}
+  longNoteMidPrefab: {fileID: 0}
+  longNoteEndPrefab: {fileID: 0}
   noteEffectPrefab: {fileID: 0}
   notePos0: {fileID: 0}
   notePos1: {fileID: 0}
+  playSong: {fileID: 0}
 --- !u!114 &2129216119
 MonoBehaviour:
   m_ObjectHideFlags: 0

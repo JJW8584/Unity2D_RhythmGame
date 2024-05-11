@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TimingManager : MonoBehaviour
 {
+
+    NoteManager theNoteManager;
+
     public List<GameObject> boxNoteList = new List<GameObject>();   //NoteManager 에서 생성된 노트 담기
 
     [SerializeField] Transform center = null; // 판정 범위의 중심
@@ -24,7 +27,8 @@ public class TimingManager : MonoBehaviour
         }
     }
 
-    public void CheckTiming_0() //위
+    //위
+    public void CheckTiming()
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
@@ -34,7 +38,54 @@ public class TimingManager : MonoBehaviour
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY > 0.5) //위
+                //위
+                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY >= 0.5) 
+                {
+                    //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
+                    boxNoteList.RemoveAt(i);    //리스트에서 삭제
+
+                    switch (j)
+                    {
+                        case 0:
+                            Debug.Log("Perfect");
+                            //이펙트 콤보
+                            break;
+                        case 1:
+                            Debug.Log("Good");
+                            //이펙트 콤보
+                            break;
+                        case 2:
+                            Debug.Log("Bad");
+                            //이펙트
+                            break;
+                    }
+                    return;
+                }
+                //아래
+                else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < 0.5)
+                {
+                    //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
+                    boxNoteList.RemoveAt(i);    //리스트에서 삭제
+
+                    switch (j)
+                    {
+                        case 0:
+                            Debug.Log("Perfect");
+                            //이펙트 콤보
+                            break;
+                        case 1:
+                            Debug.Log("Good");
+                            //이펙트 콤보
+                            break;
+                        case 2:
+                            Debug.Log("Bad");
+                            //이펙트
+                            break;
+                    }
+                    return;
+                }
+                //동시
+                else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == theNoteManager.doubleNotePrefab)
                 {
                     //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
@@ -59,10 +110,12 @@ public class TimingManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Miss");
+        //Debug.Log("Miss");
     }
 
-    public void CheckTiming_1() //아래
+
+    //롱노트
+    public void CheckTiming_Long()
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
@@ -72,7 +125,8 @@ public class TimingManager : MonoBehaviour
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY <= 0.5) //아래
+                //위
+                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY >= 0.5 && boxNoteList[i] == theNoteManager.longNoteMidPrefab)
                 {
                     //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
@@ -81,33 +135,21 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            //이펙트 콤보
                             break;
                         case 1:
                             Debug.Log("Good");
+                            //이펙트 콤보
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            //이펙트
                             break;
                     }
                     return;
                 }
-            }
-        }
-
-        Debug.Log("Miss");
-    }
-
-    public void CheckTiming_2() //동시
-    {
-        for (int i = 0; i < boxNoteList.Count; i++)
-        {
-            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
-            float t_notePosY = boxNoteList[i].transform.localPosition.y;    //노트 위치
-
-            // 판정 순서 : Perfect -> Good -> Bad
-            for (int j = 0; j < timingBoxs.Length; j++)
-            {
-                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y)
+                //아래
+                else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < 0.5 && boxNoteList[i] == theNoteManager.longNoteMidPrefab)
                 {
                     //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
@@ -116,12 +158,15 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            //이펙트 콤보
                             break;
                         case 1:
                             Debug.Log("Good");
+                            //이펙트 콤보
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            //이펙트
                             break;
                     }
                     return;
@@ -129,11 +174,6 @@ public class TimingManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Miss");
-    }
-
-    public void Check_Long()
-    {
-        //롱노트에 간격별로 트리거 넣기 
+        //Debug.Log("Miss");
     }
 }
