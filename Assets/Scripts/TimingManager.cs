@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class TimingManager : MonoBehaviour
 {
 
     NoteManager theNoteManager;
+    public ParticleSystem effect;
 
     public List<GameObject> boxNoteList = new List<GameObject>();   //NoteManager 에서 생성된 노트 담기
 
@@ -41,7 +43,7 @@ public class TimingManager : MonoBehaviour
                 //위
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY >= 0.5) 
                 {
-                    //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
+                    boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
                     switch (j)
@@ -64,7 +66,7 @@ public class TimingManager : MonoBehaviour
                 //아래
                 else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < 0.5)
                 {
-                    //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
+                    boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
                     switch (j)
@@ -87,7 +89,7 @@ public class TimingManager : MonoBehaviour
                 //동시
                 else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == theNoteManager.doubleNotePrefab)
                 {
-                    //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
+                    boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
                     switch (j)
@@ -108,12 +110,27 @@ public class TimingManager : MonoBehaviour
                     return;
                 }
             }
+
+            //if(t_notePosX==)
         }
 
         //Debug.Log("Miss");
     }
 
+    public void MissCheck(GameObject note_)
+    {
+        //if (note_.transform.position ==) ;
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "BasRect")
+        {
+            Debug.Log("Miss");
+        }
+    }
+
+    /*
     //롱노트
     public void CheckTiming_Long()
     {
@@ -128,7 +145,7 @@ public class TimingManager : MonoBehaviour
                 //위
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY >= 0.5 && boxNoteList[i] == theNoteManager.longNoteMidPrefab)
                 {
-                    //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
+                    boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
                     switch (j)
@@ -151,7 +168,7 @@ public class TimingManager : MonoBehaviour
                 //아래
                 else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < 0.5 && boxNoteList[i] == theNoteManager.longNoteMidPrefab)
                 {
-                    //boxNoteList[i].GetComponent<Note>().HideNote();   //노트 지우기
+                    boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
                     switch (j)
@@ -175,5 +192,5 @@ public class TimingManager : MonoBehaviour
         }
 
         //Debug.Log("Miss");
-    }
+    }*/
 }
