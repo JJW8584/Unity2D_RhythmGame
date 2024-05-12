@@ -2195,6 +2195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129216116}
   - component: {fileID: 2129216118}
+  - component: {fileID: 2129216119}
   m_Layer: 0
   m_Name: Tutorial Manager
   m_TagString: Untagged
@@ -2239,6 +2240,24 @@ MonoBehaviour:
   notePos0: {fileID: 838660633}
   notePos1: {fileID: 1082444578}
   playSong: {fileID: 1252671256}
+--- !u!114 &2129216119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129216115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76fd7fe38bd8f242ae127c89e87454d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxNoteList: []
+  center: {fileID: 374520727}
+  timingRect:
+  - {fileID: 1007834133}
+  - {fileID: 771305702}
+  - {fileID: 1869956962}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -137,7 +137,7 @@ public class NoteManager : MonoBehaviour
             if (!targetPool[i].activeSelf)
             {
                 targetPool[i].SetActive(true);
-                //theTimingManager.boxNoteList.Add(targetPool[i]); //타이밍 리스트에 추가
+                theTimingManager.boxNoteList.Add(targetPool[i]); //타이밍 리스트에 추가
                 return targetPool[i];
             }
         }
