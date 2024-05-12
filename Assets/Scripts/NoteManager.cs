@@ -15,7 +15,9 @@ public class NoteManager : MonoBehaviour
     public GameObject longNoteFrontPrefab;
     public GameObject longNoteMidPrefab;
     public GameObject longNoteEndPrefab;
-    public GameObject noteEffectPrefab;
+    public GameObject notePerfectEffectPrefab;
+    public GameObject noteGoodEffectPrefab;
+    public GameObject noteBadEffectPrefab;
 
     GameObject[] note0;
     GameObject[] note1;
@@ -23,7 +25,9 @@ public class NoteManager : MonoBehaviour
     GameObject[] longNoteFront;
     GameObject[] longNoteMid;
     GameObject[] longNoteEnd;
-    GameObject[] noteEffect;
+    GameObject[] notePerfectEffect;
+    GameObject[] noteGoodEffect;
+    GameObject[] noteBadEffect;
 
     GameObject[] targetPool;
 
@@ -46,7 +50,9 @@ public class NoteManager : MonoBehaviour
         longNoteFront = new GameObject[5];
         longNoteMid = new GameObject[30];
         longNoteEnd = new GameObject[5];
-        noteEffect = new GameObject[20];
+        notePerfectEffect = new GameObject[20];
+        noteGoodEffect = new GameObject[20];
+        noteBadEffect = new GameObject[20];
 
         Generate();
 
@@ -98,10 +104,20 @@ public class NoteManager : MonoBehaviour
             longNoteEnd[i] = Instantiate(longNoteEndPrefab);
             longNoteEnd[i].SetActive(false);
         }
-        for (int i = 0; i < noteEffect.Length; i++)
+        for (int i = 0; i < notePerfectEffect.Length; i++)
         {
-            noteEffect[i] = Instantiate(noteEffectPrefab);
-            noteEffect[i].SetActive(false);
+            notePerfectEffect[i] = Instantiate(notePerfectEffectPrefab);
+            notePerfectEffect[i].SetActive(false);
+        }
+        for (int i = 0; i < noteGoodEffect.Length; i++)
+        {
+            noteGoodEffect[i] = Instantiate(noteGoodEffectPrefab);
+            noteGoodEffect[i].SetActive(false);
+        }
+        for (int i = 0; i < noteBadEffect.Length; i++)
+        {
+            noteBadEffect[i] = Instantiate(noteBadEffectPrefab);
+            noteBadEffect[i].SetActive(false);
         }
     }
 
@@ -127,8 +143,14 @@ public class NoteManager : MonoBehaviour
             case "longNoteEnd":
                 targetPool = longNoteEnd;
                 break;
-            case "noteEffect":
-                targetPool = noteEffect;
+            case "notePerfectEffect":
+                targetPool = notePerfectEffect;
+                break;
+            case "noteGoodEffect":
+                targetPool = noteGoodEffect;
+                break;
+            case "noteBadEffect":
+                targetPool = noteBadEffect;
                 break;
         }
 
@@ -187,6 +209,7 @@ public class NoteManager : MonoBehaviour
                         CreateNote(noteData[i].Item2, noteData[i].Item3);
                         break;
                     case 1: //이중노트
+                        CreateNote(noteData[i].Item2, noteData[i].Item3);
                         break;
                     case 2: //롱노트
                         break;
@@ -199,16 +222,24 @@ public class NoteManager : MonoBehaviour
     void CreateNote(int noteLoc, int noteType)
     {
         GameObject note;
-        switch (noteLoc)
+        if (noteType == 0)
         {
-            case 0: //위쪽
-                note = MakeObj("note0");
-                note.gameObject.transform.position = notePos0.position;
-                break;
-            case 1: //아래쪽
-                note = MakeObj("note1");
-                note.gameObject.transform.position = notePos1.position;
-                break;
+            switch (noteLoc)
+            {
+                case 0: //위쪽
+                    note = MakeObj("note0");
+                    note.gameObject.transform.position = notePos0.position;
+                    break;
+                case 1: //아래쪽
+                    note = MakeObj("note1");
+                    note.gameObject.transform.position = notePos1.position;
+                    break;
+            }
+        }
+        else if(noteType == 1)
+        {
+            note = MakeObj("doubleNote");
+            note.gameObject.transform.position = new Vector2(10f, 0);
         }
     }
 }
