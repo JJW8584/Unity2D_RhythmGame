@@ -53,11 +53,12 @@ public class NoteManager : MonoBehaviour
         noteData = new List<Tuple<float, int, int, float>>();
 
         theTimingManager = FindObjectOfType<TimingManager>();
+
+        ReadNoteFile("D:\\song1.txt");
     }
 
     private void Start()
     {
-        ReadNoteFile("X:\\song1.txt");
         playSong.Play();
     }
 
@@ -136,7 +137,7 @@ public class NoteManager : MonoBehaviour
             if (!targetPool[i].activeSelf)
             {
                 targetPool[i].SetActive(true);
-                theTimingManager.boxNoteList.Add(targetPool[i]); //타이밍 리스트에 추가
+                //theTimingManager.boxNoteList.Add(targetPool[i]); //타이밍 리스트에 추가
                 return targetPool[i];
             }
         }
