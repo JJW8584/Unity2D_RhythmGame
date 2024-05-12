@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         //위
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //Debug.Log("판정시작");
+            Debug.Log("위판정시작");
             theTimingManager.CheckTiming(); // 판정 체크
             isClicked_0 = true;
         }
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             elapsedTime_0 += Time.deltaTime;
             if (longNoteTime < elapsedTime_0)
             {
-                Debug.Log("long note");
+                //Debug.Log("long note");
                 //롱노트 존재여부, 없으면 판정끝 hit 멈추기
             }
         }
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         //아래
         if (Input.GetKeyDown(KeyCode.J))
         {
-            //Debug.Log("판정시작");
+            Debug.Log("아래판정시작");
             theTimingManager.CheckTiming(); // 판정 체크
             isClicked_1 = true;
         }
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
             elapsedTime_1 += Time.deltaTime;
             if (longNoteTime < elapsedTime_1)
             {
-                Debug.Log("long note");
+                //Debug.Log("long note");
                 //롱노트 존재여부, 없으면 판정끝 hit 멈추기
             }
         }
