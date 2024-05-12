@@ -169,29 +169,31 @@ public class NoteManager : MonoBehaviour
 
     public void ReadNoteFile(string filePath)
     {
-        using (StreamReader reader = new StreamReader(filePath))
+        noteData.Clear();
+
+        TextAsset textFile = Resources.Load("song1") as TextAsset;
+        StringReader stringReader = new StringReader(textFile.text);
+
+        string line;
+        while ((line = stringReader.ReadLine()) != null)
         {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            // 공백을 기준으로 문자열을 분리하여 각각의 값으로 변환하여 Tuple 생성
+            string[] values = line.Split(' ');
+            if (values.Length == 4)
             {
-                // 공백을 기준으로 문자열을 분리하여 각각의 값으로 변환하여 Tuple 생성
-                string[] values = line.Split(' ');
-                if (values.Length == 4)
+                if (float.TryParse(values[0], out float val1) && //형 변환 후 리스트에 추가
+                    int.TryParse(values[1], out int val2) &&
+                    int.TryParse(values[2], out int val3) &&
+                    float.TryParse(values[3], out float val4))
                 {
-                    if (float.TryParse(values[0], out float val1) && //형 변환 후 리스트에 추가
-                        int.TryParse(values[1], out int val2) &&
-                        int.TryParse(values[2], out int val3) &&
-                        float.TryParse(values[3], out float val4))
-                    {
-                        noteData.Add(new Tuple<float, int, int, float>(val1, val2, val3, val4));
-                    }
+                    noteData.Add(new Tuple<float, int, int, float>(val1, val2, val3, val4));
                 }
             }
-            noteCreateCheck = new bool[noteData.Count];
-            for(int i = 0; i < noteData.Count; i++) //노트 생성 체크 초기화
-            {
-                noteCreateCheck[i] = false;
-            }
+        }
+        noteCreateCheck = new bool[noteData.Count];
+        for (int i = 0; i < noteData.Count; i++) //노트 생성 체크 초기화
+        {
+            noteCreateCheck[i] = false;
         }
     }
 
