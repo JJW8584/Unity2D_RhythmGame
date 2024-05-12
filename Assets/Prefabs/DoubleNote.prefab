@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 6786298502511046208}
   m_Layer: 0
   m_Name: DoubleNote
-  m_TagString: Untagged
+  m_TagString: DoubleNote
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

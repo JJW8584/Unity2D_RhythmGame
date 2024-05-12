@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
+//코드작성: 권지수
 public class TimingManager : MonoBehaviour
 {
 
@@ -19,6 +20,8 @@ public class TimingManager : MonoBehaviour
 
     void Awake()
     {
+        theNoteManager = FindObjectOfType<NoteManager>();
+
         timingBoxs = new Vector2[timingRect.Length];
 
         for (int i = 0; i < timingRect.Length; i++)
@@ -39,15 +42,11 @@ public class TimingManager : MonoBehaviour
                 boxNoteList.RemoveAt(i);    //리스트에서 삭제
                 Debug.Log("miss");
             }
-            if (t_notePosX < -12)
-            {
-                boxNoteList[i].SetActive(false);   //노트 지우기
-            }
         }
     }
 
     //위
-    public void CheckTiming()
+    public void CheckTiming0()
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
@@ -58,7 +57,7 @@ public class TimingManager : MonoBehaviour
             for (int j = 0; j < timingBoxs.Length; j++)
             {
                 //위
-                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY >= 0.5) 
+                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("CanNote(Clone)"))
                 {
                     boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
@@ -80,8 +79,25 @@ public class TimingManager : MonoBehaviour
                     }
                     return;
                 }
+            }
+        }
+
+        //Debug.Log("Miss");
+    }
+
+    public void CheckTiming1()
+    {
+        for (int i = 0; i < boxNoteList.Count; i++)
+        {
+            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
+            float t_notePosY = boxNoteList[i].transform.localPosition.y;    //노트 위치
+
+            // 판정 순서 : Perfect -> Good -> Bad
+            for (int j = 0; j < timingBoxs.Length; j++)
+            {
+
                 //아래
-                else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < 0.5)
+                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("BellNote(Clone)"))
                 {
                     boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
@@ -103,8 +119,25 @@ public class TimingManager : MonoBehaviour
                     }
                     return;
                 }
+            }
+        }
+
+        //Debug.Log("Miss");
+    }
+
+    public void CheckTiming_Both()
+    {
+        for (int i = 0; i < boxNoteList.Count; i++)
+        {
+            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
+
+            // 판정 순서 : Perfect -> Good -> Bad
+            for (int j = 0; j < timingBoxs.Length; j++)
+            {
                 //동시
-                else if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == theNoteManager.doubleNotePrefab)
+                if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("DoubleNote(Clone)"))
+                //if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.FindGameObjectWithTag("DoubleNote"))
+                //if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == theNoteManager.doubleNotePrefab)
                 {
                     boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제

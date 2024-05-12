@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+//코드작성: 권지수
 public class AudioMixerController : MonoBehaviour
 {
     [SerializeField] private AudioMixer m_AudioMixer;

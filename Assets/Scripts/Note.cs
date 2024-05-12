@@ -11,5 +11,10 @@ public class Note : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
+
+        if (transform.localPosition.x < -12)
+        {
+            gameObject.SetActive(false);    //노트 지우기
+        }
     }
 }
