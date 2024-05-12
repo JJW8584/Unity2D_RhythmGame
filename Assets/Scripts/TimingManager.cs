@@ -29,6 +29,23 @@ public class TimingManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        for (int i = 0; i < boxNoteList.Count; i++)
+        {
+            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
+            if(t_notePosX< timingBoxs[2].x) //bad를 벗어나면
+            {
+                boxNoteList.RemoveAt(i);    //리스트에서 삭제
+                Debug.Log("miss");
+            }
+            if (t_notePosX < -12)
+            {
+                boxNoteList[i].SetActive(false);   //노트 지우기
+            }
+        }
+    }
+
     //위
     public void CheckTiming()
     {
@@ -110,24 +127,9 @@ public class TimingManager : MonoBehaviour
                     return;
                 }
             }
-
-            //if(t_notePosX==)
         }
 
         //Debug.Log("Miss");
-    }
-
-    public void MissCheck(GameObject note_)
-    {
-        //if (note_.transform.position ==) ;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.name == "BasRect")
-        {
-            Debug.Log("Miss");
-        }
     }
 
     /*
