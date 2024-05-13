@@ -9,6 +9,7 @@ public class TimingManager : MonoBehaviour
 {
 
     NoteManager theNoteManager;
+    CreateParticle CreateParticle;
     public ParticleSystem effect;
 
     public List<GameObject> boxNoteList = new List<GameObject>();   //NoteManager 에서 생성된 노트 담기
@@ -17,10 +18,14 @@ public class TimingManager : MonoBehaviour
     [SerializeField] GameObject[] timingRect = null; // 다양한 판정 범위
     Vector2[] timingBoxs = null; // 판정 범위 최소값 x, 최대값 y
 
+    int combo = 0;
+    int bestCombo = 0;
+
 
     void Awake()
     {
         theNoteManager = FindObjectOfType<NoteManager>();
+        CreateParticle = FindObjectOfType<CreateParticle>();
 
         timingBoxs = new Vector2[timingRect.Length];
 
@@ -59,6 +64,7 @@ public class TimingManager : MonoBehaviour
                 //위
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("CanNote(Clone)"))
                 {
+                    CreateParticle.CreateHitEffect(0);
                     boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
@@ -66,14 +72,19 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            combo++;
+                            CreateParticle.CreateEffect(0, 0);
                             //이펙트 콤보
                             break;
                         case 1:
                             Debug.Log("Good");
+                            combo++;
+                            CreateParticle.CreateEffect(0, 1);
                             //이펙트 콤보
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            CreateParticle.CreateEffect(0, 2);
                             //이펙트
                             break;
                     }
@@ -95,10 +106,10 @@ public class TimingManager : MonoBehaviour
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-
                 //아래
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("BellNote(Clone)"))
                 {
+                    CreateParticle.CreateHitEffect(1);
                     boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
@@ -106,14 +117,19 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            combo++;
+                            CreateParticle.CreateEffect(1, 0);
                             //이펙트 콤보
                             break;
                         case 1:
                             Debug.Log("Good");
+                            combo++;
+                            CreateParticle.CreateEffect(1, 1);
                             //이펙트 콤보
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            CreateParticle.CreateEffect(1, 2);
                             //이펙트
                             break;
                     }
@@ -146,14 +162,19 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            combo++;
+                            CreateParticle.CreateEffect(0, 0);
                             //이펙트 콤보
                             break;
                         case 1:
                             Debug.Log("Good");
+                            combo++;
+                            CreateParticle.CreateEffect(0, 1);
                             //이펙트 콤보
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            CreateParticle.CreateEffect(0, 2);
                             //이펙트
                             break;
                     }
