@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Note
   - DoubleNote
+  - StartNote
   layers:
   - Default
   - TransparentFX
