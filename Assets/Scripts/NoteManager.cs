@@ -39,7 +39,6 @@ public class NoteManager : MonoBehaviour
 
     //플레이 노래
     public AudioSource playSong;
-
     TimingManager theTimingManager;
 
     private void Awake()
@@ -60,7 +59,7 @@ public class NoteManager : MonoBehaviour
 
         theTimingManager = FindObjectOfType<TimingManager>();
 
-        ReadNoteFile("D:\\song1.txt");
+        ReadNoteFile();
     }
 
     private void Start()
@@ -167,15 +166,15 @@ public class NoteManager : MonoBehaviour
         return null;
     }
 
-    public void ReadNoteFile(string filePath)
+    public void ReadNoteFile()
     {
         noteData.Clear();
 
-        TextAsset textFile = Resources.Load("song1") as TextAsset;
+        TextAsset textFile = Resources.Load(GameManager.instance.playSongList[GameManager.instance.songType]) as TextAsset; //텍스트로 파일 읽어옴
         StringReader stringReader = new StringReader(textFile.text);
 
         string line;
-        while ((line = stringReader.ReadLine()) != null)
+        while ((line = stringReader.ReadLine()) != null) //한 줄씩 읽음
         {
             // 공백을 기준으로 문자열을 분리하여 각각의 값으로 변환하여 Tuple 생성
             string[] values = line.Split(' ');
@@ -240,6 +239,7 @@ public class NoteManager : MonoBehaviour
         }
         else if(noteType == 1)
         {
+            //더블노트 생성
             note = MakeObj("doubleNote");
             note.gameObject.transform.position = new Vector2(10f, 0);
         }

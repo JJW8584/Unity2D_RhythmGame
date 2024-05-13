@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager instance;
+    public static GameManager instance;
     public int score;
     public int speed;
     public int noteTiming;
-
+    public int songType; //0~3까지 총 4개
+    public string[] playSongList; //4가지 종류
 
     private void Awake()
     {
@@ -17,9 +18,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
 
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+
+        playSongList = new string[4] { "song1", "song2", "song3", "song4" };
     }
 }
