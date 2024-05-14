@@ -10,7 +10,6 @@ public class TimingManager : MonoBehaviour
 
     NoteManager theNoteManager;
     CreateParticle CreateParticle;
-    public ParticleSystem effect;
 
     public List<GameObject> boxNoteList = new List<GameObject>();   //NoteManager 에서 생성된 노트 담기
 
@@ -31,9 +30,17 @@ public class TimingManager : MonoBehaviour
 
         for (int i = 0; i < timingRect.Length; i++)
         {
+            //timingBoxs[i].Set(center.localPosition.x - timingRect[i].GetComponent<SpriteRenderer>().bounds.size.x / 2,
+                //center.localPosition.x + timingRect[i].GetComponent<SpriteRenderer>().bounds.size.x / 2);
+
             timingBoxs[i].Set(center.localPosition.x - timingRect[i].transform.lossyScale.x / 2,
-                              center.localPosition.x + timingRect[i].transform.lossyScale.x / 2);
-            //Debug.Log(timingBoxs[i]);
+                center.localPosition.x + timingRect[i].transform.lossyScale.x / 2);
+
+            //Debug.Log(timingRect[i].GetComponent<SpriteRenderer>().bounds.size.x);
+            //Debug.Log(timingRect[i].transform.lossyScale.x);
+            //Debug.Log(timingBoxs[i].x);
+            //Debug.Log(timingBoxs[i].y);
+
         }
     }
 
@@ -48,6 +55,47 @@ public class TimingManager : MonoBehaviour
                 Debug.Log("miss");
             }
         }
+    }
+
+    public GameObject TestNote;
+
+    public void CheckTiming()
+    {
+        float t_notePosX = TestNote.transform.localPosition.x;    //노트 위치
+
+        // 판정 순서 : Perfect -> Good -> Bad
+        for (int j = 0; j < timingBoxs.Length; j++)
+        {
+            //위
+            if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y)
+            {
+                CreateParticle.CreateHitEffect(0);
+                TestNote.SetActive(false);   //노트 지우기
+
+                switch (j)
+                {
+                    case 0:
+                        Debug.Log("Perfect");
+                        combo++;
+                        CreateParticle.CreateEffect(0, 0);
+                        //이펙트 콤보
+                        break;
+                    case 1:
+                        Debug.Log("Good");
+                        combo++;
+                        CreateParticle.CreateEffect(0, 1);
+                        //이펙트 콤보
+                        break;
+                    case 2:
+                        Debug.Log("Bad");
+                        CreateParticle.CreateEffect(0, 2);
+                        //이펙트
+                        break;
+                }
+                return;
+            }
+        }
+        //Debug.Log("Miss");
     }
 
     //위
