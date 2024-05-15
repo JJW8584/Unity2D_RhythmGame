@@ -18,7 +18,8 @@ public class TimingManager : MonoBehaviour
     Vector2[] timingBoxs = null; // 판정 범위 최소값 x, 최대값 y
 
     int combo = 0;
-    int bestCombo = 0;
+
+    [HideInInspector] public bool BothNote = false;
 
 
     void Awake()
@@ -30,9 +31,6 @@ public class TimingManager : MonoBehaviour
 
         for (int i = 0; i < timingRect.Length; i++)
         {
-            //timingBoxs[i].Set(center.localPosition.x - timingRect[i].GetComponent<SpriteRenderer>().bounds.size.x / 2,
-                //center.localPosition.x + timingRect[i].GetComponent<SpriteRenderer>().bounds.size.x / 2);
-
             timingBoxs[i].Set(center.localPosition.x - timingRect[i].transform.lossyScale.x / 2,
                 center.localPosition.x + timingRect[i].transform.lossyScale.x / 2);
 
@@ -57,54 +55,14 @@ public class TimingManager : MonoBehaviour
         }
     }
 
-    public GameObject TestNote;
-
-    public void CheckTiming()
-    {
-        float t_notePosX = TestNote.transform.localPosition.x;    //노트 위치
-
-        // 판정 순서 : Perfect -> Good -> Bad
-        for (int j = 0; j < timingBoxs.Length; j++)
-        {
-            //위
-            if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y)
-            {
-                CreateParticle.CreateHitEffect(0);
-                TestNote.SetActive(false);   //노트 지우기
-
-                switch (j)
-                {
-                    case 0:
-                        Debug.Log("Perfect");
-                        combo++;
-                        CreateParticle.CreateEffect(0, 0);
-                        //이펙트 콤보
-                        break;
-                    case 1:
-                        Debug.Log("Good");
-                        combo++;
-                        CreateParticle.CreateEffect(0, 1);
-                        //이펙트 콤보
-                        break;
-                    case 2:
-                        Debug.Log("Bad");
-                        CreateParticle.CreateEffect(0, 2);
-                        //이펙트
-                        break;
-                }
-                return;
-            }
-        }
-        //Debug.Log("Miss");
-    }
-
     //위
     public void CheckTiming0()
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
-            float t_notePosY = boxNoteList[i].transform.localPosition.y;    //노트 위치
+
+            if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
 
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
@@ -149,7 +107,8 @@ public class TimingManager : MonoBehaviour
         for (int i = 0; i < boxNoteList.Count; i++)
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
-            float t_notePosY = boxNoteList[i].transform.localPosition.y;    //노트 위치
+
+            if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
 
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
@@ -195,6 +154,8 @@ public class TimingManager : MonoBehaviour
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
 
+            if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
+
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
@@ -210,13 +171,13 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
-                            combo++;
+                            combo += 2;
                             CreateParticle.CreateEffect(0, 0);
                             //이펙트 콤보
                             break;
                         case 1:
                             Debug.Log("Good");
-                            combo++;
+                            combo += 2;
                             CreateParticle.CreateEffect(0, 1);
                             //이펙트 콤보
                             break;
