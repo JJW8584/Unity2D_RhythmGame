@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log("아래판정시작");
+            theTimingManager.CheckTiming(); // 판정 체크
             theTimingManager.CheckTiming1(); // 판정 체크
             isClicked_1 = true;
         }
