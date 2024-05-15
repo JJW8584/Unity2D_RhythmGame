@@ -170,7 +170,7 @@ public class NoteManager : MonoBehaviour
     {
         noteData.Clear();
 
-        TextAsset textFile = Resources.Load(GameManager.instance.playSongList[GameManager.instance.songType]) as TextAsset; //텍스트로 파일 읽어옴
+        TextAsset textFile = Resources.Load("song1") as TextAsset; //텍스트로 파일 읽어옴
         StringReader stringReader = new StringReader(textFile.text);
 
         string line;

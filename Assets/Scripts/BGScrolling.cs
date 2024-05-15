@@ -13,7 +13,7 @@ public class BGScrolling : MonoBehaviour
 
         if (transform.position.x < pos)
         {
-            transform.position = transform.position + new Vector3(-pos+18.8f, 0f, 0f);
+            transform.position = transform.position + new Vector3(pos * -2, 0f, 0f);
         }
 
     }
