@@ -31,9 +31,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("위판정시작");
+            attackMotion();
             theTimingManager.CheckTiming(); // 판정 체크
             theTimingManager.CheckTiming0(); // 판정 체크
-            attackMotion();
+            
             isClicked_0 = true;
         }
         if (isClicked_0 == true) //롱노트
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
 
     void attackMotion()   //코드작성 : 지재원
     {
+        Debug.Log("***************************************************");
         int attackType = UnityEngine.Random.Range(0, 2);
 
         switch (attackType)
@@ -124,11 +126,13 @@ public class PlayerController : MonoBehaviour
                 break;
             case 1:
                 //때리는 모션 활성화
-                animator.SetBool("isScratch", true);
+                animator.SetBool("isBodyShot0", true);
                 break;
         }
     }
 
     public void SetBodyShot() { animator.SetBool("isBodyShot", false); }
     public void SetScratch() { animator.SetBool("isScratch", false); }
+    public void SetBodyShot0() { animator.SetBool("isBodyShot0", false); }
+    public void SetScratch0() { animator.SetBool("isScratch0", false); }
 }
