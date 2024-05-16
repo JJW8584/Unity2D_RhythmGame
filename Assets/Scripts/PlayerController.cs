@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private float elapsedTime_1 = 0.0f; //아래
     public bool isClicked_1 = false;
 
+    public bool isNotBoth = true;
+
     TimingManager theTimingManager;
     Animator animator;
 
@@ -28,11 +30,10 @@ public class PlayerController : MonoBehaviour
         //위
         if (Input.GetKeyDown(KeyCode.F))
         {
+            isClicked_0 = true;
             Debug.Log("위판정시작");
             theTimingManager.CheckTiming0(); // 판정 체크
             attackMotion0();
-
-            isClicked_0 = true;
         }
         if (isClicked_0 == true) //롱노트
         {
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
-                //attackMotionBoth();
+                attackMotionBoth();
             }
             if (longNoteTime < elapsedTime_0)
             {
@@ -64,11 +65,10 @@ public class PlayerController : MonoBehaviour
         //아래
         if (Input.GetKeyDown(KeyCode.J))
         {
+            isClicked_1 = true;
             Debug.Log("아래판정시작");
             theTimingManager.CheckTiming1(); // 판정 체크
             attackMotion();
-
-            isClicked_1 = true;
         }
         if (isClicked_1 == true) //롱노트
         {
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
-                //attackMotionBoth();
+                attackMotionBoth();
             }
             if (longNoteTime < elapsedTime_1)
             {
@@ -103,16 +103,19 @@ public class PlayerController : MonoBehaviour
     {
         int attackType = UnityEngine.Random.Range(0, 2);
 
-        switch (attackType)
+        if (isNotBoth)
         {
-            case 0:
-                //때리는 활성화
-                animator.SetBool("isBodyShot", true);
-                break;
-            case 1:
-                //때리는 모션 활성화
-                animator.SetBool("isScratch", true);
-                break;
+            switch (attackType)
+            {
+                case 0:
+                    //때리는 활성화
+                    animator.SetBool("isBodyShot", true);
+                    break;
+                case 1:
+                    //때리는 모션 활성화
+                    animator.SetBool("isScratch", true);
+                    break;
+            }
         }
     }
 
@@ -120,17 +123,28 @@ public class PlayerController : MonoBehaviour
     {
         int attackType = UnityEngine.Random.Range(0, 2);
 
-        switch (attackType)
+        if (isNotBoth)
         {
-            case 0:
-                //때리는 활성화
-                animator.SetBool("isBodyShot0", true);
-                break;
-            case 1:
-                //때리는 모션 활성화
-                animator.SetBool("isScratch0", true);
-                break;
+            switch (attackType)
+            {
+                case 0:
+                    //때리는 활성화
+                    animator.SetBool("isBodyShot0", true);
+                    break;
+                case 1:
+                    //때리는 모션 활성화
+                    animator.SetBool("isScratch0", true);
+                    break;
+            }
         }
+    }
+    void attackMotionBoth()
+    {
+        if (!isNotBoth)
+        {
+            animator.SetBool("isUpperCut", true);
+        }
+        isNotBoth = true;
     }
 
     public void SetBodyShot() { animator.SetBool("isBodyShot", false); }
