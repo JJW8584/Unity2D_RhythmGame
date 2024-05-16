@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6371757314062825754}
   m_Layer: 0
   m_Name: CanNote
-  m_TagString: Note
+  m_TagString: Note0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

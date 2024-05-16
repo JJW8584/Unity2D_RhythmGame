@@ -8,6 +8,8 @@ TagManager:
   - DoubleNote
   - StartNote
   - Background
+  - Note0
+  - Note1
   layers:
   - Default
   - TransparentFX

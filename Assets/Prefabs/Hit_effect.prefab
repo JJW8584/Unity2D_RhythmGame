@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5900611689381878675}
   - component: {fileID: 4588144590590047554}
   - component: {fileID: 8965769053528805422}
+  - component: {fileID: 1182659997294775738}
   m_Layer: 0
   m_Name: Hit_effect
   m_TagString: Untagged
@@ -5099,6 +5100,19 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 1
   fadeOutReference: {fileID: 0}
+--- !u!114 &1182659997294775738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701682015779751146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f677c9829fc9c2949afcd71e196963ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticleLife: 1
 --- !u!1 &3934217436448397371
 GameObject:
   m_ObjectHideFlags: 0
