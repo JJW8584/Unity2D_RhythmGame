@@ -14,9 +14,6 @@ public class PlayerController : MonoBehaviour
     private float elapsedTime_1 = 0.0f; //아래
     private bool isClicked_1 = false;
 
-    [HideInInspector]
-    public bool BothNote = false;
-
     TimingManager theTimingManager;
     NoteManager theNoteManager;
     Animator animator;
@@ -34,10 +31,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("위판정시작");
-            //theTimingManager.BothNote = true;
-            attackMotion0();
+            //theTimingManager.BothNote = true; //동시노트 모션 확인용
             theTimingManager.CheckTiming0(); // 판정 체크
-            
+            attackMotion0();
+
             isClicked_0 = true;
         }
         if (isClicked_0 == true) //롱노트
@@ -48,8 +45,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
-                animator.SetBool("isUpperCut", true);
-                theTimingManager.BothNote = false;
+                attackMotionBoth();
             }
             if (longNoteTime < elapsedTime_0)
             {
@@ -72,9 +68,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log("아래판정시작");
-            //theTimingManager.BothNote = true;
-            attackMotion();
+            //theTimingManager.BothNote = true; //동시노트 모션 확인용
             theTimingManager.CheckTiming1(); // 판정 체크
+            attackMotion();
+
             isClicked_1 = true;
         }
         if (isClicked_1 == true) //롱노트
@@ -85,8 +82,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
-                animator.SetBool("isUpperCut", true);
-                theTimingManager.BothNote = false;
+                attackMotionBoth();
             }
             if (longNoteTime < elapsedTime_1)
             {
@@ -104,24 +100,10 @@ public class PlayerController : MonoBehaviour
             elapsedTime_1 = 0.0f;
         }
 
-        /*//동시노트
-        if (Input.GetKey(KeyCode.F) && Input.GetKeyDown(KeyCode.J))
-        {
-            Debug.Log("동시입력");
-            theTimingManager.CheckTiming(); // 판정 체크
-            theTimingManager.CheckTiming_Both();
-        }
-        else if (Input.GetKeyDown(KeyCode.F) && Input.GetKey(KeyCode.J))
-        {
-            Debug.Log("동시입력");
-            theTimingManager.CheckTiming(); // 판정 체크
-            theTimingManager.CheckTiming_Both();
-        }*/
-
     }
 
 
-    void attackMotion()   //코드작성 : 지재원
+    void attackMotion() //아래 모션   //코드작성 : 지재원
     {
         int attackType = UnityEngine.Random.Range(0, 2);
 
@@ -147,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }*/
     }
 
-    void attackMotion0()
+    void attackMotion0() //위 모션
     {
         int attackType = UnityEngine.Random.Range(0, 2);
 
@@ -159,18 +141,15 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isScratch0", true);
         }
+    }
 
-        /*switch (attackType)
+    void attackMotionBoth() //동시 모션
+    {
+        if(theTimingManager.BothNote == true)
         {
-            case 0:
-                //때리는 활성화
-                animator.SetBool("isBodyShot0", true);
-                break;
-            case 1:
-                //때리는 모션 활성화
-                animator.SetBool("isScratch0", true);
-                break;
-        }*/
+            animator.SetBool("isUpperCut", true); //동시노트 모션
+        }
+        theTimingManager.BothNote = false;
     }
 
     public void SetBodyShot() { animator.SetBool("isBodyShot", false); }

@@ -920,7 +920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9849439010f1c4b96196ea85eb7808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BothNote: 0
 --- !u!1 &591209584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1255,7 @@ GameObject:
   - component: {fileID: 841765273}
   - component: {fileID: 841765272}
   - component: {fileID: 841765271}
+  - component: {fileID: 841765274}
   m_Layer: 0
   m_Name: Note Manager
   m_TagString: Untagged
@@ -1321,6 +1321,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841765274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841765270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de52ca09bf4825844a2bfcb3df0206ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPos0: {fileID: 847939162}
+  effectPos1: {fileID: 690298823}
+  notePerfectEffectPrefab: {fileID: 559819818609407839, guid: 2257bd7e80074274497c73312b53ba7f, type: 3}
+  noteGoodEffectPrefab: {fileID: 4906122488551506449, guid: 54f5fa856174e194f9eddb5a924f186f, type: 3}
+  noteBadEffectPrefab: {fileID: 3371627321732621997, guid: a49c21f28cbc4f941bbbf2eaeba8865a, type: 3}
+  HitEffectPrefab: {fileID: 2701682015779751146, guid: 156a392b5132e104f8f5d7c9df45dcea, type: 3}
 --- !u!1 &847939161
 GameObject:
   m_ObjectHideFlags: 0

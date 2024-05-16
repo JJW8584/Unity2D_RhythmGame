@@ -85,7 +85,7 @@ public class CreateParticle : MonoBehaviour
         return null;
     }
 
-    public void CreateEffect(int effectLoc, int effectType)
+    public void CreateEffect(int effectLoc, int effectType) //코드작성: 권지수
     {
         GameObject effect;
         if (effectLoc == 0) //위
@@ -126,7 +126,7 @@ public class CreateParticle : MonoBehaviour
         }
         
     }
-    public void CreateHitEffect(int effectLoc)
+    public void CreateHitEffect(int effectLoc) //코드작성: 권지수
     {
         GameObject effect;
         if (effectLoc == 0) //위

@@ -35,9 +35,9 @@ public class TimingManager : MonoBehaviour
                 center.localPosition.x + timingRect[i].transform.lossyScale.x / 2);
 
             //Debug.Log(timingRect[i].GetComponent<SpriteRenderer>().bounds.size.x);
-            //Debug.Log(timingRect[i].transform.lossyScale.x);
-            //Debug.Log(timingBoxs[i].x);
-            //Debug.Log(timingBoxs[i].y);
+            Debug.Log(timingRect[i].transform.lossyScale.x);
+            Debug.Log(timingBoxs[i].x);
+            Debug.Log(timingBoxs[i].y);
 
         }
     }
@@ -62,7 +62,7 @@ public class TimingManager : MonoBehaviour
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
 
-            if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
+            //if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
 
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
@@ -108,7 +108,7 @@ public class TimingManager : MonoBehaviour
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
 
-            if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
+            //if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
 
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
@@ -154,8 +154,6 @@ public class TimingManager : MonoBehaviour
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x;    //노트 위치
 
-            if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
-
             // 판정 순서 : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
@@ -164,6 +162,8 @@ public class TimingManager : MonoBehaviour
                 //if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.FindGameObjectWithTag("DoubleNote"))
                 //if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == theNoteManager.doubleNotePrefab)
                 {
+                    if (boxNoteList[i] == GameObject.Find("DoubleNote(Clone)")) BothNote = true;
+
                     boxNoteList[i].SetActive(false);   //노트 지우기
                     boxNoteList.RemoveAt(i);    //리스트에서 삭제
 
