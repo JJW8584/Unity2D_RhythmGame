@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1]))
         {
             isClicked_0 = true;
-            Debug.Log("위판정시작");
+            //Debug.Log("위판정시작");
             theTimingManager.CheckTiming0(); // 판정 체크
             attackMotion0();
         }
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
             if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1])))
             {
-                Debug.Log("동시입력");
+                //Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
                 attackMotionBoth();
             }
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1]))
         {
             isClicked_1 = true;
-            Debug.Log("아래판정시작");
+            //Debug.Log("아래판정시작");
             theTimingManager.CheckTiming1(); // 판정 체크
             attackMotion();
         }
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
             if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
             {
-                Debug.Log("동시입력");
+                //Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
                 attackMotionBoth();
             }

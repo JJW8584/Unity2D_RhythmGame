@@ -56,7 +56,7 @@ public class TimingManager : MonoBehaviour
                 boxNoteList.RemoveAt(0);    //리스트에서 삭제
                 GameManager.instance.combo = 0;
                 playerController.isNotBoth = true;
-                Debug.Log("miss");
+                //Debug.Log("miss");
             }
             if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
             {
