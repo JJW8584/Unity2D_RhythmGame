@@ -7,9 +7,19 @@ public class PlaySong : MonoBehaviour
 {
     public AudioSource playSong;
 
+    private bool isSongPlaying;
+
     private void Awake()
     {
         gameObject.SetActive(true);
+        isSongPlaying = true;
+    }
+    private void Update()
+    {
+        if(!playSong.isPlaying && !isSongPlaying)
+        {
+            LoadingSceneManager.LoadScene("EndingScene");
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +28,7 @@ public class PlaySong : MonoBehaviour
             playSong.Play();
             collision.gameObject.SetActive(false);
             gameObject.SetActive(false);
+            isSongPlaying = false;
         }
     }
 }

@@ -15,6 +15,9 @@ public class NoteManager : MonoBehaviour
     public GameObject longNoteFrontPrefab;
     public GameObject longNoteMidPrefab;
     public GameObject longNoteEndPrefab;
+    public Transform[] upNoteCurve;
+    public Transform[] downNoteCurve;
+    public Transform[] doubleNoteCurve;
     //public GameObject notePerfectEffectPrefab;
     //public GameObject noteGoodEffectPrefab;
     //public GameObject noteBadEffectPrefab;
@@ -76,16 +79,19 @@ public class NoteManager : MonoBehaviour
         for (int i = 0; i < note0.Length; i++)
         {
             note0[i] = Instantiate(note0Prefab);
+            note0[i].GetComponent<Note>().controlPoints = upNoteCurve;
             note0[i].SetActive(false);
         }
         for (int i = 0; i < note1.Length; i++)
         {
             note1[i] = Instantiate(note1Prefab);
+            note1[i].GetComponent<Note>().controlPoints = downNoteCurve;
             note1[i].SetActive(false);
         }
         for (int i = 0; i < doubleNote.Length; i++)
         {
             doubleNote[i] = Instantiate(doubleNotePrefab);
+            doubleNote[i].GetComponent<Note>().controlPoints = doubleNoteCurve;
             doubleNote[i].SetActive(false);
         }
         for (int i = 0; i < longNoteFront.Length; i++)
