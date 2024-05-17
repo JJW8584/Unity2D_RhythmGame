@@ -55,6 +55,7 @@ public class TimingManager : MonoBehaviour
             {
                 boxNoteList.RemoveAt(0);    //∏ÆΩ∫∆Æø°º≠ ªË¡¶
                 GameManager.instance.combo = 0;
+                ++GameManager.instance.missCnt;
                 playerController.isNotBoth = true;
                 //Debug.Log("miss");
             }
@@ -85,18 +86,24 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            GameManager.instance.score += GameManager.instance.perfectScore;
+                            ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(0, 0);
                             //¿Ã∆Â∆Æ ƒﬁ∫∏
                             break;
                         case 1:
                             Debug.Log("Good");
+                            GameManager.instance.score += GameManager.instance.goodScore;
+                            ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(0, 1);
                             //¿Ã∆Â∆Æ ƒﬁ∫∏
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            GameManager.instance.score += GameManager.instance.badScore;
+                            ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(0, 2);
                             //¿Ã∆Â∆Æ
@@ -127,18 +134,24 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            GameManager.instance.score += GameManager.instance.perfectScore;
+                            ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(1, 0);
                             //¿Ã∆Â∆Æ ƒﬁ∫∏
                             break;
                         case 1:
                             Debug.Log("Good");
+                            GameManager.instance.score += GameManager.instance.goodScore;
+                            ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(1, 1);
                             //¿Ã∆Â∆Æ ƒﬁ∫∏
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            GameManager.instance.score += GameManager.instance.badScore;
+                            ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(1, 2);
                             //¿Ã∆Â∆Æ
@@ -170,18 +183,24 @@ public class TimingManager : MonoBehaviour
                     {
                         case 0:
                             Debug.Log("Perfect");
+                            GameManager.instance.score += GameManager.instance.perfectScore;
+                            ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(2);
                             CreateParticle.CreateEffect(0, 0);
                             //¿Ã∆Â∆Æ ƒﬁ∫∏
                             break;
                         case 1:
                             Debug.Log("Good");
+                            GameManager.instance.score += GameManager.instance.goodScore;
+                            ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(2);
                             CreateParticle.CreateEffect(0, 1);
                             //¿Ã∆Â∆Æ ƒﬁ∫∏
                             break;
                         case 2:
                             Debug.Log("Bad");
+                            GameManager.instance.score += GameManager.instance.badScore;
+                            ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(0, 2);
                             //¿Ã∆Â∆Æ
