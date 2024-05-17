@@ -27,7 +27,6 @@ public class PlaySong : MonoBehaviour
         {
             playSong.Play();
             collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
             isSongPlaying = false;
         }
     }
