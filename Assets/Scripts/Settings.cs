@@ -13,9 +13,12 @@ public class Settings : MonoBehaviour
     KeyCode[] defaultKey = new KeyCode[] { KeyCode.F, KeyCode.D, KeyCode.J, KeyCode.K };
     private void Awake()
     {
-        for (int i = 0; i < (int)KeyAction.KEYCOUNT; i++)
+        if (KeySetting.keys.Count == 0)
         {
-            KeySetting.keys.Add((KeyAction)i, defaultKey[i]);
+            for (int i = 0; i < (int)KeyAction.KEYCOUNT; i++)
+            {
+                KeySetting.keys.Add((KeyAction)i, defaultKey[i]);
+            }
         }
     }
 

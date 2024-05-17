@@ -98,6 +98,11 @@ public class PlayerController : MonoBehaviour
             elapsedTime_1 = 0.0f;
         }
 
+        if (Input.GetKey(KeyCode.Escape))
+        {
+
+        }
+
     }
 
 
