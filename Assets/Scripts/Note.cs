@@ -20,6 +20,11 @@ public class Note : MonoBehaviour
             gameObject.SetActive(false);    //노트 지우기
         }
     }
+    private void OnEnable()
+    {
+        t = 0;
+        currentSegment = 0;
+    }
     private void MoveObjectAlongSpline()
     {
         float distance = speed * Time.deltaTime; // 이동 거리 계산
