@@ -33,5 +33,13 @@ public class Click_Menu : MonoBehaviour
         GameManager.instance.charType = ++GameManager.instance.charType > 2 ? 0 : GameManager.instance.charType;
         charSet[GameManager.instance.charType].SetActive(true);
     }
+    public void Retry()
+    {
+        LoadingSceneManager.LoadScene("PlayScene_0");
+    }
+    public void ReStart()
+    {
+        LoadingSceneManager.LoadScene("StartScene");
+    }
     //³¡
 }
