@@ -93,6 +93,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -454,7 +467,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_7
+      name: Dog_Running_7
       rect:
         serializedVersion: 2
         x: 1722
@@ -475,7 +488,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_6
+      name: Dog_Running_6
       rect:
         serializedVersion: 2
         x: 2296
@@ -496,7 +509,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_5
+      name: Dog_Running_5
       rect:
         serializedVersion: 2
         x: 2870
@@ -517,7 +530,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_4
+      name: Dog_Running_4
       rect:
         serializedVersion: 2
         x: 3444
@@ -538,7 +551,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_3
+      name: Dog_Running_3
       rect:
         serializedVersion: 2
         x: 4018
@@ -559,7 +572,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_2
+      name: Dog_Running_2
       rect:
         serializedVersion: 2
         x: 4592
@@ -580,7 +593,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_1
+      name: Dog_Running_1
       rect:
         serializedVersion: 2
         x: 5166
@@ -601,7 +614,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dog_Ranning_0
+      name: Dog_Running_0
       rect:
         serializedVersion: 2
         x: 5740
@@ -979,7 +992,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_7
+      name: Ghost_Running_7
       rect:
         serializedVersion: 2
         x: 0
@@ -1000,7 +1013,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_6
+      name: Ghost_Running_6
       rect:
         serializedVersion: 2
         x: 574
@@ -1021,7 +1034,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_5
+      name: Ghost_Running_5
       rect:
         serializedVersion: 2
         x: 1148
@@ -1042,7 +1055,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_4
+      name: Ghost_Running_4
       rect:
         serializedVersion: 2
         x: 1722
@@ -1063,7 +1076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_3
+      name: Ghost_Running_3
       rect:
         serializedVersion: 2
         x: 2296
@@ -1084,7 +1097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_2
+      name: Ghost_Running_2
       rect:
         serializedVersion: 2
         x: 2870
@@ -1105,7 +1118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_1
+      name: Ghost_Running_1
       rect:
         serializedVersion: 2
         x: 3444
@@ -1126,7 +1139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Ranning_0
+      name: Ghost_Running_0
       rect:
         serializedVersion: 2
         x: 4018
@@ -1147,7 +1160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_7
+      name: Running_7
       rect:
         serializedVersion: 2
         x: 4592
@@ -1168,7 +1181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_6
+      name: Running_6
       rect:
         serializedVersion: 2
         x: 5166
@@ -1189,7 +1202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_5
+      name: Running_5
       rect:
         serializedVersion: 2
         x: 5740
@@ -1210,7 +1223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_4
+      name: Running_4
       rect:
         serializedVersion: 2
         x: 6314
@@ -1231,7 +1244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_3
+      name: Running_3
       rect:
         serializedVersion: 2
         x: 6888
@@ -1252,7 +1265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_2
+      name: Running_2
       rect:
         serializedVersion: 2
         x: 7462
@@ -1273,7 +1286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_1
+      name: Running_1
       rect:
         serializedVersion: 2
         x: 0
@@ -1294,7 +1307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ranning_0
+      name: Running_0
       rect:
         serializedVersion: 2
         x: 574
@@ -2026,67 +2039,67 @@ TextureImporter:
       Dog_Hit_1: 306962680
       Dog_LongScratch_0: -1486352921
       Dog_LongScratch_1: -2026802238
-      Dog_Ranning_0: 67288290
-      Dog_Ranning_1: 2028735754
-      Dog_Ranning_2: -121091657
-      Dog_Ranning_3: 892155924
-      Dog_Ranning_4: -354975
-      Dog_Ranning_5: -68780114
-      Dog_Ranning_6: 513827683
-      Dog_Ranning_7: -690748985
-      Dog_Scratch_0: -1120494069
-      Dog_Scratch_1: -1962605298
-      Dog_Scratch_2: 318264808
-      Dog_Scratch_3: 653162152
-      Dog_UpperCut_0: -402798735
-      Dog_UpperCut_1: -1686726788
-      Dog_UpperCut_2: -619282480
-      Dog_UpperCut_3: 862207498
-      Ghost_BodyShot_0: 235002728
-      Ghost_BodyShot_1: 1280829963
-      Ghost_BodyShot_2: -2053257937
-      Ghost_BodyShot_3: -521685596
-      Ghost_BodyShot_4: 1524041256
-      Ghost_Hit_0: 685751178
-      Ghost_Hit_1: 91945659
-      Ghost_LongScratch_0: -2143776667
-      Ghost_LongScratch_1: 1560170331
-      Ghost_Ranning_0: 243388156
-      Ghost_Ranning_1: 2119084266
-      Ghost_Ranning_2: -829710793
-      Ghost_Ranning_3: 1315998165
-      Ghost_Ranning_4: -264110582
-      Ghost_Ranning_5: -1993689025
-      Ghost_Ranning_6: -1456615854
-      Ghost_Ranning_7: 1211846976
-      Ghost_Scratch_: 304859856
-      Ghost_Scratch_0: 1825580973
-      Ghost_Scratch_2: -198410756
-      Ghost_Scratch_4: -639216048
-      Ghost_UpperCut_0: -834699225
-      Ghost_UpperCut_1: -1008800059
-      Ghost_UpperCut_2: 1611866285
-      Ghost_UpperCut_3: 1695019934
-      Hit_0: -1943896299
-      Hit_1: 1413352127
-      LongScratch_0: 707446069
-      LongScratch_1: -435681212
-      Ranning_0: 37832378
-      Ranning_1: -1862102736
-      Ranning_2: -1932800096
-      Ranning_3: -1940374636
-      Ranning_4: -1886223704
-      Ranning_5: 936727350
-      Ranning_6: -613463393
-      Ranning_7: 1607679929
-      Scratch_0: -305809088
-      Scratch_1: -1148015972
-      Scratch_2: 1616384782
-      Scratch_3: 1003957402
-      UpperCut_0: -658444350
-      UpperCut_1: 396890966
-      UpperCut_2: -1222149752
-      UpperCut_3: 827979162
+      Dog_Running_0: 67288290
+      Dog_Running_1: 2028735754
+      Dog_Running_2: -121091657
+      Dog_Running_3: 892155924
+      Dog_Running_4: 892155924
+      Dog_Running_5: -354975
+      Dog_Running_6: -68780114
+      Dog_Running_7: 513827683
+      Dog_Scratch_0: -1962605298
+      Dog_Scratch_1: 318264808
+      Dog_Scratch_2: 653162152
+      Dog_Scratch_3: -402798735
+      Dog_UpperCut_0: -1686726788
+      Dog_UpperCut_1: -619282480
+      Dog_UpperCut_2: 862207498
+      Dog_UpperCut_3: 235002728
+      Ghost_BodyShot_0: 1280829963
+      Ghost_BodyShot_1: -2053257937
+      Ghost_BodyShot_2: -521685596
+      Ghost_BodyShot_3: 1524041256
+      Ghost_BodyShot_4: 685751178
+      Ghost_Hit_0: 91945659
+      Ghost_Hit_1: -2143776667
+      Ghost_LongScratch_0: 1560170331
+      Ghost_LongScratch_1: 243388156
+      Ghost_Running_0: 243388156
+      Ghost_Running_1: 2119084266
+      Ghost_Running_2: -829710793
+      Ghost_Running_3: 1315998165
+      Ghost_Running_4: -264110582
+      Ghost_Running_5: -1993689025
+      Ghost_Running_6: -1456615854
+      Ghost_Running_7: 1211846976
+      Ghost_Scratch_: 1825580973
+      Ghost_Scratch_0: -198410756
+      Ghost_Scratch_2: -639216048
+      Ghost_Scratch_4: -834699225
+      Ghost_UpperCut_0: -1008800059
+      Ghost_UpperCut_1: 1611866285
+      Ghost_UpperCut_2: 1695019934
+      Ghost_UpperCut_3: -1943896299
+      Hit_0: 1413352127
+      Hit_1: 707446069
+      LongScratch_0: -435681212
+      LongScratch_1: 37832378
+      Running_0: 37832378
+      Running_1: -1862102736
+      Running_2: -1932800096
+      Running_3: -1940374636
+      Running_4: -1886223704
+      Running_5: 936727350
+      Running_6: -613463393
+      Running_7: 1607679929
+      Scratch_0: -1148015972
+      Scratch_1: 1616384782
+      Scratch_2: 1003957402
+      Scratch_3: -658444350
+      UpperCut_0: 396890966
+      UpperCut_1: -1222149752
+      UpperCut_2: 827979162
+      UpperCut_3: -690748985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

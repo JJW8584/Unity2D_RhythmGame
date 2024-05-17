@@ -47,8 +47,8 @@ public class LoadingSceneManager : MonoBehaviour
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer); //끝까지 채움
                 if (progressBar.fillAmount == 1.0f) //로딩바가 다 찼을 때
                 {
-                    tipSet[tipIndex].SetActive(false); //팁 비활성화
                     op.allowSceneActivation = true; //다음 씬으로 넘어감
+                    tipSet[tipIndex].SetActive(false); //팁 비활성화
                     yield break;
                 }
             }

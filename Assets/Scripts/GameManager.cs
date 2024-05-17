@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     public int noteTiming;
     public int songType; //0~3까지 총 4개
     public string[] playSongList; //4가지 종류
+    public int charType;
 
     public int combo = 0;
-    public TextMeshProUGUI ComboNum;
 
     private void Awake()
     {
@@ -29,14 +29,12 @@ public class GameManager : MonoBehaviour
 
         playSongList = new string[4] { "song1", "song2", "song3", "song4" };
 
-        //ComboNum = GetComponent<TextMeshProUGUI>();
         combo = 0;
     }
 
 
     void Update()
     {
-        ComboNum.text = string.Format("{0:n0}", combo);
     }
 
     public void ComboPlus(int i)
