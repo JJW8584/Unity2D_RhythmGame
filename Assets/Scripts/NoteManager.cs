@@ -15,9 +15,9 @@ public class NoteManager : MonoBehaviour
     public GameObject longNoteFrontPrefab;
     public GameObject longNoteMidPrefab;
     public GameObject longNoteEndPrefab;
-    public GameObject notePerfectEffectPrefab;
-    public GameObject noteGoodEffectPrefab;
-    public GameObject noteBadEffectPrefab;
+    //public GameObject notePerfectEffectPrefab;
+    //public GameObject noteGoodEffectPrefab;
+    //public GameObject noteBadEffectPrefab;
 
     GameObject[] note0;
     GameObject[] note1;
@@ -25,9 +25,9 @@ public class NoteManager : MonoBehaviour
     GameObject[] longNoteFront;
     GameObject[] longNoteMid;
     GameObject[] longNoteEnd;
-    GameObject[] notePerfectEffect;
-    GameObject[] noteGoodEffect;
-    GameObject[] noteBadEffect;
+    //GameObject[] notePerfectEffect;
+    //GameObject[] noteGoodEffect;
+    //GameObject[] noteBadEffect;
 
     GameObject[] targetPool;
 
@@ -49,9 +49,9 @@ public class NoteManager : MonoBehaviour
         longNoteFront = new GameObject[5];
         longNoteMid = new GameObject[30];
         longNoteEnd = new GameObject[5];
-        notePerfectEffect = new GameObject[20];
-        noteGoodEffect = new GameObject[20];
-        noteBadEffect = new GameObject[20];
+        //notePerfectEffect = new GameObject[20];
+        //noteGoodEffect = new GameObject[20];
+        //noteBadEffect = new GameObject[20];
 
         Generate();
 
@@ -103,7 +103,7 @@ public class NoteManager : MonoBehaviour
             longNoteEnd[i] = Instantiate(longNoteEndPrefab);
             longNoteEnd[i].SetActive(false);
         }
-        for (int i = 0; i < notePerfectEffect.Length; i++)
+        /*for (int i = 0; i < notePerfectEffect.Length; i++)
         {
             notePerfectEffect[i] = Instantiate(notePerfectEffectPrefab);
             notePerfectEffect[i].SetActive(false);
@@ -117,7 +117,7 @@ public class NoteManager : MonoBehaviour
         {
             noteBadEffect[i] = Instantiate(noteBadEffectPrefab);
             noteBadEffect[i].SetActive(false);
-        }
+        }*/
     }
 
     public GameObject MakeObj(string Type) //객체 생성하는 메소드
@@ -142,7 +142,7 @@ public class NoteManager : MonoBehaviour
             case "longNoteEnd":
                 targetPool = longNoteEnd;
                 break;
-            case "notePerfectEffect":
+            /*case "notePerfectEffect":
                 targetPool = notePerfectEffect;
                 break;
             case "noteGoodEffect":
@@ -150,7 +150,7 @@ public class NoteManager : MonoBehaviour
                 break;
             case "noteBadEffect":
                 targetPool = noteBadEffect;
-                break;
+                break;*/
         }
 
         for (int i = 0; i < targetPool.Length; i++)

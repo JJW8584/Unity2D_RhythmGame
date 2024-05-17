@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//코드작성: 권지수
 public class ParticleControl : MonoBehaviour
 {
 

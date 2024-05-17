@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static TreeEditor.TreeEditorHelper;
+using TMPro;
 
 public class CreateParticle : MonoBehaviour
 {
@@ -124,6 +125,7 @@ public class CreateParticle : MonoBehaviour
                     break;
             }
         }
+
         
     }
     public void CreateHitEffect(int effectLoc) //코드작성: 권지수
@@ -134,8 +136,15 @@ public class CreateParticle : MonoBehaviour
             effect = MakeObj("HitEffect");
             effect.gameObject.transform.position = effectPos0.position;
         }
-        else //아래
+        else if (effectLoc == 1) //아래
         {
+            effect = MakeObj("HitEffect");
+            effect.gameObject.transform.position = effectPos1.position;
+        }
+        else //동시
+        {
+            effect = MakeObj("HitEffect");
+            effect.gameObject.transform.position = effectPos0.position;
             effect = MakeObj("HitEffect");
             effect.gameObject.transform.position = effectPos1.position;
         }
