@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 //코드작성: 권지수
 public class PlayerController : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //위
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1]))
         {
             isClicked_0 = true;
             Debug.Log("위판정시작");
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
         {
             elapsedTime_0 += Time.deltaTime;
 
-            if (DoubleNoteTime > elapsedTime_0 && Input.GetKeyDown(KeyCode.J))
+            if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1])))
             {
                 Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
                 //롱노트 존재여부, 없으면 판정끝 hit 멈추기
             }
         }
-        if (Input.GetKeyUp(KeyCode.F))
+        if (Input.GetKeyUp(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP1]))
         {
             if (longNoteTime < elapsedTime_0)
             {
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
 
         //아래
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1]))
         {
             isClicked_1 = true;
             Debug.Log("아래판정시작");
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             elapsedTime_1 += Time.deltaTime;
 
-            if (DoubleNoteTime > elapsedTime_0 && Input.GetKeyDown(KeyCode.F))
+            if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
             {
                 Debug.Log("동시입력");
                 theTimingManager.CheckTiming_Both();
@@ -86,7 +88,7 @@ public class PlayerController : MonoBehaviour
                 //롱노트 존재여부, 없으면 판정끝 hit 멈추기
             }
         }
-        if (Input.GetKeyUp(KeyCode.J))
+        if (Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN1]))
         {
             if (longNoteTime < elapsedTime_1)
             {
