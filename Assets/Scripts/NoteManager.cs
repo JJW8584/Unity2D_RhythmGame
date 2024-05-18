@@ -63,6 +63,10 @@ public class NoteManager : MonoBehaviour
         theTimingManager = FindObjectOfType<TimingManager>();
 
         ReadNoteFile();
+
+        GameManager.instance.perfectScore = GameManager.instance.maxScore * 10 / noteData.Count;
+        GameManager.instance.goodScore = GameManager.instance.maxScore * 7 / noteData.Count;
+        GameManager.instance.badScore = GameManager.instance.maxScore * 3 / noteData.Count;
     }
 
     private void Start()

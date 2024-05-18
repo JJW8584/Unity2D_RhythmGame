@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
-//ÄÚµåÀÛ¼º: ±ÇÁö¼ö
+//ï¿½Úµï¿½ï¿½Û¼ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public class TimingManager : MonoBehaviour
 {
 
@@ -12,13 +12,13 @@ public class TimingManager : MonoBehaviour
     CreateParticle CreateParticle;
     PlayerController playerController;
 
-    public List<GameObject> boxNoteList = new List<GameObject>();   //NoteManager ¿¡¼­ »ý¼ºµÈ ³ëÆ® ´ã±â
+    public List<GameObject> boxNoteList = new List<GameObject>();   //NoteManager ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 
-    [SerializeField] Transform center = null; // ÆÇÁ¤ ¹üÀ§ÀÇ Áß½É
-    [SerializeField] Transform center1 = null; // ÆÇÁ¤ ¹üÀ§ÀÇ Áß½É
-    float centerValue = 0f; //ÆÇÁ¤ Áß°£°ª
-    [SerializeField] GameObject[] timingRect = null; // ´Ù¾çÇÑ ÆÇÁ¤ ¹üÀ§
-    Vector2[] timingBoxs = null; // ÆÇÁ¤ ¹üÀ§ ÃÖ¼Ò°ª x, ÃÖ´ë°ª y
+    [SerializeField] Transform center = null; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½
+    [SerializeField] Transform center1 = null; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½
+    float centerValue = 0f; //ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
+    [SerializeField] GameObject[] timingRect = null; // ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    Vector2[] timingBoxs = null; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò°ï¿½ x, ï¿½Ö´ë°ª y
 
     void Start()
     {
@@ -49,13 +49,14 @@ public class TimingManager : MonoBehaviour
     {
         if (boxNoteList.Count != 0)
         {
-            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //³ëÆ® À§Ä¡
-            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //³ëÆ® À§Ä¡
-            if (t_notePosX < timingBoxs[2].x) //bad¸¦ ¹þ¾î³ª¸é
+            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
+            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
+            if (t_notePosX < timingBoxs[2].x) //badï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½
             {
-                boxNoteList.RemoveAt(0);    //¸®½ºÆ®¿¡¼­ »èÁ¦
+                boxNoteList.RemoveAt(0);    //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 GameManager.instance.combo = 0;
-                if (centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5) playerController.isNotBoth = true;
+                ++GameManager.instance.missCnt;
+                playerController.isNotBoth = true;
                 //Debug.Log("miss");
             }
             if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
@@ -69,37 +70,43 @@ public class TimingManager : MonoBehaviour
     {
         if (boxNoteList.Count != 0)
         {
-            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //³ëÆ® À§Ä¡
-            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //³ëÆ® À§Ä¡
+            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
+            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
 
-            // ÆÇÁ¤ ¼ø¼­ : Perfect -> Good -> Bad
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                //À§
+                //ï¿½ï¿½
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY > centerValue + 0.5)
                 {
                     CreateParticle.CreateHitEffect(0);
-                    boxNoteList[0].SetActive(false);   //³ëÆ® Áö¿ì±â
-                    boxNoteList.RemoveAt(0);    //¸®½ºÆ®¿¡¼­ »èÁ¦
+                    boxNoteList[0].SetActive(false);   //ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
+                    boxNoteList.RemoveAt(0);    //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                     switch (j)
                     {
                         case 0:
-                            //Debug.Log("Perfect");
+                            Debug.Log("Perfect");
+                            GameManager.instance.score += GameManager.instance.perfectScore;
+                            ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(0, 0);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 1:
-                            //Debug.Log("Good");
+                            Debug.Log("Good");
+                            GameManager.instance.score += GameManager.instance.goodScore;
+                            ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(0, 1);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 2:
-                            //Debug.Log("Bad");
+                            Debug.Log("Bad");
+                            GameManager.instance.score += GameManager.instance.badScore;
+                            ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(0, 2);
-                            //ÀÌÆåÆ®
+                            //ï¿½ï¿½ï¿½ï¿½Æ®
                             break;
                     }
                     return;
@@ -111,37 +118,43 @@ public class TimingManager : MonoBehaviour
     {
         if (boxNoteList.Count != 0)
         {
-            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //³ëÆ® À§Ä¡
-            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //³ëÆ® À§Ä¡
+            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
+            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
 
-            // ÆÇÁ¤ ¼ø¼­ : Perfect -> Good -> Bad
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                //¾Æ·¡
+                //ï¿½Æ·ï¿½
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < centerValue - 0.5)
                 {
                     CreateParticle.CreateHitEffect(1);
-                    boxNoteList[0].SetActive(false);   //³ëÆ® Áö¿ì±â
-                    boxNoteList.RemoveAt(0);    //¸®½ºÆ®¿¡¼­ »èÁ¦
+                    boxNoteList[0].SetActive(false);   //ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
+                    boxNoteList.RemoveAt(0);    //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                     switch (j)
                     {
                         case 0:
-                            //Debug.Log("Perfect");
+                            Debug.Log("Perfect");
+                            GameManager.instance.score += GameManager.instance.perfectScore;
+                            ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(1, 0);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 1:
-                            //Debug.Log("Good");
+                            Debug.Log("Good");
+                            GameManager.instance.score += GameManager.instance.goodScore;
+                            ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(1, 1);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 2:
-                            //Debug.Log("Bad");
+                            Debug.Log("Bad");
+                            GameManager.instance.score += GameManager.instance.badScore;
+                            ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(1, 2);
-                            //ÀÌÆåÆ®
+                            //ï¿½ï¿½ï¿½ï¿½Æ®
                             break;
                     }
                     return;
@@ -153,38 +166,44 @@ public class TimingManager : MonoBehaviour
     {
         if (boxNoteList.Count != 0)
         {
-            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //³ëÆ® À§Ä¡
-            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //³ëÆ® À§Ä¡
+            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
+            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
 
-            // ÆÇÁ¤ ¼ø¼­ : Perfect -> Good -> Bad
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                //µ¿½Ã
+                //ï¿½ï¿½ï¿½ï¿½
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
                 {
                     CreateParticle.CreateHitEffect(2);
-                    boxNoteList[0].SetActive(false);   //³ëÆ® Áö¿ì±â
-                    boxNoteList.RemoveAt(0);    //¸®½ºÆ®¿¡¼­ »èÁ¦
+                    boxNoteList[0].SetActive(false);   //ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
+                    boxNoteList.RemoveAt(0);    //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     switch (j)
                     {
                         case 0:
-                            //Debug.Log("Perfect");
+                            Debug.Log("Perfect");
+                            GameManager.instance.score += GameManager.instance.perfectScore;
+                            ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(2);
                             CreateParticle.CreateEffect(0, 0);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 1:
-                            //Debug.Log("Good");
+                            Debug.Log("Good");
+                            GameManager.instance.score += GameManager.instance.goodScore;
+                            ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(2);
                             CreateParticle.CreateEffect(0, 1);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 2:
-                            //Debug.Log("Bad");
+                            Debug.Log("Bad");
+                            GameManager.instance.score += GameManager.instance.badScore;
+                            ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(0, 2);
-                            //ÀÌÆåÆ®
+                            //ï¿½ï¿½ï¿½ï¿½Æ®
                             break;
                     }
                     return;
@@ -194,22 +213,22 @@ public class TimingManager : MonoBehaviour
         
     }
 
-    /*//À§
+    /*//ï¿½ï¿½
     public void CheckTiming0()
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
-            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //³ëÆ® À§Ä¡
+            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
 
-            // ÆÇÁ¤ ¼ø¼­ : Perfect -> Good -> Bad
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                //À§
+                //ï¿½ï¿½
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("CanNote(Clone)"))
                 {
                     CreateParticle.CreateHitEffect(0);
-                    boxNoteList[i].SetActive(false);   //³ëÆ® Áö¿ì±â
-                    boxNoteList.RemoveAt(i);    //¸®½ºÆ®¿¡¼­ »èÁ¦
+                    boxNoteList[i].SetActive(false);   //ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
+                    boxNoteList.RemoveAt(i);    //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     switch (j)
                     {
@@ -217,18 +236,18 @@ public class TimingManager : MonoBehaviour
                             Debug.Log("Perfect");
                             combo++;
                             CreateParticle.CreateEffect(0, 0);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 1:
                             Debug.Log("Good");
                             combo++;
                             CreateParticle.CreateEffect(0, 1);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 2:
                             Debug.Log("Bad");
                             CreateParticle.CreateEffect(0, 2);
-                            //ÀÌÆåÆ®
+                            //ï¿½ï¿½ï¿½ï¿½Æ®
                             break;
                     }
                     return;
@@ -243,18 +262,18 @@ public class TimingManager : MonoBehaviour
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
-            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //³ëÆ® À§Ä¡
+            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
 
 
-            // ÆÇÁ¤ ¼ø¼­ : Perfect -> Good -> Bad
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                //¾Æ·¡
+                //ï¿½Æ·ï¿½
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("BellNote(Clone)"))
                 {
                     CreateParticle.CreateHitEffect(1);
-                    boxNoteList[i].SetActive(false);   //³ëÆ® Áö¿ì±â
-                    boxNoteList.RemoveAt(i);    //¸®½ºÆ®¿¡¼­ »èÁ¦
+                    boxNoteList[i].SetActive(false);   //ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
+                    boxNoteList.RemoveAt(i);    //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     switch (j)
                     {
@@ -262,18 +281,18 @@ public class TimingManager : MonoBehaviour
                             Debug.Log("Perfect");
                             combo++;
                             CreateParticle.CreateEffect(1, 0);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 1:
                             Debug.Log("Good");
                             combo++;
                             CreateParticle.CreateEffect(1, 1);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 2:
                             Debug.Log("Bad");
                             CreateParticle.CreateEffect(1, 2);
-                            //ÀÌÆåÆ®
+                            //ï¿½ï¿½ï¿½ï¿½Æ®
                             break;
                     }
                     return;
@@ -288,17 +307,17 @@ public class TimingManager : MonoBehaviour
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
-            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //³ëÆ® À§Ä¡
+            float t_notePosX = boxNoteList[i].transform.localPosition.x;    //ï¿½ï¿½Æ® ï¿½ï¿½Ä¡
 
-            // ÆÇÁ¤ ¼ø¼­ : Perfect -> Good -> Bad
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)
             {
-                //µ¿½Ã
+                //ï¿½ï¿½ï¿½ï¿½
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && boxNoteList[i] == GameObject.Find("DoubleNote(Clone)"))
                 {
 
-                    boxNoteList[i].SetActive(false);   //³ëÆ® Áö¿ì±â
-                    boxNoteList.RemoveAt(i);    //¸®½ºÆ®¿¡¼­ »èÁ¦
+                    boxNoteList[i].SetActive(false);   //ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
+                    boxNoteList.RemoveAt(i);    //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
                     switch (j)
                     {
@@ -306,18 +325,18 @@ public class TimingManager : MonoBehaviour
                             Debug.Log("Perfect");
                             combo += 2;
                             CreateParticle.CreateEffect(0, 0);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 1:
                             Debug.Log("Good");
                             combo += 2;
                             CreateParticle.CreateEffect(0, 1);
-                            //ÀÌÆåÆ® ÄÞº¸
+                            //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þºï¿½
                             break;
                         case 2:
                             Debug.Log("Bad");
                             CreateParticle.CreateEffect(0, 2);
-                            //ÀÌÆåÆ®
+                            //ï¿½ï¿½ï¿½ï¿½Æ®
                             break;
                     }
                     return;

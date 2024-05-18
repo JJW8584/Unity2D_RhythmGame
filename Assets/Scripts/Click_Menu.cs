@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 //코드작성 : 권지수
 public class Click_Menu : MonoBehaviour
@@ -36,10 +39,20 @@ public class Click_Menu : MonoBehaviour
     public void Retry()
     {
         LoadingSceneManager.LoadScene("PlayScene_0");
+        GameManager.instance.GameManagerReset();
     }
     public void ReStart()
     {
         LoadingSceneManager.LoadScene("StartScene");
+        GameManager.instance.GameManagerReset();
+    }
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
     //끝
 }
