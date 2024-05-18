@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int score;
     public int speed;
-    public int noteTiming;
     public int songType; //0~3까지 총 4개
     public string[] playSongList; //4가지 종류
     public int charType;

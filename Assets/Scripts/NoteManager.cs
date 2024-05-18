@@ -208,7 +208,7 @@ public class NoteManager : MonoBehaviour
         {
             if ((playSong.time >= noteData[i].Item1) && !noteCreateCheck[i]) //노트가 생성되지 않았을 때 시간에 맞춰서 생성
             {
-                Debug.Log(noteData[i].Item1);
+                //Debug.Log(noteData[i].Item1);
                 noteCreateCheck[i] = true;
                 switch (noteData[i].Item3)
                 {

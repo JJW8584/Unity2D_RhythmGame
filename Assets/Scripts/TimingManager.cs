@@ -55,7 +55,7 @@ public class TimingManager : MonoBehaviour
             {
                 boxNoteList.RemoveAt(0);    //¸®½ºÆ®¿¡¼­ »èÁ¦
                 GameManager.instance.combo = 0;
-                playerController.isNotBoth = true;
+                if (centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5) playerController.isNotBoth = true;
                 //Debug.Log("miss");
             }
             if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
@@ -84,19 +84,19 @@ public class TimingManager : MonoBehaviour
                     switch (j)
                     {
                         case 0:
-                            Debug.Log("Perfect");
+                            //Debug.Log("Perfect");
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(0, 0);
                             //ÀÌÆåÆ® ÄÞº¸
                             break;
                         case 1:
-                            Debug.Log("Good");
+                            //Debug.Log("Good");
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(0, 1);
                             //ÀÌÆåÆ® ÄÞº¸
                             break;
                         case 2:
-                            Debug.Log("Bad");
+                            //Debug.Log("Bad");
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(0, 2);
                             //ÀÌÆåÆ®
@@ -126,19 +126,19 @@ public class TimingManager : MonoBehaviour
                     switch (j)
                     {
                         case 0:
-                            Debug.Log("Perfect");
+                            //Debug.Log("Perfect");
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(1, 0);
                             //ÀÌÆåÆ® ÄÞº¸
                             break;
                         case 1:
-                            Debug.Log("Good");
+                            //Debug.Log("Good");
                             GameManager.instance.ComboPlus(1);
                             CreateParticle.CreateEffect(1, 1);
                             //ÀÌÆåÆ® ÄÞº¸
                             break;
                         case 2:
-                            Debug.Log("Bad");
+                            //Debug.Log("Bad");
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(1, 2);
                             //ÀÌÆåÆ®
@@ -169,19 +169,19 @@ public class TimingManager : MonoBehaviour
                     switch (j)
                     {
                         case 0:
-                            Debug.Log("Perfect");
+                            //Debug.Log("Perfect");
                             GameManager.instance.ComboPlus(2);
                             CreateParticle.CreateEffect(0, 0);
                             //ÀÌÆåÆ® ÄÞº¸
                             break;
                         case 1:
-                            Debug.Log("Good");
+                            //Debug.Log("Good");
                             GameManager.instance.ComboPlus(2);
                             CreateParticle.CreateEffect(0, 1);
                             //ÀÌÆåÆ® ÄÞº¸
                             break;
                         case 2:
-                            Debug.Log("Bad");
+                            //Debug.Log("Bad");
                             GameManager.instance.combo = 0;
                             CreateParticle.CreateEffect(0, 2);
                             //ÀÌÆåÆ®

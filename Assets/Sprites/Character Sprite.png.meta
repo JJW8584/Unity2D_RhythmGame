@@ -803,7 +803,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Scratch_4
+      name: Ghost_Scratch_3
       rect:
         serializedVersion: 2
         x: 2870
@@ -824,7 +824,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Scratch_
+      name: Ghost_Scratch_2
       rect:
         serializedVersion: 2
         x: 3444
@@ -845,7 +845,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Scratch_2
+      name: Ghost_Scratch_1
       rect:
         serializedVersion: 2
         x: 4018
@@ -2072,10 +2072,10 @@ TextureImporter:
       Ghost_Running_5: -1993689025
       Ghost_Running_6: -1456615854
       Ghost_Running_7: 1211846976
-      Ghost_Scratch_: 1825580973
       Ghost_Scratch_0: -198410756
-      Ghost_Scratch_2: -639216048
-      Ghost_Scratch_4: -834699225
+      Ghost_Scratch_1: -198410756
+      Ghost_Scratch_2: 304859856
+      Ghost_Scratch_3: -639216048
       Ghost_UpperCut_0: -1008800059
       Ghost_UpperCut_1: 1611866285
       Ghost_UpperCut_2: 1695019934

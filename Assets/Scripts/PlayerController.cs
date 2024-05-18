@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             if (longNoteTime < elapsedTime_0)
             {
-                Debug.Log("long note end");
+                //Debug.Log("long note end");
             }
             isClicked_0 = false;
             elapsedTime_0 = 0.0f;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             if (longNoteTime < elapsedTime_1)
             {
-                Debug.Log("long note end");
+                //Debug.Log("long note end");
             }
             isClicked_1 = false;
             elapsedTime_1 = 0.0f;
@@ -151,7 +151,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isUpperCut", true);
         }
-        isNotBoth = true;
     }
 
     public void SetBodyShot() { animator.SetBool("isBodyShot", false); }
@@ -159,4 +158,5 @@ public class PlayerController : MonoBehaviour
     public void SetBodyShot0() { animator.SetBool("isBodyShot0", false); }
     public void SetScratch0() { animator.SetBool("isScratch0", false); }
     public void SetUpperCut() { animator.SetBool("isUpperCut", false); }
+    public void SetisNotBoth() { isNotBoth = true; }
 }
