@@ -10,6 +10,7 @@ TagManager:
   - Background
   - Note0
   - Note1
+  - StartPanel
   layers:
   - Default
   - TransparentFX

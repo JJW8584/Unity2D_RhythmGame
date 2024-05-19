@@ -8,6 +8,7 @@ public static class KeySetting { public static Dictionary<KeyAction, KeyCode> ke
 
 public class Settings : MonoBehaviour
 {
+    //е╟ ют╥б
     public Text[] keyTXT;
 
     KeyCode[] defaultKey = new KeyCode[] { KeyCode.F, KeyCode.D, KeyCode.J, KeyCode.K };

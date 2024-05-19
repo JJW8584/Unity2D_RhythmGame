@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
@@ -19,6 +20,8 @@ public class TimingManager : MonoBehaviour
     float centerValue = 0f; //���� �߰���
     [SerializeField] GameObject[] timingRect = null; // �پ��� ���� ����
     Vector2[] timingBoxs = null; // ���� ���� �ּҰ� x, �ִ밪 y
+
+    public GameObject[] charSet;
 
     void Start()
     {
@@ -41,12 +44,21 @@ public class TimingManager : MonoBehaviour
         }
 
         centerValue = (center.localPosition.y + center1.localPosition.y) / 2;
+    }
 
+    private void OnEnable()
+    {
+        for (int i = 0; i < charSet.Length; i++)
+        {
+            charSet[i].SetActive(false);
+        }
 
+        charSet[GameManager.instance.charType].SetActive(true);
     }
 
     void Update()
     {
+
         if (boxNoteList.Count != 0)
         {
             float t_notePosX = boxNoteList[0].transform.localPosition.x;    //��Ʈ ��ġ
@@ -61,6 +73,7 @@ public class TimingManager : MonoBehaviour
             }
             if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
             {
+                Debug.Log("*************************************");
                 playerController.isNotBoth = false;
             }
         }
@@ -85,7 +98,7 @@ public class TimingManager : MonoBehaviour
                     switch (j)
                     {
                         case 0:
-                            Debug.Log("Perfect");
+                            //Debug.Log("Perfect");
                             GameManager.instance.score += GameManager.instance.perfectScore;
                             ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(1);
@@ -93,7 +106,7 @@ public class TimingManager : MonoBehaviour
                             //����Ʈ �޺�
                             break;
                         case 1:
-                            Debug.Log("Good");
+                            //Debug.Log("Good");
                             GameManager.instance.score += GameManager.instance.goodScore;
                             ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(1);
@@ -101,7 +114,7 @@ public class TimingManager : MonoBehaviour
                             //����Ʈ �޺�
                             break;
                         case 2:
-                            Debug.Log("Bad");
+                            //Debug.Log("Bad");
                             GameManager.instance.score += GameManager.instance.badScore;
                             ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
@@ -133,7 +146,7 @@ public class TimingManager : MonoBehaviour
                     switch (j)
                     {
                         case 0:
-                            Debug.Log("Perfect");
+                            //Debug.Log("Perfect");
                             GameManager.instance.score += GameManager.instance.perfectScore;
                             ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(1);
@@ -141,7 +154,7 @@ public class TimingManager : MonoBehaviour
                             //����Ʈ �޺�
                             break;
                         case 1:
-                            Debug.Log("Good");
+                            //Debug.Log("Good");
                             GameManager.instance.score += GameManager.instance.goodScore;
                             ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(1);
@@ -149,7 +162,7 @@ public class TimingManager : MonoBehaviour
                             //����Ʈ �޺�
                             break;
                         case 2:
-                            Debug.Log("Bad");
+                            //Debug.Log("Bad");
                             GameManager.instance.score += GameManager.instance.badScore;
                             ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;
@@ -182,7 +195,7 @@ public class TimingManager : MonoBehaviour
                     switch (j)
                     {
                         case 0:
-                            Debug.Log("Perfect");
+                            //Debug.Log("Perfect");
                             GameManager.instance.score += GameManager.instance.perfectScore;
                             ++GameManager.instance.perfectCnt;
                             GameManager.instance.ComboPlus(2);
@@ -190,7 +203,7 @@ public class TimingManager : MonoBehaviour
                             //����Ʈ �޺�
                             break;
                         case 1:
-                            Debug.Log("Good");
+                            //Debug.Log("Good");
                             GameManager.instance.score += GameManager.instance.goodScore;
                             ++GameManager.instance.goodCnt;
                             GameManager.instance.ComboPlus(2);
@@ -198,7 +211,7 @@ public class TimingManager : MonoBehaviour
                             //����Ʈ �޺�
                             break;
                         case 2:
-                            Debug.Log("Bad");
+                            //Debug.Log("Bad");
                             GameManager.instance.score += GameManager.instance.badScore;
                             ++GameManager.instance.badCnt;
                             GameManager.instance.combo = 0;

@@ -10,6 +10,8 @@ public class Click_Menu : MonoBehaviour
 {
     public GameObject[] charSet;
     public GameObject Menu;
+
+
     public void btn_clicked()
     {
         Menu.SetActive(true);

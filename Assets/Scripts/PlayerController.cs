@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
     void attackMotion() //아래 모션   //코드작성 : 지재원
     {
         int attackType = UnityEngine.Random.Range(0, 2);
