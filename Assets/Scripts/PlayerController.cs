@@ -20,11 +20,16 @@ public class PlayerController : MonoBehaviour
 
     TimingManager theTimingManager;
     Animator animator;
+    AudioSource audioSource;
+    public AudioClip JumpSound;
+    public AudioClip AttackSound;
+    public AudioClip HitSound;
 
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -34,6 +39,8 @@ public class PlayerController : MonoBehaviour
         {
             isClicked_0 = true;
             //Debug.Log("위판정시작");
+            if (isNotBoth)
+                PlaySound("JUMP");
             theTimingManager.CheckTiming0(); // 판정 체크
             attackMotion0();
         }
@@ -44,6 +51,7 @@ public class PlayerController : MonoBehaviour
             if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1])))
             {
                 //Debug.Log("동시입력");
+                //PlaySound("JUMP");
                 theTimingManager.CheckTiming_Both();
                 attackMotionBoth();
             }
@@ -69,6 +77,8 @@ public class PlayerController : MonoBehaviour
         {
             isClicked_1 = true;
             //Debug.Log("아래판정시작");
+            if (isNotBoth)
+                PlaySound("JUMP");
             theTimingManager.CheckTiming1(); // 판정 체크
             attackMotion();
         }
@@ -79,6 +89,7 @@ public class PlayerController : MonoBehaviour
             if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
             {
                 //Debug.Log("동시입력");
+                //PlaySound("JUMP");
                 theTimingManager.CheckTiming_Both();
                 attackMotionBoth();
             }
@@ -98,13 +109,25 @@ public class PlayerController : MonoBehaviour
             elapsedTime_1 = 0.0f;
         }
 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-
-        }
 
     }
 
+    public void PlaySound(string action)
+    {
+        switch(action)
+        {
+            case "JUMP":
+                audioSource.clip = JumpSound;
+                break;
+            case "ATTACK":
+                audioSource.clip = AttackSound;
+                break;
+            case "HIT":
+                audioSource.clip = HitSound;
+                break;
+        }
+        audioSource.Play();
+    }
 
 
     void attackMotion() //아래 모션   //코드작성 : 지재원

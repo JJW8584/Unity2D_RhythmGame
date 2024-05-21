@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public string[] playSongList; //4가지 종류
     public int charType; //캐릭터 스킨
 
+    public bool isPause;
+
     public int combo = 0;
 
     private void Awake()

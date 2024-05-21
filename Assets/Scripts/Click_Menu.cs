@@ -40,6 +40,7 @@ public class Click_Menu : MonoBehaviour
     }
     public void Retry()
     {
+        Time.timeScale = 1f;
         LoadingSceneManager.LoadScene("PlayScene_0");
         GameManager.instance.GameManagerReset();
     }
@@ -47,6 +48,11 @@ public class Click_Menu : MonoBehaviour
     {
         LoadingSceneManager.LoadScene("StartScene");
         GameManager.instance.GameManagerReset();
+    }
+    public void EndBtn()
+    {
+        Time.timeScale = 1f;
+        LoadingSceneManager.LoadScene("EndingScene");
     }
     public void ExitGame()
     {

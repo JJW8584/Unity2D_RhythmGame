@@ -20,7 +20,7 @@ public class TimingManager : MonoBehaviour
     float centerValue = 0f; //���� �߰���
     [SerializeField] GameObject[] timingRect = null; // �پ��� ���� ����
     Vector2[] timingBoxs = null; // ���� ���� �ּҰ� x, �ִ밪 y
-
+    
     public GameObject[] charSet;
 
     void Start()
@@ -71,9 +71,8 @@ public class TimingManager : MonoBehaviour
                 playerController.isNotBoth = true;
                 //Debug.Log("miss");
             }
-            if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
+            if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)   //동시노트 확인
             {
-                Debug.Log("*************************************");
                 playerController.isNotBoth = false;
             }
         }
@@ -92,6 +91,7 @@ public class TimingManager : MonoBehaviour
                 //��
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY > centerValue + 0.5)
                 {
+                    playerController.PlaySound("HIT");
                     CreateParticle.CreateHitEffect(0);
                     boxNoteList[0].SetActive(false);   //��Ʈ �����
                     boxNoteList.RemoveAt(0);    //����Ʈ���� ����
@@ -140,6 +140,7 @@ public class TimingManager : MonoBehaviour
                 //�Ʒ�
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < centerValue - 0.5)
                 {
+                    playerController.PlaySound("HIT");
                     CreateParticle.CreateHitEffect(1);
                     boxNoteList[0].SetActive(false);   //��Ʈ �����
                     boxNoteList.RemoveAt(0);    //����Ʈ���� ����
@@ -188,6 +189,7 @@ public class TimingManager : MonoBehaviour
                 //����
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
                 {
+                    playerController.PlaySound("HIT");
                     CreateParticle.CreateHitEffect(2);
                     boxNoteList[0].SetActive(false);   //��Ʈ �����
                     boxNoteList.RemoveAt(0);    //����Ʈ���� ����

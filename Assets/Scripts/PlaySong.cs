@@ -16,7 +16,7 @@ public class PlaySong : MonoBehaviour
     }
     private void Update()
     {
-        if(!playSong.isPlaying && !isSongPlaying)
+        if(!playSong.isPlaying && !isSongPlaying && !GameManager.instance.isPause)
         {
             LoadingSceneManager.LoadScene("EndingScene");
         }
