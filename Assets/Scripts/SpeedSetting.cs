@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpeedSetting : MonoBehaviour
 {
     public Transform[] controlPoints; // 스플라인을 지나는 점들
+    public TextMeshProUGUI speedText;
 
     private float t = 0; // 현재 위치를 나타내는 변수
     private int currentSegment = 0;
@@ -17,6 +19,7 @@ public class SpeedSetting : MonoBehaviour
     void Update()
     {
         MoveObjectAlongSpline();
+        speedText.text = string.Format("{0:N0}", GameManager.instance.speed * 10);
     }
     private void MoveObjectAlongSpline()
     {
@@ -56,5 +59,15 @@ public class SpeedSetting : MonoBehaviour
         float a3 = 0.5f * t3 - 0.5f * t2;
 
         return a0 * p0 + a1 * p1 + a2 * p2 + a3 * p3;
+    }
+
+    public void SpeedDecrease()
+    {
+        GameManager.instance.speed = GameManager.instance.speed - 0.1f < 1f ? 1f : GameManager.instance.speed - 0.1f;
+    }
+
+    public void SpeedIncrease()
+    {
+        GameManager.instance.speed = GameManager.instance.speed + 0.1f > 3f ? 3f : GameManager.instance.speed + 0.1f;
     }
 }

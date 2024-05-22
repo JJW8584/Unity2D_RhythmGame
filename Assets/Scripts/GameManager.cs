@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         maxScore = 965748;
-        speed = 1f;
+        speed = 1.5f;
         GameManagerReset();
     }
 
