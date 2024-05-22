@@ -15,11 +15,9 @@ public class GameManager : MonoBehaviour
     public int badCnt;
     public int missCnt;
     public int score;
-    public int speed;
-    public int songType; //0~3까지 총 4개
-    public string[] playSongList; //4가지 종류
+    public float speed;
+    public int songType; //0~2까지 총 3개
     public int charType; //캐릭터 스킨
-
     public bool isPause;
 
     public int combo = 0;
@@ -36,8 +34,8 @@ public class GameManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        playSongList = new string[4] { "song1", "song2", "song3", "song4" };
         maxScore = 965748;
+        speed = 1f;
         GameManagerReset();
     }
 

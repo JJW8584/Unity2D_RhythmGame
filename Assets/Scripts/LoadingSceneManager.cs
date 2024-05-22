@@ -48,7 +48,6 @@ public class LoadingSceneManager : MonoBehaviour
                 if (progressBar.fillAmount == 1.0f) //로딩바가 다 찼을 때
                 {
                     op.allowSceneActivation = true; //다음 씬으로 넘어감
-                    tipSet[tipIndex].SetActive(false); //팁 비활성화
                     yield break;
                 }
             }

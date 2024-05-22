@@ -2,27 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//코드작성 : 지재원
-public class Note : MonoBehaviour
+public class SpeedSetting : MonoBehaviour
 {
     public Transform[] controlPoints; // 스플라인을 지나는 점들
 
     private float t = 0; // 현재 위치를 나타내는 변수
     private int currentSegment = 0;
 
-    void Update()
-    {
-        MoveObjectAlongSpline();
-
-        if (transform.localPosition.x < -10f)
-        {
-            gameObject.SetActive(false);    //노트 지우기
-        }
-    }
-    private void OnEnable()
+    private void Awake()
     {
         t = 0;
         currentSegment = 0;
+    }
+    void Update()
+    {
+        MoveObjectAlongSpline();
     }
     private void MoveObjectAlongSpline()
     {
