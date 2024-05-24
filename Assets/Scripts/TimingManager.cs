@@ -8,8 +8,6 @@ using static UnityEngine.ParticleSystem;
 //�ڵ��ۼ�: ������
 public class TimingManager : MonoBehaviour
 {
-
-    NoteManager theNoteManager;
     CreateParticle CreateParticle;
     PlayerController playerController;
 
@@ -25,7 +23,6 @@ public class TimingManager : MonoBehaviour
 
     void Start()
     {
-        theNoteManager = FindObjectOfType<NoteManager>();
         CreateParticle = FindObjectOfType<CreateParticle>();
         playerController = FindObjectOfType<PlayerController>();
 

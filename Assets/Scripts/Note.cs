@@ -10,6 +10,10 @@ public class Note : MonoBehaviour
     private float t = 0; // 현재 위치를 나타내는 변수
     private int currentSegment = 0;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void Update()
     {
         MoveObjectAlongSpline();
@@ -62,5 +66,9 @@ public class Note : MonoBehaviour
         float a3 = 0.5f * t3 - 0.5f * t2;
 
         return a0 * p0 + a1 * p1 + a2 * p2 + a3 * p3;
+    }
+    private void OnDestroy()
+    {
+        Debug.Log("노트파괴");
     }
 }

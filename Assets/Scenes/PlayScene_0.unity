@@ -2291,7 +2291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 841765273}
-  - component: {fileID: 841765272}
+  - component: {fileID: 841765278}
   - component: {fileID: 841765271}
   - component: {fileID: 841765274}
   - component: {fileID: 841765275}
@@ -2327,51 +2327,6 @@ MonoBehaviour:
   - {fileID: 570998740}
   - {fileID: 1854671561}
   - {fileID: 1966274740}
---- !u!114 &841765272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841765270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899eb9320249c38498e80b09837ff6f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note0Prefab: {fileID: 4318430448127856298, guid: 8de7a49c93b1cd84ead43baa7c529fc6, type: 3}
-  note1Prefab: {fileID: 6635835946174018196, guid: f7798135b6fb71946bf2a196978c0654, type: 3}
-  doubleNotePrefab: {fileID: 8167733650416257599, guid: 0aeef78f14c71f240a5e180b438c03a6, type: 3}
-  longNoteFrontPrefab: {fileID: 2602179032961931478, guid: 260d613383fdd74409e2ba3341c2a443, type: 3}
-  longNoteMidPrefab: {fileID: 3085188956813503315, guid: c9e4f04b75b528146ab38430ffddb944, type: 3}
-  longNoteEndPrefab: {fileID: 8248195307137480574, guid: 1622ae96116d4c243a975c9bbbe5fc3c, type: 3}
-  upNoteCurve:
-  - {fileID: 595131102}
-  - {fileID: 595131102}
-  - {fileID: 99714997}
-  - {fileID: 914377425}
-  - {fileID: 794966911}
-  - {fileID: 2038164118}
-  - {fileID: 2038164118}
-  downNoteCurve:
-  - {fileID: 2139437398}
-  - {fileID: 2139437398}
-  - {fileID: 1427899299}
-  - {fileID: 1802645593}
-  - {fileID: 734812337}
-  - {fileID: 918939598}
-  - {fileID: 918939598}
-  doubleNoteCurve:
-  - {fileID: 551838573}
-  - {fileID: 551838573}
-  - {fileID: 20592235}
-  - {fileID: 85081452}
-  - {fileID: 1607235090}
-  - {fileID: 2062246556}
-  - {fileID: 2062246556}
-  notePos0: {fileID: 312620944}
-  notePos1: {fileID: 1093168937}
-  playSong: {fileID: 326684979}
 --- !u!4 &841765273
 Transform:
   m_ObjectHideFlags: 0
@@ -2453,6 +2408,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSet: []
   Menu: {fileID: 0}
+--- !u!114 &841765278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841765270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0eb86ce48858844aade61b0aeb0b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upNoteCurve:
+  - {fileID: 595131102}
+  - {fileID: 595131102}
+  - {fileID: 99714997}
+  - {fileID: 914377425}
+  - {fileID: 794966911}
+  - {fileID: 2038164118}
+  - {fileID: 2038164118}
+  downNoteCurve:
+  - {fileID: 2139437398}
+  - {fileID: 2139437398}
+  - {fileID: 1427899299}
+  - {fileID: 1802645593}
+  - {fileID: 734812337}
+  - {fileID: 918939598}
+  - {fileID: 918939598}
+  doubleNoteCurve:
+  - {fileID: 551838573}
+  - {fileID: 551838573}
+  - {fileID: 20592235}
+  - {fileID: 85081452}
+  - {fileID: 1607235090}
+  - {fileID: 2062246556}
+  - {fileID: 2062246556}
+  songName: song1
+  notePos0: {fileID: 312620944}
+  notePos1: {fileID: 1093168937}
+  playSong: {fileID: 326684979}
 --- !u!1 &847939161
 GameObject:
   m_ObjectHideFlags: 0

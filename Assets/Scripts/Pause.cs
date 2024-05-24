@@ -6,13 +6,13 @@ public class Pause : MonoBehaviour
 {
     public GameObject PausePanel;
 
-    NoteManager NoteManager;
+    PlayGame PlayGame;
     PlaySong PlaySong;
 
     void Start()
     {
         PlaySong = FindObjectOfType<PlaySong>();
-        NoteManager = FindObjectOfType<NoteManager>();
+        PlayGame = FindObjectOfType<PlayGame>();
         GameManager.instance.isPause = false;
     }
 
@@ -29,7 +29,7 @@ public class Pause : MonoBehaviour
         if (GameManager.instance.isPause == false)
         {
             Time.timeScale = 0f;
-            NoteManager.playSong.Pause();
+            PlayGame.playSong.Pause();
             PlaySong.playSong.Pause();
             GameManager.instance.isPause = true;
             PausePanel.SetActive(true);
@@ -40,7 +40,7 @@ public class Pause : MonoBehaviour
             PausePanel.SetActive(false);
             Time.timeScale = 1f;
             GameManager.instance.isPause = false;
-            NoteManager.playSong.UnPause();
+            PlayGame.playSong.UnPause();
             PlaySong.playSong.UnPause();
             return;
         }

@@ -21,6 +21,7 @@ public class LoadingSceneManager : MonoBehaviour
     public static void LoadScene(string sceneName) //´ÙÀ½ ·ÎµùÇÒ ¾À ¹Þ¾Æ¿È
     {
         nextScene = sceneName;
+        NoteManager.instance.ResetPool();
         SceneManager.LoadScene("LoadingScene"); //·Îµù¾À ½ÇÇà
     }
 
