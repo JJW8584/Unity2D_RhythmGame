@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayGame : MonoBehaviour
 {
+    public Transform[] startNoteCurve;
     public Transform[] upNoteCurve;
     public Transform[] downNoteCurve;
     public Transform[] doubleNoteCurve;
@@ -36,6 +37,7 @@ public class PlayGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SongPlay();
         playSong.Play();
     }
 
@@ -74,6 +76,11 @@ public class PlayGame : MonoBehaviour
         }
     }
 
+    private void SongPlay()
+    {
+        GameObject note = NoteManager.instance.MakeObj("startNote");
+        note.GetComponent<Note>().controlPoints = startNoteCurve;
+    }
     private void GamePlay()
     {
         for (int i = 0; i < noteData.Count; i++)

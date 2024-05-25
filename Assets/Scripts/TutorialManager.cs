@@ -43,14 +43,17 @@ public class TutorialManager : MonoBehaviour
         }
         if(GameObject.FindWithTag("Note0") != null && GameObject.FindWithTag("Note0").transform.position.x <= -4.86)
         {
+            GameManager.instance.isPause = true;
             UpNoteText();
         }
         if(GameObject.FindWithTag("Note1") != null && GameObject.FindWithTag("Note0").transform.position.x <= -4.86)
         {
+            GameManager.instance.isPause = true;
             DownNoteText();
         }
-        if(GameObject.FindWithTag("Double") != null && GameObject.FindWithTag("Note0").transform.position.x <= -4.86)
+        if(GameObject.FindWithTag("DoubleNote") != null && GameObject.FindWithTag("Note0").transform.position.x <= -4.86)
         {
+            GameManager.instance.isPause = true;
             DoubleNoteText();
         }
     }
@@ -62,7 +65,7 @@ public class TutorialManager : MonoBehaviour
         {
             tutorialText.text = startTextSet[textIndex++];
             curTextDelay = 0f;
-            if (textIndex > startTextSet.Length)
+            if (textIndex >= startTextSet.Length)
             {
                 textIndex = 0;
                 isTutorial = false;
@@ -75,9 +78,10 @@ public class TutorialManager : MonoBehaviour
         tutorialText.text = upNoteText;
         Time.timeScale = 0f;
         songCtrl[0].GetComponent<PlayGame>().playSong.Pause();
-        songCtrl[0].GetComponent<PlaySong>().playSong.Pause();
+        songCtrl[1].GetComponent<PlaySong>().playSong.Pause();
         if(GameObject.FindWithTag("Note0") == null)
         {
+            GameManager.instance.isPause = false;
             Time.timeScale = 1f;
             tutorialText.text = "잘했다냥!!";
         }
@@ -87,9 +91,10 @@ public class TutorialManager : MonoBehaviour
         tutorialText.text = downNoteText;
         Time.timeScale = 0f;
         songCtrl[0].GetComponent<PlayGame>().playSong.Pause();
-        songCtrl[0].GetComponent<PlaySong>().playSong.Pause();
+        songCtrl[1].GetComponent<PlaySong>().playSong.Pause();
         if (GameObject.FindWithTag("Note1") == null)
         {
+            GameManager.instance.isPause = false;
             Time.timeScale = 1f;
             tutorialText.text = "잘했다냥!!";
         }
@@ -102,6 +107,7 @@ public class TutorialManager : MonoBehaviour
         songCtrl[0].GetComponent<PlaySong>().playSong.Pause();
         if (GameObject.FindWithTag("DoubleNote") == null)
         {
+            GameManager.instance.isPause = false;
             Time.timeScale = 1f;
             tutorialText.text = "잘했다냥!!";
         }
