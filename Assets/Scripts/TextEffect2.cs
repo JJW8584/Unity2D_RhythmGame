@@ -20,8 +20,8 @@ public class TextEffect2 : MonoBehaviour
         uiText = GetComponent<TextMeshProUGUI>();
         CreateCharData();
         leftLimit = -billboardRect.rect.width / 2;
-        leftLimit_ = -billboardRect.rect.width / 2;
-        rightLimit = billboardRect.rect.width / 2;
+        leftLimit_ = -billboardRect.rect.width / 2 + 10;
+        rightLimit = billboardRect.rect.width / 2 - 10;
         centerPosition = 0;
     }
 

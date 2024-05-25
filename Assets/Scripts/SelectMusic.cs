@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SelectMusic : MonoBehaviour
+public class SelectMusic : MonoBehaviour, IPointerClickHandler
 {
     public GameObject[] playSongListBox;
     public Transform[] SongPos;
-    //public Transform songTypePos;
+    public Transform songTypePos;
     public float animationDuration_ = 0.3f; // 애니메이션 지속 시간
     public float animationDuration = 0.3f; // 애니메이션 지속 시간
     public float[] rotationAngles = { 0, 10, -10, 1, 0 }; // 애니메이션 중 각 회전 각도
@@ -16,6 +18,10 @@ public class SelectMusic : MonoBehaviour
     //public bool[] isPlay;
 
     public RectTransform[] uiImageArray; // UI 이미지의 RectTransform을 참조합니다.
+
+    public RectTransform SelectSongBox;
+    public GameObject SelectUp;
+    public GameObject SelectDown;
 
     private void Start()
     {
@@ -37,47 +43,74 @@ public class SelectMusic : MonoBehaviour
 
         float wheelInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (wheelInput > 0 || Input.GetKey(KeyCode.UpArrow))
+        if (wheelInput > 0 || Input.GetKey(KeyCode.DownArrow) || isDown)
         {
+            isDown = false;
             // 휠을 당겨 올렸을 때의 처리 ↓
+            ScrollDOWN();
+        }
+        else if (wheelInput < 0 || Input.GetKey(KeyCode.UpArrow) || isUp)
+        {
+            isUp = false;
+            // 휠을 밀어 돌렸을 때의 처리 ↑
+            ScrollUP();
+        }
+    }
+    public void ScrollDOWN()
+    {
+        for (int i = 0; i < playSongListBox.Length; i++)
+        {
+            StartCoroutine(AnimateShake(uiImageArray[i]));
+        }
+        if (playSongListBox[playSongListBox.Length - 3].transform.position.y >= SongPos[0].position.y)
+        {
+            return;
+        }
+        if (isMove == false)
+        {
+            isMove = true;
+            GameManager.instance.songType = ++GameManager.instance.songType > playSongListBox.Length - 1 ? 0 : GameManager.instance.songType;
             for (int i = 0; i < playSongListBox.Length; i++)
             {
-                StartCoroutine(AnimateShake(uiImageArray[i]));
-            }
-            if (playSongListBox[playSongListBox.Length - 3].transform.position.y >= SongPos[0].position.y)
-            {
-                return;
-            }
-            if (isMove == false)
-            {
-                isMove = true;
-                GameManager.instance.songType = ++GameManager.instance.songType > playSongListBox.Length - 1 ? 0 : GameManager.instance.songType;
-                for (int i = 0; i < playSongListBox.Length; i++)
-                {
-                    StartCoroutine(AnimateMovement(playSongListBox[i].transform, new Vector3(0, 180f, 0)));
-                }
+                StartCoroutine(AnimateMovement(playSongListBox[i].transform, new Vector3(0, 180f, 0)));
             }
         }
-        else if (wheelInput < 0 || Input.GetKey(KeyCode.DownArrow))
+    }
+    public void ScrollUP()
+    {
+        for (int i = 0; i < playSongListBox.Length; i++)
         {
-            // 휠을 밀어 돌렸을 때의 처리 ↑
+            StartCoroutine(AnimateShake(uiImageArray[i]));
+        }
+        if (playSongListBox[2].transform.position.y <= SongPos[1].position.y)
+        {
+            return;
+        }
+        if (isMove == false)
+        {
+            isMove = true;
+            GameManager.instance.songType = --GameManager.instance.songType < 0 ? playSongListBox.Length - 1 : GameManager.instance.songType;
             for (int i = 0; i < playSongListBox.Length; i++)
             {
-                StartCoroutine(AnimateShake(uiImageArray[i]));
+                StartCoroutine(AnimateMovement(playSongListBox[i].transform, new Vector3(0, -180f, 0)));
             }
-            if (playSongListBox[2].transform.position.y <= SongPos[1].position.y)
-            {
-                return;
-            }
-            if (isMove == false)
-            {
-                isMove = true;
-                GameManager.instance.songType = --GameManager.instance.songType < 0 ? playSongListBox.Length - 1 : GameManager.instance.songType;
-                for (int i = 0; i < playSongListBox.Length; i++)
-                {
-                    StartCoroutine(AnimateMovement(playSongListBox[i].transform, new Vector3(0, -180f, 0)));
-                }
-            }
+        }
+    }
+    
+    bool isUp = false;
+    bool isDown = false;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
+        //RectTransform clickedObjectPos = clickedObject.GetComponent<RectTransform>();
+        if (clickedObject == SelectDown)
+        {
+            isDown=true;
+        }
+        if (clickedObject == SelectUp)
+        {
+            isUp=true;
         }
     }
 

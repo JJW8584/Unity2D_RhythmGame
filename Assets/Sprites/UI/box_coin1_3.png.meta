@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a544536249a60ed47b8f6a8d5087b252
+guid: 8a4e47f4bfe500e42ae5a3ee0528af3b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: box_coin1_2_0
+      name: box_coin1_3_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 5
-        width: 252
-        height: 56
+        x: 17
+        y: 12
+        width: 239
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 391e0972c2a89034896aaa082868234d
-      internalID: 1696298841
+      spriteID: dea1151034e584041ad0656553b4107b
+      internalID: -1008015822
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      box_coin1_2_0: 1696298841
+      box_coin1_3_0: -1008015822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
