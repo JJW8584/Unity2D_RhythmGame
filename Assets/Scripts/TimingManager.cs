@@ -88,7 +88,8 @@ public class TimingManager : MonoBehaviour
                 //��
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY > centerValue + 0.5)
                 {
-                    playerController.PlaySound("HIT");
+                    //playerController.PlaySound("HIT");
+                    SoundManager.instance.PlaySound("HIT");
                     CreateParticle.CreateHitEffect(0);
                     boxNoteList[0].SetActive(false);   //��Ʈ �����
                     boxNoteList.RemoveAt(0);    //����Ʈ���� ����
@@ -137,7 +138,8 @@ public class TimingManager : MonoBehaviour
                 //�Ʒ�
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < centerValue - 0.5)
                 {
-                    playerController.PlaySound("HIT");
+                    //playerController.PlaySound("HIT");
+                    SoundManager.instance.PlaySound("HIT");
                     CreateParticle.CreateHitEffect(1);
                     boxNoteList[0].SetActive(false);   //��Ʈ �����
                     boxNoteList.RemoveAt(0);    //����Ʈ���� ����
@@ -186,7 +188,8 @@ public class TimingManager : MonoBehaviour
                 //����
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
                 {
-                    playerController.PlaySound("HIT");
+                    //playerController.PlaySound("HIT");
+                    SoundManager.instance.PlaySound("HIT");
                     CreateParticle.CreateHitEffect(2);
                     boxNoteList[0].SetActive(false);   //��Ʈ �����
                     boxNoteList.RemoveAt(0);    //����Ʈ���� ����

@@ -11,6 +11,14 @@ public class Click_Menu : MonoBehaviour
     public GameObject[] charSet;
     public GameObject Menu;
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SoundManager.instance.PlaySound("Click");
+            Debug.Log("******************************************************************");
+        }
+    }
 
     public void btn_clicked()
     {
