@@ -34,82 +34,85 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //위
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1]))
+        if (!GameManager.instance.isPause)
         {
-            isClicked_0 = true;
-            //Debug.Log("위판정시작");
-            if (isNotBoth)
-                PlaySound("JUMP");
-            theTimingManager.CheckTiming0(); // 판정 체크
-            attackMotion0();
-        }
-        if (isClicked_0 == true) //롱노트
-        {
-            elapsedTime_0 += Time.deltaTime;
-
-            if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1])))
+            //위
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1]))
             {
-                //Debug.Log("동시입력");
+                isClicked_0 = true;
+                //Debug.Log("위판정시작");
+                if (isNotBoth)
+                    SoundManager.instance.PlaySound("JUMP");
                 //PlaySound("JUMP");
-                theTimingManager.CheckTiming_Both();
-                attackMotionBoth();
+                theTimingManager.CheckTiming0(); // 판정 체크
+                attackMotion0();
             }
-            if (longNoteTime < elapsedTime_0)
+            if (isClicked_0 == true) //롱노트
             {
-                //Debug.Log("long note");
-                //롱노트 존재여부, 없으면 판정끝 hit 멈추기
+                elapsedTime_0 += Time.deltaTime;
+
+                if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1])))
+                {
+                    //Debug.Log("동시입력");
+                    //PlaySound("JUMP");
+                    theTimingManager.CheckTiming_Both();
+                    attackMotionBoth();
+                }
+                if (longNoteTime < elapsedTime_0)
+                {
+                    //Debug.Log("long note");
+                    //롱노트 존재여부, 없으면 판정끝 hit 멈추기
+                }
             }
-        }
-        if (Input.GetKeyUp(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP1]))
-        {
-            if (longNoteTime < elapsedTime_0)
+            if (Input.GetKeyUp(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP1]))
             {
-                //Debug.Log("long note end");
+                if (longNoteTime < elapsedTime_0)
+                {
+                    //Debug.Log("long note end");
+                }
+                isClicked_0 = false;
+                elapsedTime_0 = 0.0f;
             }
-            isClicked_0 = false;
-            elapsedTime_0 = 0.0f;
-        }
 
 
-        //아래
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1]))
-        {
-            isClicked_1 = true;
-            //Debug.Log("아래판정시작");
-            if (isNotBoth)
-                PlaySound("JUMP");
-            theTimingManager.CheckTiming1(); // 판정 체크
-            attackMotion();
-        }
-        if (isClicked_1 == true) //롱노트
-        {
-            elapsedTime_1 += Time.deltaTime;
-
-            if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
+            //아래
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1]))
             {
-                //Debug.Log("동시입력");
+                isClicked_1 = true;
+                //Debug.Log("아래판정시작");
+                if (isNotBoth)
+                    SoundManager.instance.PlaySound("JUMP");
                 //PlaySound("JUMP");
-                theTimingManager.CheckTiming_Both();
-                attackMotionBoth();
+                theTimingManager.CheckTiming1(); // 판정 체크
+                attackMotion();
             }
-            if (longNoteTime < elapsedTime_1)
+            if (isClicked_1 == true) //롱노트
             {
-                //Debug.Log("long note");
-                //롱노트 존재여부, 없으면 판정끝 hit 멈추기
+                elapsedTime_1 += Time.deltaTime;
+
+                if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
+                {
+                    //Debug.Log("동시입력");
+                    //PlaySound("JUMP");
+                    theTimingManager.CheckTiming_Both();
+                    attackMotionBoth();
+                }
+                if (longNoteTime < elapsedTime_1)
+                {
+                    //Debug.Log("long note");
+                    //롱노트 존재여부, 없으면 판정끝 hit 멈추기
+                }
+            }
+            if (Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN1]))
+            {
+                if (longNoteTime < elapsedTime_1)
+                {
+                    //Debug.Log("long note end");
+                }
+                isClicked_1 = false;
+                elapsedTime_1 = 0.0f;
             }
         }
-        if (Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN1]))
-        {
-            if (longNoteTime < elapsedTime_1)
-            {
-                //Debug.Log("long note end");
-            }
-            isClicked_1 = false;
-            elapsedTime_1 = 0.0f;
-        }
-
-
     }
 
     public void PlaySound(string action)
