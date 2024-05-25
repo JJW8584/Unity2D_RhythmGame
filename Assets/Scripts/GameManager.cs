@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         //초기값 세팅
         maxScore = 965748;
         speed = 1.5f;
+        charType = 0;
         GameManagerReset();
     }
 

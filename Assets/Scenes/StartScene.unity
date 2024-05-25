@@ -938,6 +938,7 @@ GameObject:
   - component: {fileID: 181044705}
   - component: {fileID: 181044704}
   - component: {fileID: 181044703}
+  - component: {fileID: 181044706}
   m_Layer: 5
   m_Name: Tutorial Button
   m_TagString: Untagged
@@ -1008,7 +1009,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 181044704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181044706}
+        m_TargetAssemblyTypeName: Click_Menu, Assembly-CSharp
+        m_MethodName: Tutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &181044704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,6 +1060,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181044701}
   m_CullTransparentMesh: 1
+--- !u!114 &181044706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181044701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0c101744741c14eb49d08c5047483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charSet: []
+  Menu: {fileID: 0}
 --- !u!1 &225816339
 GameObject:
   m_ObjectHideFlags: 0
@@ -12484,6 +12511,7 @@ MonoBehaviour:
   longNoteFrontPrefab: {fileID: 2602179032961931478, guid: 260d613383fdd74409e2ba3341c2a443, type: 3}
   longNoteMidPrefab: {fileID: 3085188956813503315, guid: c9e4f04b75b528146ab38430ffddb944, type: 3}
   longNoteEndPrefab: {fileID: 8248195307137480574, guid: 1622ae96116d4c243a975c9bbbe5fc3c, type: 3}
+  startNotePrefab: {fileID: 6635835946174018196, guid: 6c3492990a26383468b2cea0defe1dbf, type: 3}
 --- !u!4 &2119938882
 Transform:
   m_ObjectHideFlags: 0

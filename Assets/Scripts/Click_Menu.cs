@@ -46,6 +46,11 @@ public class Click_Menu : MonoBehaviour
         GameManager.instance.charType = ++GameManager.instance.charType > 2 ? 0 : GameManager.instance.charType;
         charSet[GameManager.instance.charType].SetActive(true);
     }
+    public void Tutorial()
+    {
+        LoadingSceneManager.LoadScene("TutorialScene");
+        GameManager.instance.GameManagerReset();
+    }
     public void Retry()
     {
         Time.timeScale = 1f;

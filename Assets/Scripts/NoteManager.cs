@@ -17,6 +17,7 @@ public class NoteManager : MonoBehaviour
     public GameObject longNoteFrontPrefab;
     public GameObject longNoteMidPrefab;
     public GameObject longNoteEndPrefab;
+    public GameObject startNotePrefab;
     //public GameObject notePerfectEffectPrefab;
     //public GameObject noteGoodEffectPrefab;
     //public GameObject noteBadEffectPrefab;
@@ -27,6 +28,7 @@ public class NoteManager : MonoBehaviour
     GameObject[] longNoteFront;
     GameObject[] longNoteMid;
     GameObject[] longNoteEnd;
+    GameObject[] startNote;
     //GameObject[] notePerfectEffect;
     //GameObject[] noteGoodEffect;
     //GameObject[] noteBadEffect;
@@ -51,6 +53,7 @@ public class NoteManager : MonoBehaviour
         longNoteFront = new GameObject[5];
         longNoteMid = new GameObject[30];
         longNoteEnd = new GameObject[5];
+        startNote = new GameObject[1];
         //notePerfectEffect = new GameObject[20];
         //noteGoodEffect = new GameObject[20];
         //noteBadEffect = new GameObject[20];
@@ -88,6 +91,11 @@ public class NoteManager : MonoBehaviour
         {
             longNoteEnd[i] = Instantiate(longNoteEndPrefab);
             longNoteEnd[i].SetActive(false);
+        }
+        for (int i = 0; i < startNote.Length; i++)
+        {
+            startNote[i] = Instantiate(startNotePrefab);
+            startNote[i].SetActive(false);
         }
         /*for (int i = 0; i < notePerfectEffect.Length; i++)
         {
@@ -128,6 +136,9 @@ public class NoteManager : MonoBehaviour
             case "longNoteEnd":
                 targetPool = longNoteEnd;
                 break;
+            case "startNote":
+                targetPool = startNote;
+                break;
             /*case "notePerfectEffect":
                 targetPool = notePerfectEffect;
                 break;
@@ -153,7 +164,7 @@ public class NoteManager : MonoBehaviour
 
     public void ResetPool()
     {
-        for (int j = 1; j < 7; j++)
+        for (int j = 1; j < 8; j++)
         {
             switch (j)
             {
@@ -174,6 +185,9 @@ public class NoteManager : MonoBehaviour
                     break;
                 case 6:
                     targetPool = longNoteEnd;
+                    break;
+                case 7:
+                    targetPool = startNote;
                     break;
             }
             for (int i = 0; i < targetPool.Length; i++)
