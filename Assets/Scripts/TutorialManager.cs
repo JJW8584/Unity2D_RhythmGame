@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
+    public Transform[] upNoteCurve;
+    public Transform[] downNoteCurve;
+    public Transform[] DoubleNoteCurve;
     public GameObject tutorialSet;
     public GameObject[] songCtrl;
     public TextMeshProUGUI tutorialText;
@@ -15,15 +19,22 @@ public class TutorialManager : MonoBehaviour
     public string[] endingTextSet;
 
     private bool isTutorial;
-    private bool isSongStart;
+    private bool isUpNote;
+    private bool isDownNote;
+    private bool isDoubleNote;
     private int textIndex;
     private float maxTextDelay;
     private float curTextDelay;
 
+    TimingManager theTimingManager;
+
     void Start()
     {
+        theTimingManager = FindObjectOfType<TimingManager>();
         isTutorial = true;
-        isSongStart = false;
+        isUpNote = false;
+        isDownNote = false;
+        isDoubleNote = false;
         maxTextDelay = 2f;
         curTextDelay = 2f;
         textIndex = 0;
@@ -36,24 +47,16 @@ public class TutorialManager : MonoBehaviour
         {
             TutorialText();
         }
-        if(isSongStart)
+        if(isUpNote)
         {
-            tutorialSet.SetActive(true);
-            isSongStart = false;
-        }
-        if(GameObject.FindWithTag("Note0") != null && GameObject.FindWithTag("Note0").transform.position.x <= -4.86)
-        {
-            GameManager.instance.isPause = true;
             UpNoteText();
         }
-        if(GameObject.FindWithTag("Note1") != null && GameObject.FindWithTag("Note0").transform.position.x <= -4.86)
+        if(isDownNote)
         {
-            GameManager.instance.isPause = true;
             DownNoteText();
         }
-        if(GameObject.FindWithTag("DoubleNote") != null && GameObject.FindWithTag("Note0").transform.position.x <= -4.86)
+        if(isDoubleNote)
         {
-            GameManager.instance.isPause = true;
             DoubleNoteText();
         }
     }
@@ -69,47 +72,65 @@ public class TutorialManager : MonoBehaviour
             {
                 textIndex = 0;
                 isTutorial = false;
-                isSongStart = true;
+                isUpNote = true;
+                curTextDelay = 5f;
             }
         }
     }
     void UpNoteText()
     {
-        tutorialText.text = upNoteText;
-        Time.timeScale = 0f;
-        songCtrl[0].GetComponent<PlayGame>().playSong.Pause();
-        songCtrl[1].GetComponent<PlaySong>().playSong.Pause();
-        if(GameObject.FindWithTag("Note0") == null)
+        curTextDelay += Time.deltaTime;
+        if(curTextDelay >= 5f)
         {
-            GameManager.instance.isPause = false;
-            Time.timeScale = 1f;
+            tutorialText.text = upNoteText;
+            curTextDelay = 0f;
+            GameObject note = NoteManager.instance.MakeObj("Note0");
+            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
+            note.GetComponent<Note>().controlPoints = upNoteCurve;
+        }
+        if(GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
+        {
             tutorialText.text = "잘했다냥!!";
+            isUpNote = false;
+            isDownNote = true;
+            curTextDelay = 5f;
         }
     }
     void DownNoteText()
     {
-        tutorialText.text = downNoteText;
-        Time.timeScale = 0f;
-        songCtrl[0].GetComponent<PlayGame>().playSong.Pause();
-        songCtrl[1].GetComponent<PlaySong>().playSong.Pause();
-        if (GameObject.FindWithTag("Note1") == null)
+        curTextDelay += Time.deltaTime;
+        if (curTextDelay >= 5f)
         {
-            GameManager.instance.isPause = false;
-            Time.timeScale = 1f;
+            tutorialText.text = downNoteText;
+            curTextDelay = 0f;
+            GameObject note = NoteManager.instance.MakeObj("Note1");
+            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
+            note.GetComponent<Note>().controlPoints = downNoteCurve;
+        }
+        if (GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
+        {
+            
             tutorialText.text = "잘했다냥!!";
+            isDownNote = false;
+            isDoubleNote = true;
+            curTextDelay = 5f;
         }
     }
     void DoubleNoteText()
     {
-        tutorialText.text = doubleNoteText;
-        Time.timeScale = 0f;
-        songCtrl[0].GetComponent<PlayGame>().playSong.Pause();
-        songCtrl[0].GetComponent<PlaySong>().playSong.Pause();
-        if (GameObject.FindWithTag("DoubleNote") == null)
+        curTextDelay += Time.deltaTime;
+        if (curTextDelay >= 5f)
         {
-            GameManager.instance.isPause = false;
-            Time.timeScale = 1f;
+            tutorialText.text = doubleNoteText;
+            curTextDelay = 0f;
+            GameObject note = NoteManager.instance.MakeObj("DoubleNote");
+            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
+            note.GetComponent<Note>().controlPoints = DoubleNoteCurve;
+        }
+        if (GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
+        {
             tutorialText.text = "잘했다냥!!";
+            isDoubleNote = false;
         }
     }
 }
