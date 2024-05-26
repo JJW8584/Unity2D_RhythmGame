@@ -1,15 +1,193 @@
+Ôªø
+
+/*using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+[RequireComponent(typeof(ScrollRect), typeof(Mask), typeof(Image))]
+public class TextEffect2 : MonoBehaviour
+{
+    enum ScrollMoveDirection
+    {
+        ToFront,
+        ToEnd,
+    }
+
+    private ScrollRect scrollRect;
+    private Mask mask;
+    private Image maskImage;
+    private RectTransform rectTransform; // RectTransform cache
+
+    [Header("Text Component in child"), SerializeField]
+    private Text text;
+
+    [Header("If true, Text will go back to front immediately")]
+    public bool scrollToFrontImmediately;
+
+    [Header("How much will text go back to front?"), Range(0.001f, 1f)]
+    public float scrollToFrontSpeed = 0.005f;
+
+    [Header("How much will text move to end each update"), Range(0.001f, 1f)]
+    public float scrollToEndSpeed = 0.005f;
+
+    [Header("How long to pause at the end of the text?")]
+    public float endStopTime = 0.5f;
+    private float currentEndStopTime = 0.0f;
+
+    [Header("How long to pause at the front of the text?")]
+    public float frontStopTime = 0.5f;
+    private float currentFrontStopTime = 0.0f;
+
+
+    private ScrollMoveDirection direction = ScrollMoveDirection.ToEnd;
+    private Color maskImageColor = new Color(1f, 1f, 1f, 0.01f);
+    private float position = 0.0f;
+
+    private void Awake()
+    {
+        if (!scrollRect)
+        {
+            scrollRect = GetComponent<ScrollRect>();
+        }
+        if (!mask)
+        {
+            mask = GetComponent<Mask>();
+        }
+        if (!maskImage)
+        {
+            maskImage = GetComponent<Image>();
+        }
+        if (!rectTransform)
+        {
+            rectTransform = GetComponent<RectTransform>();
+        }
+
+        maskImage.raycastTarget = false;
+        mask.enabled = true;
+        text.maskable = true;
+    }
+
+    private void OnValidate()
+    {
+        if (!scrollRect)
+        {
+            scrollRect = GetComponent<ScrollRect>();
+        }
+        if (!mask)
+        {
+            mask = GetComponent<Mask>();
+        }
+        if (!maskImage)
+        {
+            maskImage = GetComponent<Image>();
+        }
+        if (!rectTransform)
+        {
+            rectTransform = GetComponent<RectTransform>();
+        }
+
+        if (scrollRect && !(scrollRect.content))
+        {
+            GameObject go = new GameObject("Text");
+            text = go.AddComponent<Text>();
+            text.text = "";
+            text.alignment = TextAnchor.MiddleCenter;
+            text.raycastTarget = false; // Set this true if need to raycast text.
+
+            RectTransform textRectTransform = text.rectTransform;
+            textRectTransform.parent = transform;
+            textRectTransform.sizeDelta = new Vector2(text.preferredWidth, rectTransform.rect.height);
+            textRectTransform.localPosition = Vector2.zero;
+
+            scrollRect.content = textRectTransform;
+        }
+
+        // Turn off the mask so that you can see the text in the editor.
+        if (mask)
+        {
+            mask.showMaskGraphic = false;
+        }
+        if (text)
+        {
+            text.maskable = false;
+        }
+        if (maskImage)
+        {
+            maskImage.color = maskImageColor;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (Mathf.Approximately(position, 1.0f))
+        {
+            // Reset the stop timer before text goes front
+            currentFrontStopTime = 0f;
+            direction = ScrollMoveDirection.ToFront;
+        }
+        else if (Mathf.Approximately(position, 0.0f))
+        {
+            // Reset the stop timer before text goes end
+            currentEndStopTime = 0f;
+            direction = ScrollMoveDirection.ToEnd;
+        }
+
+        switch (direction)
+        {
+            case ScrollMoveDirection.ToFront:
+                ScrollTextToFront();
+                break;
+            case ScrollMoveDirection.ToEnd:
+                ScrollTextToEnd();
+                break;
+        }
+
+        scrollRect.horizontalNormalizedPosition = position;
+    }
+
+    private void ScrollTextToFront()
+    {
+        if (scrollToFrontImmediately)
+        {
+            position = 0;
+            return;
+        }
+
+        if (currentEndStopTime < endStopTime)
+        {
+            currentEndStopTime += Time.deltaTime;
+        }
+        else
+        {
+            position = Mathf.Clamp(position - scrollToFrontSpeed, 0f, 1f);
+        }
+    }
+
+    private void ScrollTextToEnd()
+    {
+        if (currentFrontStopTime < frontStopTime)
+        {
+            currentFrontStopTime += Time.deltaTime;
+        }
+        else
+        {
+            position = Mathf.Clamp(position + scrollToEndSpeed, 0f, 1f);
+        }
+    }
+}*/
+
+/*using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 
 public class TextEffect2 : MonoBehaviour
 {
-    public RectTransform billboardRect; // ¿¸±§∆« ¿ÃπÃ¡ˆ¿« RectTransform
-    public float speed = 100f; // ≈ÿΩ∫∆Æ ¿Ãµø º”µµ
+    public RectTransform billboardRect; // Ï†ÑÍ¥ëÌåê Ïù¥ÎØ∏ÏßÄÏùò RectTransform
+    public float speed = 100f; // ÌÖçÏä§Ìä∏ Ïù¥Îèô ÏÜçÎèÑ
     private TextMeshProUGUI uiText;
     private List<CharData> charDataList = new List<CharData>();
     private float leftLimit;
-    private float leftLimit_;
     private float rightLimit;
     private float centerPosition;
     private bool allCharsPassedCenter = false;
@@ -20,8 +198,7 @@ public class TextEffect2 : MonoBehaviour
         uiText = GetComponent<TextMeshProUGUI>();
         CreateCharData();
         leftLimit = -billboardRect.rect.width / 2;
-        leftLimit_ = -billboardRect.rect.width / 2 + 10;
-        rightLimit = billboardRect.rect.width / 2 - 10;
+        rightLimit = billboardRect.rect.width / 2;
         centerPosition = 0;
     }
 
@@ -33,30 +210,22 @@ public class TextEffect2 : MonoBehaviour
     void CreateCharData()
     {
         string text = uiText.text;
-        uiText.text = ""; // ø¯∫ª ≈ÿΩ∫∆Æ¥¬ ∫Òøˆµ”¥œ¥Ÿ.
+        uiText.text = ""; // ÏõêÎ≥∏ ÌÖçÏä§Ìä∏Îäî ÎπÑÏõåÎë°ÎãàÎã§.
 
         List<float> charWidths = new List<float>();
 
-        // ∞¢ πÆ¿⁄¿« ∆¯¿ª πÃ∏Æ ∞ËªÍ«’¥œ¥Ÿ.
+        // Í∞Å Î¨∏ÏûêÏùò Ìè≠ÏùÑ ÎØ∏Î¶¨ Í≥ÑÏÇ∞Ìï©ÎãàÎã§.
         for (int i = 0; i < text.Length; i++)
         {
-            GameObject tempCharObj = new GameObject("TempChar_" + i);
-            TextMeshProUGUI tempCharText = tempCharObj.AddComponent<TextMeshProUGUI>();
-            tempCharText.font = uiText.font;
-            tempCharText.fontSize = uiText.fontSize;
-            tempCharText.text = text[i].ToString();
-
-            float charWidth = tempCharText.preferredWidth;
+            // TMP_TextÏùò GetPreferredValuesÎ•º ÏÇ¨Ïö©ÌïòÏó¨ Î¨∏Ïûê Ìè≠ÏùÑ Í≥ÑÏÇ∞Ìï©ÎãàÎã§.
+            Vector2 charSize = uiText.GetPreferredValues(text[i].ToString());
+            float charWidth = charSize.x;
             charWidths.Add(charWidth);
             totalTextWidth += charWidth;
-
-            Destroy(tempCharObj);
         }
 
-        float startX = rightLimit + billboardRect.rect.width / 2;
-
-        // ∞¢ πÆ¿⁄ ∞¥√º∏¶ ª˝º∫«œ∞Ì √ ±‚ ¿ßƒ°∏¶ º≥¡§«’¥œ¥Ÿ.
-        float currentX = startX;
+        // Í∞Å Î¨∏Ïûê Í∞ùÏ≤¥Î•º ÏÉùÏÑ±ÌïòÍ≥† Ï¥àÍ∏∞ ÏúÑÏπòÎ•º ÏÑ§Ï†ïÌï©ÎãàÎã§.
+        float currentX = rightLimit;
         for (int i = 0; i < text.Length; i++)
         {
             GameObject charObj = new GameObject("Char_" + i);
@@ -75,55 +244,52 @@ public class TextEffect2 : MonoBehaviour
 
             charRect.sizeDelta = new Vector2(charWidths[i], uiText.rectTransform.sizeDelta.y);
 
-            // √ ±‚ ¿ßƒ° º≥¡§
-            charRect.anchoredPosition = new Vector2(currentX - charWidths[i] / 2, 0);
+            // Ï¥àÍ∏∞ ÏúÑÏπò ÏÑ§Ï†ï
+            charRect.anchoredPosition = new Vector2(currentX + charWidths[i] / 2, 0);
             currentX += charWidths[i];
 
             charDataList.Add(new CharData { rectTransform = charRect, width = charWidths[i], hasPassedCenter = false });
         }
     }
-
+    
     void MoveChars()
     {
         bool allCharsCurrentlyPassedCenter = true;
+        float totalRightLimit = rightLimit;
 
         for (int i = 0; i < charDataList.Count; i++)
         {
             RectTransform charRect = charDataList[i].rectTransform;
             charRect.anchoredPosition += Vector2.left * speed * Time.deltaTime;
 
-            // ±€¿⁄∞° »≠∏È øﬁ¬  π€¿∏∑Œ ≥™∞°∏È ∫Ò»∞º∫»≠
-            if (charRect.anchoredPosition.x < leftLimit_)
-            {
-                charRect.gameObject.SetActive(false);
-            }
-
-            // ∞¢ ±€¿⁄∞° ¡ﬂæ”¿ª ≈Î∞˙«ﬂ¥¬¡ˆ √º≈©
+            // Í∞Å Í∏ÄÏûêÍ∞Ä Ï§ëÏïôÏùÑ ÌÜµÍ≥ºÌñàÎäîÏßÄ Ï≤¥ÌÅ¨
             if (!charDataList[i].hasPassedCenter && charRect.anchoredPosition.x < centerPosition)
             {
                 charDataList[i].hasPassedCenter = true;
             }
 
-            // ∏µÁ ±€¿⁄∞° ¡ﬂæ”¿ª ≈Î∞˙«ﬂ¥¬¡ˆ »Æ¿Œ
+            // Î™®Îì† Í∏ÄÏûêÍ∞Ä Ï§ëÏïôÏùÑ ÌÜµÍ≥ºÌñàÎäîÏßÄ ÌôïÏù∏
             if (!charDataList[i].hasPassedCenter)
             {
                 allCharsCurrentlyPassedCenter = false;
             }
 
-            // ±€¿⁄∞° leftLimit∏¶ π˛æÓ≥™∏È ¥ŸΩ√ rightLimit∑Œ ¿Ãµø
+            // Í∏ÄÏûêÍ∞Ä leftLimitÎ•º Î≤óÏñ¥ÎÇòÎ©¥ Îã§Ïãú rightLimitÎ°ú Ïù¥Îèô
             if (allCharsPassedCenter && charRect.anchoredPosition.x < leftLimit)
             {
-                charRect.gameObject.SetActive(true); // ¥ŸΩ√ »∞º∫»≠
-                charRect.anchoredPosition = new Vector2(rightLimit + charDataList[i].width / 2, charRect.anchoredPosition.y);
+                // Î™®Îì† Í∏ÄÏûêÍ∞Ä Ï§ëÏïôÏùÑ ÌÜµÍ≥ºÌïú ÌõÑÏóê rightLimitÎ°ú Ïù¥ÎèôÏãúÌÇ¨ Îïå ÏúÑÏπòÎ•º Ï†ïÌôïÌûà ÏÑ§Ï†ï
+                
+                charRect.anchoredPosition = new Vector2(totalRightLimit + charDataList[i].width / 2, 0);
+                totalRightLimit += charDataList[i].width;
             }
         }
 
-        // ∏µÁ ±€¿⁄∞° ¡ﬂæ”¿ª ≈Î∞˙«ﬂ¿∏∏È, √π ±€¿⁄¿« ¿ßƒ°∏¶ leftLimit∑Œ º≥¡§
+        // Î™®Îì† Í∏ÄÏûêÍ∞Ä Ï§ëÏïôÏùÑ ÌÜµÍ≥ºÌñàÏúºÎ©¥, Ï≤´ Í∏ÄÏûêÏùò ÏúÑÏπòÎ•º leftLimitÎ°ú ÏÑ§Ï†ï
         if (!allCharsPassedCenter && allCharsCurrentlyPassedCenter)
         {
             allCharsPassedCenter = true;
 
-            if (totalTextWidth > billboardRect.rect.width / 2)
+            if (totalTextWidth > billboardRect.rect.width)
             {
                 RectTransform firstCharRect = charDataList[0].rectTransform;
                 leftLimit = firstCharRect.anchoredPosition.x;
@@ -138,3 +304,5 @@ public class TextEffect2 : MonoBehaviour
         public bool hasPassedCenter;
     }
 }
+*/
+
