@@ -25,10 +25,29 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
     public AudioSource playSong;
 
-    private void Start()
+    private void OnEnable()
     {
+        while (playSongListBox[GameManager.instance.songType].transform.position.y != songTypePos.position.y)
+        {
+            if (playSongListBox[GameManager.instance.songType].transform.position.y > songTypePos.position.y)
+            {
+                for (int i = 0; i < playSongListBox.Length; i++)
+                {
+                    playSongListBox[i].transform.position -= new Vector3(0, 180f, 0);
+                }
+            }
+            else if (playSongListBox[GameManager.instance.songType].transform.position.y < songTypePos.position.y)
+            {
+                for (int i = 0; i < playSongListBox.Length; i++)
+                {
+                    playSongListBox[i].transform.position += new Vector3(0, 180f, 0);
+                }
+            }
+        }
+        isMove = false; // 이동이 완료되면 isMove를 false로 설정
         PlaySong();
     }
+
     void Update()
     {
         for (int i = 0; i < playSongListBox.Length; i++)
@@ -182,4 +201,5 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
         }
         return rotationAngles[rotationAngles.Length - 1]; // 마지막 키프레임의 회전 각도 반환
     }
+
 }

@@ -10650,7 +10650,7 @@ MonoBehaviour:
   SongPos:
   - {fileID: 1331922477}
   - {fileID: 1447370905}
-  songTypePos: {fileID: 0}
+  songTypePos: {fileID: 1984577462}
   animationDuration_: 0.3
   animationDuration: 0.5
   rotationAngles:
