@@ -16,9 +16,13 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource bgm_player;
     public AudioSource sfx_player;
+    public AudioSource playSong_player;
 
+    public AudioClip bgm_audio_clips;
+    public AudioClip[] PlaySong_audio_clips;
     public AudioClip[] audio_clips;
 
+    //GameManager.instance.songType
     private void Awake()
     {
         //杭俘概聪历 教臂沛 积己
@@ -68,5 +72,17 @@ public class SoundManager : MonoBehaviour
 
         sfx_player.clip = audio_clips[index];
         sfx_player.Play();
+    }
+
+    public AudioSource PlayBgmSound(int i)
+    {
+        playSong_player.clip = PlaySong_audio_clips[i];
+        return playSong_player;
+    }
+
+    public AudioSource BgmSound()
+    {
+        bgm_player.clip = bgm_audio_clips;
+        return bgm_player;
     }
 }

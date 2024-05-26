@@ -23,9 +23,11 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     public GameObject SelectUp;
     public GameObject SelectDown;
 
+    public AudioSource playSong;
+
     private void Start()
     {
-        
+        PlaySong();
     }
     void Update()
     {
@@ -56,6 +58,24 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             ScrollUP();
         }
     }
+
+    void OnDisable()
+    {
+        StopSong();
+    }
+
+    public void PlaySong()
+    {
+        playSong = SoundManager.instance.PlayBgmSound(GameManager.instance.songType);
+        //BgmSong.time = 0;
+        playSong.Play();
+    }
+
+    public void StopSong()
+    {
+        playSong.Stop();
+    }
+
     public void ScrollDOWN()
     {
         for (int i = 0; i < playSongListBox.Length; i++)
@@ -74,6 +94,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             {
                 StartCoroutine(AnimateMovement(playSongListBox[i].transform, new Vector3(0, 180f, 0)));
             }
+            PlaySong();
         }
     }
     public void ScrollUP()
@@ -94,6 +115,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             {
                 StartCoroutine(AnimateMovement(playSongListBox[i].transform, new Vector3(0, -180f, 0)));
             }
+            PlaySong();
         }
     }
     

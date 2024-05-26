@@ -12,8 +12,11 @@ public class PlaySong : MonoBehaviour
     private void Awake()
     {
         gameObject.SetActive(true);
+        playSong = SoundManager.instance.PlayBgmSound(GameManager.instance.songType);
+        playSong.time = 0;
         isSongPlaying = true;
     }
+
     private void Update()
     {
         if(!playSong.isPlaying && !isSongPlaying && !GameManager.instance.isPause)

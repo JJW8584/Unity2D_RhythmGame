@@ -2169,7 +2169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca4a0bc0373b4d43ab82a9c2d9d3770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSong: {fileID: 982763762}
+  playSong: {fileID: 0}
 --- !u!61 &798635911
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ public class Click_Menu : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SoundManager.instance.PlaySound("Click");
-            Debug.Log("******************************************************************");
         }
     }
 
