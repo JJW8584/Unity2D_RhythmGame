@@ -59,6 +59,7 @@ public class Click_Menu : MonoBehaviour
     }
     public void ReStart()
     {
+        Time.timeScale = 1f;
         LoadingSceneManager.LoadScene("StartScene");
         GameManager.instance.isTutorial = false;
         GameManager.instance.GameManagerReset();
