@@ -242,7 +242,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e71ef403d4d9abb4a87fb983e5233e62, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b92fd2c0f1176c84cb0dabb13e23fbc8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1293,8 +1293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAudio: {fileID: 537231112}
-  filePath: X:\
-  fileName: song1.txt
+  filePath: D:\GitHub\Unity_RhythmGame\Assets\Resources
+  fileName: intoSpace0.txt
 --- !u!4 &2101979376
 Transform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70783f222b0c71440a082ff647835516
+guid: 31088a70c30df404f83f84f36eff6b99
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -63,9 +63,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: box_coin2_0
+      name: hpBar2_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 6
-        width: 249
-        height: 52
+        x: 214
+        y: 611
+        width: 1172
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c70adc4636c85824baa96eab0adcf74d
-      internalID: 2041903112
+      spriteID: a0f641f73daecd940948a291106b0ebc
+      internalID: 1870817064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hpBar2_1
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 419
+        width: 1172
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9190a339052e54ba1e5e09f59364a6
+      internalID: 1821771406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hpBar2_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 225
+        width: 1172
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f7f34e475c1f748b1690a3403cc147
+      internalID: 1380816428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hpBar2_3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 35
+        width: 1172
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27d2cdfd82ba4f4cbcfab57ba2bff47
+      internalID: 323461769
       vertices: []
       indices: 
       edges: []
@@ -128,7 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      box_coin2_0: 2041903112
+      hpBar2_0: 1870817064
+      hpBar2_1: 1821771406
+      hpBar2_2: 1380816428
+      hpBar2_3: 323461769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

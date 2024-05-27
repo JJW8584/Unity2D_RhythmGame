@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 //코드작성: 권지수
 public class PlayerController : MonoBehaviour
 {
+    public int MaxHP = 250;
+    public int HP;
+    public Image HPmeter;
     private float longNoteTime = 0.5f;  //롱노트 기준
     private float DoubleNoteTime = 0.3f; //더블 노트 기준
 
@@ -30,6 +33,9 @@ public class PlayerController : MonoBehaviour
         theTimingManager = FindObjectOfType<TimingManager>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        HP = MaxHP;
+        UpdateHealthBar();
     }
 
     void Update()
@@ -186,4 +192,28 @@ public class PlayerController : MonoBehaviour
     public void SetScratch0() { animator.SetBool("isScratch0", false); }
     public void SetUpperCut() { animator.SetBool("isUpperCut", false); }
     public void SetisNotBoth() { isNotBoth = true; }
+
+
+    void UpdateHealthBar()
+    {
+        HPmeter.fillAmount = (float)HP / (float)MaxHP;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        HP -= damage;
+        if (HP < 0)
+        {
+            HP = 0;
+        }
+        UpdateHealthBar();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Note0" || collision.gameObject.tag == "Note1" || collision.gameObject.tag == "DoubleNote")
+        {
+            TakeDamage(10);
+        }
+    }
 }

@@ -368,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4374525302621746882}
   - component: {fileID: 6786298502511046208}
-  - component: {fileID: -3868584485539354663}
+  - component: {fileID: 165685027943948496}
   m_Layer: 0
   m_Name: DoubleNote
   m_TagString: DoubleNote
@@ -408,9 +408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlPoints: []
-  speed: 1
---- !u!58 &-3868584485539354663
-CircleCollider2D:
+--- !u!70 &165685027943948496
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -438,9 +437,9 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
+  m_Offset: {x: 0.19203496, y: 0.45008194}
+  m_Size: {x: 0.5600109, y: 3.9585397}
+  m_Direction: 0

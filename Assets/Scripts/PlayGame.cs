@@ -78,7 +78,6 @@ public class PlayGame : MonoBehaviour
 
     private void SongPlay()
     {
-        Debug.Log("**************************8");
         GameObject note = NoteManager.instance.MakeObj("startNote");
         note.GetComponent<Note>().controlPoints = startNoteCurve;
         note.gameObject.transform.position = startNoteCurve[0].position;

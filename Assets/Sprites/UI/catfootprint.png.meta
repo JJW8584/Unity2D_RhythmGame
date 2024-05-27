@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70783f222b0c71440a082ff647835516
+guid: 079b8af80039b844db3b4cbf215a9615
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -63,9 +63,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -97,22 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: box_coin2_0
+      name: catfootprint_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 6
-        width: 249
-        height: 52
+        x: 46
+        y: 104
+        width: 500
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c70adc4636c85824baa96eab0adcf74d
-      internalID: 2041903112
+      spriteID: 18ee08cb6ffa1b142b230d7e8ff06509
+      internalID: 1162020177
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      box_coin2_0: 2041903112
+      catfootprint_0: 1162020177
+      catfootprint_1: 1729488019
+      catfootprint_2: 983822531
+      catfootprint_3: 1917735796
+      catfootprint_4: -1707760465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
