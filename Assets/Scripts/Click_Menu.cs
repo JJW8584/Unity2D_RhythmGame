@@ -48,6 +48,7 @@ public class Click_Menu : MonoBehaviour
     public void Tutorial()
     {
         LoadingSceneManager.LoadScene("TutorialScene");
+        GameManager.instance.isTutorial = true;
         GameManager.instance.GameManagerReset();
     }
     public void Retry()
@@ -59,6 +60,7 @@ public class Click_Menu : MonoBehaviour
     public void ReStart()
     {
         LoadingSceneManager.LoadScene("StartScene");
+        GameManager.instance.isTutorial = false;
         GameManager.instance.GameManagerReset();
     }
     public void EndBtn()

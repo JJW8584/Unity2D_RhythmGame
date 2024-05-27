@@ -740,7 +740,6 @@ MonoBehaviour:
   - {fileID: 16153101}
   - {fileID: 1384859827}
   - {fileID: 1384859827}
-  tutorialSet: {fileID: 0}
   songCtrl:
   - {fileID: 0}
   - {fileID: 0}
@@ -1443,7 +1442,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 187420236}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: PauseOn
+        m_MethodName: TutorialPauseOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3058,6 +3057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9849439010f1c4b96196ea85eb7808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHP: 250
+  HP: 0
+  HPmeter: {fileID: 0}
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1

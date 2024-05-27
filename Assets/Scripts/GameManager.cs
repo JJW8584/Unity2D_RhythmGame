@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int songType; //0~2까지 총 3개
     public int charType; //캐릭터 스킨
     public bool isPause;
+    public bool isTutorial;
 
     public int combo = 0;
 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TutorialManager : MonoBehaviour
 {
     public Transform[] upNoteCurve;
     public Transform[] downNoteCurve;
     public Transform[] DoubleNoteCurve;
-    public GameObject tutorialSet;
     public GameObject[] songCtrl;
     public TextMeshProUGUI tutorialText;
     public string[] startTextSet;
@@ -22,6 +22,7 @@ public class TutorialManager : MonoBehaviour
     private bool isUpNote;
     private bool isDownNote;
     private bool isDoubleNote;
+    private bool isEnding;
     private int textIndex;
     private float maxTextDelay;
     private float curTextDelay;
@@ -35,6 +36,7 @@ public class TutorialManager : MonoBehaviour
         isUpNote = false;
         isDownNote = false;
         isDoubleNote = false;
+        isEnding = false;
         maxTextDelay = 2f;
         curTextDelay = 2f;
         textIndex = 0;
@@ -59,6 +61,10 @@ public class TutorialManager : MonoBehaviour
         if(isDoubleNote)
         {
             DoubleNoteText();
+        }
+        if(isEnding)
+        {
+            TutorialExit();
         }
     }
 
@@ -136,7 +142,24 @@ public class TutorialManager : MonoBehaviour
         {
             tutorialText.text = "잘했다냥!!";
             isDoubleNote = false;
+            isEnding = true;
             GameManager.instance.GameManagerReset();
+            curTextDelay = 0f;
+        }
+    }
+    void TutorialExit()
+    {
+        curTextDelay += Time.deltaTime;
+        if (curTextDelay >= maxTextDelay)
+        {
+            tutorialText.text = endingTextSet[textIndex++];
+            curTextDelay = 0f;
+            if (textIndex >= endingTextSet.Length)
+            {
+                GameManager.instance.isTutorial = false;
+                GameManager.instance.GameManagerReset();
+                LoadingSceneManager.LoadScene("StartScene");
+            }
         }
     }
 }

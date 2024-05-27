@@ -34,8 +34,11 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-        HP = MaxHP;
-        UpdateHealthBar();
+        if (!GameManager.instance.isTutorial)
+        {
+            HP = MaxHP;
+            UpdateHealthBar();
+        }
     }
 
     void Update()
@@ -211,9 +214,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Note0" || collision.gameObject.tag == "Note1" || collision.gameObject.tag == "DoubleNote")
+        if (!GameManager.instance.isTutorial)
         {
-            TakeDamage(10);
+            if (collision.gameObject.tag == "Note0" || collision.gameObject.tag == "Note1" || collision.gameObject.tag == "DoubleNote")
+            {
+                TakeDamage(10);
+            }
         }
+        
     }
 }
