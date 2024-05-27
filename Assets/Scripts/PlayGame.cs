@@ -144,7 +144,7 @@ public class PlayGame : MonoBehaviour
         {
             //톱니바퀴 생성
             note = NoteManager.instance.MakeObj("wheel");
-            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
+            //theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
             note.gameObject.transform.position = new Vector2(10f, 0);
             note.GetComponent<Note>().controlPoints = wheelCurve;
         }

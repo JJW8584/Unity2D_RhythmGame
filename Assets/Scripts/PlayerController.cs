@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
     public void SetScratch0() { animator.SetBool("isScratch0", false); }
     public void SetUpperCut() { animator.SetBool("isUpperCut", false); }
     public void SetisNotBoth() { isNotBoth = true; }
+    public void SetHit() { animator.SetBool("isHit", false); }
 
 
     void UpdateHealthBar()
@@ -216,9 +217,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!GameManager.instance.isTutorial)
         {
-            if (collision.gameObject.tag == "Note0" || collision.gameObject.tag == "Note1" || collision.gameObject.tag == "DoubleNote")
+            if (collision.gameObject.tag == "Note0" || collision.gameObject.tag == "Note1" || collision.gameObject.tag == "DoubleNote" || collision.gameObject.tag == "Wheel")
             {
                 TakeDamage(10);
+                animator.SetBool("isHit", true);
             }
         }
         

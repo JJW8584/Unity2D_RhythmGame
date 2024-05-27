@@ -1352,7 +1352,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e71ef403d4d9abb4a87fb983e5233e62, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b92fd2c0f1176c84cb0dabb13e23fbc8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2558,7 +2558,7 @@ MonoBehaviour:
   - {fileID: 1150054628}
   - {fileID: 663540853}
   - {fileID: 663540853}
-  songName: Song1
+  songName: intoSpace0
   notePos0: {fileID: 312620944}
   notePos1: {fileID: 1093168937}
   playSong: {fileID: 326684979}
@@ -2973,7 +2973,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e71ef403d4d9abb4a87fb983e5233e62, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b92fd2c0f1176c84cb0dabb13e23fbc8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
