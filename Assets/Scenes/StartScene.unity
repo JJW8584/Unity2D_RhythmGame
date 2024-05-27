@@ -1563,6 +1563,7 @@ MonoBehaviour:
   songType: 0
   charType: 0
   isPause: 0
+  isTutorial: 0
   combo: 0
 --- !u!4 &259621707
 Transform:
@@ -5505,6 +5506,7 @@ MonoBehaviour:
   note0Prefab: {fileID: 4318430448127856298, guid: 8de7a49c93b1cd84ead43baa7c529fc6, type: 3}
   note1Prefab: {fileID: 6635835946174018196, guid: f7798135b6fb71946bf2a196978c0654, type: 3}
   doubleNotePrefab: {fileID: 8167733650416257599, guid: 0aeef78f14c71f240a5e180b438c03a6, type: 3}
+  wheelPrefab: {fileID: 6635835946174018196, guid: b1f0b7416d038134a97736b3d5fbf632, type: 3}
   longNoteFrontPrefab: {fileID: 2602179032961931478, guid: 260d613383fdd74409e2ba3341c2a443, type: 3}
   longNoteMidPrefab: {fileID: 3085188956813503315, guid: c9e4f04b75b528146ab38430ffddb944, type: 3}
   longNoteEndPrefab: {fileID: 8248195307137480574, guid: 1622ae96116d4c243a975c9bbbe5fc3c, type: 3}

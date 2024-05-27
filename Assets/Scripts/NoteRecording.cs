@@ -20,6 +20,7 @@ public class NoteRecording : MonoBehaviour
                                                          //노트종류 0 : 단일노트
                                                          //         1 : 동시노트
                                                          //         2 : 롱노트
+                                                         //         3 : 톱니바퀴
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,11 @@ public class NoteRecording : MonoBehaviour
         {
             audioCurTime3 = mAudio.time;
             noteSet.Add(Tuple.Create(audioCurTime3, 1, 0, 0f));
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            audioCurTime3 = mAudio.time;
+            noteSet.Add(Tuple.Create(audioCurTime3, 0, 3, 0f));
         }
         //롱노트 입력
         if(Input.GetKeyDown(KeyCode.G))

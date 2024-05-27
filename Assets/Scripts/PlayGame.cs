@@ -10,6 +10,7 @@ public class PlayGame : MonoBehaviour
     public Transform[] upNoteCurve;
     public Transform[] downNoteCurve;
     public Transform[] doubleNoteCurve;
+    public Transform[] wheelCurve;
 
     //노트 정보 저장
     private List<Tuple<float, int, int, float>> noteData;
@@ -101,6 +102,9 @@ public class PlayGame : MonoBehaviour
                         break;
                     case 2: //롱노트
                         break;
+                    case 3: //톱니바퀴
+                        CreateNote(noteData[i].Item2, noteData[i].Item3);
+                        break;
                 }
                 break;
             }
@@ -135,6 +139,14 @@ public class PlayGame : MonoBehaviour
             theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
             note.gameObject.transform.position = new Vector2(10f, 0);
             note.GetComponent<Note>().controlPoints = doubleNoteCurve;
+        }
+        else if(noteType == 3) 
+        {
+            //톱니바퀴 생성
+            note = NoteManager.instance.MakeObj("wheel");
+            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
+            note.gameObject.transform.position = new Vector2(10f, 0);
+            note.GetComponent<Note>().controlPoints = wheelCurve;
         }
     }
 }

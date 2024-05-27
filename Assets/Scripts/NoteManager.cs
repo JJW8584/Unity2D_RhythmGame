@@ -14,6 +14,7 @@ public class NoteManager : MonoBehaviour
     public GameObject note0Prefab;
     public GameObject note1Prefab;
     public GameObject doubleNotePrefab;
+    public GameObject wheelPrefab;
     public GameObject longNoteFrontPrefab;
     public GameObject longNoteMidPrefab;
     public GameObject longNoteEndPrefab;
@@ -25,6 +26,7 @@ public class NoteManager : MonoBehaviour
     GameObject[] note0;
     GameObject[] note1;
     GameObject[] doubleNote;
+    GameObject[] wheel;
     GameObject[] longNoteFront;
     GameObject[] longNoteMid;
     GameObject[] longNoteEnd;
@@ -50,6 +52,7 @@ public class NoteManager : MonoBehaviour
         note0 = new GameObject[40];
         note1 = new GameObject[40];
         doubleNote = new GameObject[30];
+        wheel = new GameObject[30];
         longNoteFront = new GameObject[5];
         longNoteMid = new GameObject[30];
         longNoteEnd = new GameObject[5];
@@ -76,6 +79,11 @@ public class NoteManager : MonoBehaviour
         {
             doubleNote[i] = Instantiate(doubleNotePrefab);
             doubleNote[i].SetActive(false);
+        }
+        for (int i = 0; i < wheel.Length; i++)
+        {
+            wheel[i] = Instantiate(wheelPrefab);
+            wheel[i].SetActive(false);
         }
         for (int i = 0; i < longNoteFront.Length; i++)
         {
@@ -127,6 +135,9 @@ public class NoteManager : MonoBehaviour
             case "doubleNote":
                 targetPool = doubleNote;
                 break;
+            case "wheel":
+                targetPool = wheel;
+                break;
             case "longNoteFront":
                 targetPool = longNoteFront;
                 break;
@@ -165,7 +176,7 @@ public class NoteManager : MonoBehaviour
 
     public void ResetPool()
     {
-        for (int j = 1; j < 8; j++)
+        for (int j = 1; j < 9; j++)
         {
             switch (j)
             {
@@ -189,6 +200,9 @@ public class NoteManager : MonoBehaviour
                     break;
                 case 7:
                     targetPool = startNote;
+                    break;
+                case 8:
+                    targetPool = wheel;
                     break;
             }
             for (int i = 0; i < targetPool.Length; i++)
