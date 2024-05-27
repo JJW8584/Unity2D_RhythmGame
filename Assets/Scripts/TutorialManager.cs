@@ -25,6 +25,7 @@ public class TutorialManager : MonoBehaviour
     private bool isEnding;
     private int textIndex;
     private float maxTextDelay;
+    private float noteDelay;
     private float curTextDelay;
 
     TimingManager theTimingManager;
@@ -39,6 +40,7 @@ public class TutorialManager : MonoBehaviour
         isEnding = false;
         maxTextDelay = 2f;
         curTextDelay = 2f;
+        noteDelay = 4f;
         textIndex = 0;
         GameManager.instance.GameManagerReset();
     }
@@ -75,12 +77,12 @@ public class TutorialManager : MonoBehaviour
         {
             tutorialText.text = startTextSet[textIndex++];
             curTextDelay = 0f;
-            if (textIndex >= startTextSet.Length)
+            if (textIndex >= 1)//startTextSet.Length)
             {
                 textIndex = 0;
                 isTutorial = false;
                 isUpNote = true;
-                curTextDelay = 5f;
+                curTextDelay = noteDelay;
                 GameManager.instance.GameManagerReset();
             }
         }
@@ -88,34 +90,34 @@ public class TutorialManager : MonoBehaviour
     void UpNoteText()
     {
         curTextDelay += Time.deltaTime;
-        if(curTextDelay >= 5f)
+        if(curTextDelay >= noteDelay)
         {
             Debug.Log("UpNote");
             tutorialText.text = upNoteText;
             curTextDelay = 0f;
             GameObject note = NoteManager.instance.MakeObj("note0");
-            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
             note.GetComponent<Note>().controlPoints = upNoteCurve;
+            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
         }
         if(GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
         {
             tutorialText.text = "잘했다냥!!";
             isUpNote = false;
             isDownNote = true;
-            curTextDelay = 3f;
+            curTextDelay = noteDelay - 1f;
             GameManager.instance.GameManagerReset();
         }
     }
     void DownNoteText()
     {
         curTextDelay += Time.deltaTime;
-        if (curTextDelay >= 5f)
+        if (curTextDelay >= noteDelay)
         {
             tutorialText.text = downNoteText;
             curTextDelay = 0f;
             GameObject note = NoteManager.instance.MakeObj("note1");
-            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
             note.GetComponent<Note>().controlPoints = downNoteCurve;
+            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
         }
         if (GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
         {
@@ -123,20 +125,20 @@ public class TutorialManager : MonoBehaviour
             tutorialText.text = "잘했다냥!!";
             isDownNote = false;
             isDoubleNote = true;
-            curTextDelay = 3f;
+            curTextDelay = noteDelay - 1f;
             GameManager.instance.GameManagerReset();
         }
     }
     void DoubleNoteText()
     {
         curTextDelay += Time.deltaTime;
-        if (curTextDelay >= 5f)
+        if (curTextDelay >= noteDelay)
         {
             tutorialText.text = doubleNoteText;
             curTextDelay = 0f;
             GameObject note = NoteManager.instance.MakeObj("doubleNote");
-            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
             note.GetComponent<Note>().controlPoints = DoubleNoteCurve;
+            theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
         }
         if (GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
         {
