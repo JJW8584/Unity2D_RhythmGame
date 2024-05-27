@@ -97,6 +97,7 @@ public class TutorialManager : MonoBehaviour
             curTextDelay = 0f;
             GameObject note = NoteManager.instance.MakeObj("note0");
             note.GetComponent<Note>().controlPoints = upNoteCurve;
+            note.gameObject.transform.position = upNoteCurve[0].position;
             theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
         }
         if(GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
@@ -117,6 +118,7 @@ public class TutorialManager : MonoBehaviour
             curTextDelay = 0f;
             GameObject note = NoteManager.instance.MakeObj("note1");
             note.GetComponent<Note>().controlPoints = downNoteCurve;
+            note.gameObject.transform.position = downNoteCurve[0].position;
             theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
         }
         if (GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
@@ -138,6 +140,7 @@ public class TutorialManager : MonoBehaviour
             curTextDelay = 0f;
             GameObject note = NoteManager.instance.MakeObj("doubleNote");
             note.GetComponent<Note>().controlPoints = DoubleNoteCurve;
+            note.gameObject.transform.position = DoubleNoteCurve[0].position;
             theTimingManager.boxNoteList.Add(note); //타이밍 리스트에 추가
         }
         if (GameManager.instance.perfectCnt > 0 || GameManager.instance.goodCnt > 0)
