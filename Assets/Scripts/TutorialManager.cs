@@ -77,7 +77,7 @@ public class TutorialManager : MonoBehaviour
         {
             tutorialText.text = startTextSet[textIndex++];
             curTextDelay = 0f;
-            if (textIndex >= 1)//startTextSet.Length)
+            if (textIndex >= startTextSet.Length)
             {
                 textIndex = 0;
                 isTutorial = false;
