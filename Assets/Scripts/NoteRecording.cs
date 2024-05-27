@@ -35,26 +35,31 @@ public class NoteRecording : MonoBehaviour
         //단일노트 입력
         if(Input.GetKeyDown(KeyCode.D))
         {
+            Debug.Log("위노트");
             audioCurTime0 = mAudio.time;
             noteSet.Add(Tuple.Create(audioCurTime0, 0, 0, 0f));
         }
         if(Input.GetKeyDown(KeyCode.F))
         {
+            Debug.Log("위노트");
             audioCurTime1 = mAudio.time;
             noteSet.Add(Tuple.Create(audioCurTime1, 0, 0, 0f));
         }
         if(Input.GetKeyDown(KeyCode.J))
         {
+            Debug.Log("아래노트");
             audioCurTime2 = mAudio.time;
             noteSet.Add(Tuple.Create(audioCurTime2, 1, 0, 0f));
         }
         if(Input.GetKeyDown(KeyCode.K))
         {
+            Debug.Log("아래노트");
             audioCurTime3 = mAudio.time;
             noteSet.Add(Tuple.Create(audioCurTime3, 1, 0, 0f));
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("장애물");
             audioCurTime3 = mAudio.time;
             noteSet.Add(Tuple.Create(audioCurTime3, 0, 3, 0f));
         }
@@ -77,6 +82,7 @@ public class NoteRecording : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
+            Debug.Log("***************저장");
             noteSet.Sort();
             RecordNote();
         }
