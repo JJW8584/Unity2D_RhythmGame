@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 //코드작성 : 권지수
 public class Click_Menu : MonoBehaviour
@@ -42,7 +37,21 @@ public class Click_Menu : MonoBehaviour
     //시작
     public void startButton()
     {
-        LoadingSceneManager.LoadScene("PlayScene_0");
+        switch(GameManager.instance.songType)
+        {
+            case 0:
+                LoadingSceneManager.LoadScene("PlayScene_0");
+                break;
+            case 1:
+                LoadingSceneManager.LoadScene("PlayScene_1");
+                break;
+            case 2:
+                LoadingSceneManager.LoadScene("PlayScene_2");
+                break;
+            case 3:
+                LoadingSceneManager.LoadScene("PlayScene_3");
+                break;
+        }
     }
     public void CharacterSelectLeft()
     {

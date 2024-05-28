@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayScene_0.unity
     guid: 7b5dc2b646f63b24da707259bb520fe5
   - enabled: 1
+    path: Assets/Scenes/PlayScene_1.unity
+    guid: 8a5ddcf160286c6428c1bb7debd1defd
+  - enabled: 1
+    path: Assets/Scenes/PlayScene_2.unity
+    guid: cbf0f65cd9dc72d4381be252d77ed2a0
+  - enabled: 1
+    path: Assets/Scenes/PlayScene_3.unity
+    guid: 5579ab30217435146b4474ef2e789212
+  - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: ffc0f69fc96e99847a9cb92f0dfedf3d
   - enabled: 1
