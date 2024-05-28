@@ -42,7 +42,21 @@ public class Click_Menu : MonoBehaviour
     //Ω√¿€
     public void startButton()
     {
-        LoadingSceneManager.LoadScene("PlayScene_0");
+        switch(GameManager.instance.songType)
+        {
+            case 0:
+                LoadingSceneManager.LoadScene("PlayScene_0");
+                break;
+            case 1:
+                LoadingSceneManager.LoadScene("PlayScene_1");
+                break;
+            case 2:
+                LoadingSceneManager.LoadScene("PlayScene_2");
+                break;
+            case 3:
+                LoadingSceneManager.LoadScene("PlayScene_3");
+                break;
+        }
     }
     public void CharacterSelectLeft()
     {
