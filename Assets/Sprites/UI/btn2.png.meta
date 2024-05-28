@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c30a5111c4158c149a336535e7464197
+guid: 634cd955505652e4f9f4d857bca60f61
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hpBar2_0
+      name: btn2_1
       rect:
         serializedVersion: 2
-        x: 214
-        y: 611
-        width: 1172
-        height: 156
+        x: 662
+        y: 418
+        width: 158
+        height: 203
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17fc9acaa900e1c43a3fe67d1ac5efb0
-      internalID: -683890727
+      spriteID: 8725838a7ebc0ab49b0e456cb6eb9d6b
+      internalID: 900976937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hpBar2_1
+      name: btn2_2
       rect:
         serializedVersion: 2
-        x: 219
-        y: 419
-        width: 1172
-        height: 156
+        x: 955
+        y: 428
+        width: 212
+        height: 214
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f20af28eec782e0419e9766f97bbbe97
-      internalID: 1749826817
+      spriteID: 52705b7ab375b154aae2f2bde02f4559
+      internalID: 2101342422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hpBar2_2
+      name: btn2_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 225
-        width: 1172
-        height: 156
+        x: 120
+        y: 188
+        width: 219
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6df92c808e61f408ef90aaa8832935
-      internalID: -1069029337
+      spriteID: 099cd99f7eda50d49a4a2cb415a5af1f
+      internalID: 160510379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hpBar2_3
+      name: btn2_4
       rect:
         serializedVersion: 2
-        x: 217
-        y: 35
-        width: 1172
-        height: 156
+        x: 585
+        y: 98
+        width: 192
+        height: 219
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b892d6d58caee904b96b3196fac5bf64
-      internalID: 1831179311
+      spriteID: 5b53798486218424fba44cf43e447719
+      internalID: -1823015407
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hpBar2_0: -683890727
-      hpBar2_1: 1749826817
-      hpBar2_2: -1069029337
-      hpBar2_3: 1831179311
+      btn2_0: 1384387167
+      btn2_1: 900976937
+      btn2_2: 2101342422
+      btn2_3: 160510379
+      btn2_4: -1823015407
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

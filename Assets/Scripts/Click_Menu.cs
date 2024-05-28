@@ -18,6 +18,17 @@ public class Click_Menu : MonoBehaviour
             SoundManager.instance.PlaySound("Click");
         }
     }
+    public void total_btn_clicked()
+    {
+        if (!Menu.activeSelf)
+        {
+            Menu.SetActive(true);
+        }
+        else if (Menu.activeSelf)
+        {
+            Menu.SetActive(false);
+        }
+    }
 
     public void btn_clicked()
     {
