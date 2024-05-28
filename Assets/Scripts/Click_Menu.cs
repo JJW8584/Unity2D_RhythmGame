@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 //코드작성 : 권지수
 public class Click_Menu : MonoBehaviour
