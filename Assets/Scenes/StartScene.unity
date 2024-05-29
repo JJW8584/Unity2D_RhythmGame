@@ -7750,10 +7750,10 @@ MonoBehaviour:
   playSong_player: {fileID: 234262342}
   bgm_audio_clips: {fileID: 8300000, guid: 8b11853c549463f49bb03344cee837ed, type: 3}
   PlaySong_audio_clips:
-  - {fileID: 8300000, guid: e71ef403d4d9abb4a87fb983e5233e62, type: 3}
+  - {fileID: 8300000, guid: f0775eeff0bbf624e970b27a40e35dea, type: 3}
   - {fileID: 8300000, guid: e79870652612d62489aec451eda713b4, type: 3}
   - {fileID: 8300000, guid: b92fd2c0f1176c84cb0dabb13e23fbc8, type: 3}
-  - {fileID: 8300000, guid: 2df680648d0c7f94eae3e3e8e8ed68a6, type: 3}
+  - {fileID: 8300000, guid: 715d7e3bb00d44e4c81770cc0eac69e6, type: 3}
   audio_clips:
   - {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
   - {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
