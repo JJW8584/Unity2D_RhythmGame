@@ -74,7 +74,21 @@ public class Click_Menu : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
-        LoadingSceneManager.LoadScene("PlayScene_0");
+        switch (GameManager.instance.songType)
+        {
+            case 0:
+                LoadingSceneManager.LoadScene("PlayScene_0");
+                break;
+            case 1:
+                LoadingSceneManager.LoadScene("PlayScene_1");
+                break;
+            case 2:
+                LoadingSceneManager.LoadScene("PlayScene_2");
+                break;
+            case 3:
+                LoadingSceneManager.LoadScene("PlayScene_3");
+                break;
+        }
         GameManager.instance.GameManagerReset();
     }
     public void ReStart()
