@@ -2474,7 +2474,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0.1
+  m_EdgeRadius: 0.5
 --- !u!212 &798635912
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2799,7 +2799,7 @@ MonoBehaviour:
   - {fileID: 1150054628}
   - {fileID: 663540853}
   - {fileID: 663540853}
-  songName: intoSpace0
+  songName: game time
   notePos0: {fileID: 312620944}
   notePos1: {fileID: 1093168937}
   playSong: {fileID: 283511485}
