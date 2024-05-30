@@ -31,4 +31,9 @@ public class PlaySong : MonoBehaviour
             isSongPlaying = false;
         }
     }
+
+    public void SongStop()
+    {
+        playSong.Stop();
+    }
 }

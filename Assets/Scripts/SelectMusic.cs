@@ -22,6 +22,13 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
     public AudioSource playSong;
 
+    Click_Menu Click_Menu;
+
+    void Start()
+    {
+        Click_Menu = FindObjectOfType<Click_Menu>();
+    }
+
     private void OnEnable()
     {
         while (playSongListBox[GameManager.instance.songType].transform.position.y != songTypePos.position.y)
@@ -72,6 +79,11 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             isUp = false;
             // 휠을 밀어 돌렸을 때의 처리 ↑
             ScrollUP();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Click_Menu.startButton();
         }
     }
 

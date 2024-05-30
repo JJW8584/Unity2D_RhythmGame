@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool isNotBoth = true;
 
     TimingManager theTimingManager;
+    PlaySong PlaySong;
     Animator animator;
     AudioSource audioSource;
     public AudioClip JumpSound;
@@ -28,13 +29,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
+        PlaySong = FindObjectOfType<PlaySong>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
         if (!GameManager.instance.isTutorial)
         {
             HP = MaxHP;
-            UpdateHealthBar();
+            HPmeter.fillAmount = (float)HP / (float)MaxHP;
         }
     }
 
@@ -118,6 +120,13 @@ public class PlayerController : MonoBehaviour
                 isClicked_1 = false;
                 elapsedTime_1 = 0.0f;
             }
+            if (HP <= 0)
+            {
+                PlaySong.SongStop();
+                LoadingSceneManager.LoadScene("EndingScene");
+            }
+
+            UpdateHealthBar();
         }
     }
 
@@ -197,7 +206,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        HPmeter.fillAmount = (float)HP / (float)MaxHP;
+        HPmeter.fillAmount = Mathf.Lerp(HPmeter.fillAmount, (float)HP / (float)MaxHP, Time.deltaTime*20);
     }
 
     public void TakeDamage(int damage)
@@ -207,7 +216,6 @@ public class PlayerController : MonoBehaviour
         {
             HP = 0;
         }
-        UpdateHealthBar();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
