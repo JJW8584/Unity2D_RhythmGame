@@ -31,7 +31,6 @@ public class Score : MonoBehaviour
         badCount.text = string.Format("{0:n0}", GameManager.instance.badCnt);
         missCount.text = string.Format("{0:n0}", GameManager.instance.missCnt);
         StartCoroutine(ScoreText());
-        score.text = string.Format("{0:D7}", GameManager.instance.score);
         if (GameManager.instance.score >= GameManager.instance.maxScore * 95 / 10)
             Rank.text = "SS";
         else if(GameManager.instance.score >= GameManager.instance.maxScore * 9)
@@ -61,6 +60,7 @@ public class Score : MonoBehaviour
             }
             yield return null;
         }
+        score.text = string.Format("{0:D7}", GameManager.instance.score);
         yield return null;
     }
 }
