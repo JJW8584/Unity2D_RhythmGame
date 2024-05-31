@@ -23,6 +23,7 @@ public class Score : MonoBehaviour
         curTextDelay = 0f;
         maxScoreDelay = 1f;
         curScoreDelay = 0f;
+        Rank.GetComponent<Transform>().localScale = new Vector3(0, 0, 0);
     }
     private void Start()
     {
@@ -30,7 +31,6 @@ public class Score : MonoBehaviour
         goodCount.text = string.Format("{0:n0}", GameManager.instance.goodCnt);
         badCount.text = string.Format("{0:n0}", GameManager.instance.badCnt);
         missCount.text = string.Format("{0:n0}", GameManager.instance.missCnt);
-        StartCoroutine(ScoreText());
         if (GameManager.instance.score >= GameManager.instance.maxScore * 95 / 10)
             Rank.text = "SS";
         else if(GameManager.instance.score >= GameManager.instance.maxScore * 9)
@@ -45,6 +45,8 @@ public class Score : MonoBehaviour
             Rank.text = "D";
         else
             Rank.text = "F";
+
+        StartCoroutine(ScoreText());
     }
     IEnumerator ScoreText()
     {
@@ -61,6 +63,16 @@ public class Score : MonoBehaviour
             yield return null;
         }
         score.text = string.Format("{0:D7}", GameManager.instance.score);
-        yield return null;
+
+        Transform rankTrans = Rank.GetComponent<Transform>();
+        float _time = 0;
+        while (true)
+        {
+            _time += Time.deltaTime;
+            if (_time > 1f)
+                break;
+            rankTrans.localScale = new Vector3(Mathf.Lerp(0f, 1f, _time), Mathf.Lerp(0f, 1f, _time), 0);
+            yield return null;
+        }
     }
 }
