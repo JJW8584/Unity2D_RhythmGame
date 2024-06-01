@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,9 +28,12 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         Click_Menu = FindObjectOfType<Click_Menu>();
+        GameManager.instance.firstSong = 0;
+        GameManager.instance.lastSong = playSongListBox.Length - 1;
+        setting();
     }
 
-    private void OnEnable()
+    private void setting()
     {
         while (playSongListBox[GameManager.instance.songType].transform.position.y != songTypePos.position.y)
         {
@@ -39,12 +43,30 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
                 {
                     playSongListBox[i].transform.position -= new Vector3(0, 180f, 0);
                 }
+                if(GameManager.instance.firstSong == GameManager.instance.songType)
+                {
+                    for (int i = 0; i < playSongListBox.Length; i++)
+                    {
+                        playSongListBox[GameManager.instance.lastSong].transform.position += new Vector3(0, 180f, 0);
+                    }
+                    GameManager.instance.firstSong = GameManager.instance.lastSong;
+                    GameManager.instance.lastSong = --GameManager.instance.lastSong < 0 ? playSongListBox.Length - 1 : GameManager.instance.lastSong;
+                }
             }
             else if (playSongListBox[GameManager.instance.songType].transform.position.y < songTypePos.position.y)
             {
                 for (int i = 0; i < playSongListBox.Length; i++)
                 {
                     playSongListBox[i].transform.position += new Vector3(0, 180f, 0);
+                }
+                if (GameManager.instance.lastSong == GameManager.instance.songType)
+                {
+                    for (int i = 0; i < playSongListBox.Length; i++)
+                    {
+                        playSongListBox[GameManager.instance.firstSong].transform.position -= new Vector3(0, 180f, 0);
+                    }
+                    GameManager.instance.lastSong = GameManager.instance.firstSong;
+                    GameManager.instance.firstSong = ++GameManager.instance.firstSong > playSongListBox.Length - 1 ? 0 : GameManager.instance.firstSong;
                 }
             }
         }
@@ -54,7 +76,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
-        for (int i = 0; i < playSongListBox.Length; i++)
+        /*for (int i = 0; i < playSongListBox.Length; i++)
         {
             if (playSongListBox[i].transform.position.y >= SongPos[0].position.y || playSongListBox[i].transform.position.y <= SongPos[1].position.y)
             {
@@ -64,7 +86,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             {
                 playSongListBox[i].SetActive(true);
             }
-        }
+        }*/
 
         float wheelInput = Input.GetAxis("Mouse ScrollWheel");
 
@@ -106,18 +128,24 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
     public void ScrollDOWN()
     {
-        for (int i = 0; i < playSongListBox.Length; i++)
-        {
-            StartCoroutine(AnimateShake(uiImageArray[i]));
-        }
-        if (playSongListBox[playSongListBox.Length - 3].transform.position.y >= SongPos[0].position.y)
-        {
-            return;
-        }
         if (isMove == false)
         {
             isMove = true;
+            if (playSongListBox[GameManager.instance.lastSong].transform.position.y == SongPos[1].position.y)
+            {
+                for (int i = 0; i < playSongListBox.Length; i++)
+                {
+                    playSongListBox[GameManager.instance.firstSong].transform.position -= new Vector3(0, 180f, 0);
+                }
+                GameManager.instance.lastSong = GameManager.instance.firstSong;
+                GameManager.instance.firstSong = ++GameManager.instance.firstSong > playSongListBox.Length - 1 ? 0 : GameManager.instance.firstSong;
+            }
+            for (int i = 0; i < playSongListBox.Length; i++)
+            {
+                StartCoroutine(AnimateShake(uiImageArray[i]));
+            }
             GameManager.instance.songType = ++GameManager.instance.songType > playSongListBox.Length - 1 ? 0 : GameManager.instance.songType;
+            
             for (int i = 0; i < playSongListBox.Length; i++)
             {
                 StartCoroutine(AnimateMovement(playSongListBox[i].transform, new Vector3(0, 180f, 0)));
@@ -127,17 +155,22 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     }
     public void ScrollUP()
     {
-        for (int i = 0; i < playSongListBox.Length; i++)
-        {
-            StartCoroutine(AnimateShake(uiImageArray[i]));
-        }
-        if (playSongListBox[2].transform.position.y <= SongPos[1].position.y)
-        {
-            return;
-        }
         if (isMove == false)
         {
             isMove = true;
+            if (playSongListBox[GameManager.instance.firstSong].transform.position.y == SongPos[0].position.y)
+            {
+                for (int i = 0; i < playSongListBox.Length; i++)
+                {
+                    playSongListBox[GameManager.instance.lastSong].transform.position += new Vector3(0, 180f, 0);
+                }
+                GameManager.instance.firstSong = GameManager.instance.lastSong;
+                GameManager.instance.lastSong = --GameManager.instance.lastSong < 0 ? playSongListBox.Length - 1 : GameManager.instance.lastSong;
+            }
+            for (int i = 0; i < playSongListBox.Length; i++)
+            {
+                StartCoroutine(AnimateShake(uiImageArray[i]));
+            }
             GameManager.instance.songType = --GameManager.instance.songType < 0 ? playSongListBox.Length - 1 : GameManager.instance.songType;
             for (int i = 0; i < playSongListBox.Length; i++)
             {

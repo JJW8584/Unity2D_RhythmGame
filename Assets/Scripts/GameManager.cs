@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public float speed;
     public int songType; //0~3까지 총 4개
+    public int firstSong;
+    public int lastSong;
     public int charType; //캐릭터 스킨
     public bool isPause;
     public bool isTutorial;
