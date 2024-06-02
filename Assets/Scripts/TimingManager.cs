@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//�ڵ��ۼ�: ������
+
 public class TimingManager : MonoBehaviour
 {
     CreateParticle CreateParticle;
     PlayerController playerController;
 
-    public List<GameObject> boxNoteList = new List<GameObject>();   //NoteManager ���� ������ ��Ʈ ���
+    public List<GameObject> boxNoteList = new List<GameObject>(); 
 
-    [SerializeField] Transform center = null; // ���� ������ �߽�
-    [SerializeField] Transform center1 = null; // ���� ������ �߽�
-    float centerValue = 0f; //���� �߰���
-    [SerializeField] GameObject[] timingRect = null; // �پ��� ���� ����
-    Vector2[] timingBoxs = null; // ���� ���� �ּҰ� x, �ִ밪 y
+    [SerializeField] Transform center = null;
+    [SerializeField] Transform center1 = null; 
+    float centerValue = 0f;
+    [SerializeField] GameObject[] timingRect = null;
+    Vector2[] timingBoxs = null;
     
     public GameObject[] charSet;
 
@@ -54,15 +54,20 @@ public class TimingManager : MonoBehaviour
 
         if (boxNoteList.Count != 0)
         {
-            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //��Ʈ ��ġ
-            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //��Ʈ ��ġ
-            if (t_notePosX < timingBoxs[2].x) //bad�� �����
+            float t_notePosX = boxNoteList[0].transform.localPosition.x; 
+            float t_notePosY = boxNoteList[0].transform.localPosition.y;  
+            if (t_notePosX < timingBoxs[2].x) 
             {
-                boxNoteList.RemoveAt(0);    //����Ʈ���� ����
+                boxNoteList.RemoveAt(0);   
                 GameManager.instance.combo = 0;
                 ++GameManager.instance.missCnt;
+                playerController.isNote = false;
                 playerController.isNotBoth = true;
                 //Debug.Log("miss");
+            }
+            if(timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y)
+            {
+                playerController.isNote = true;
             }
             if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)   //동시노트 확인
             {
@@ -75,8 +80,8 @@ public class TimingManager : MonoBehaviour
     {
         if (boxNoteList.Count != 0)
         {
-            float t_notePosX = boxNoteList[0].transform.localPosition.x;    //��Ʈ ��ġ
-            float t_notePosY = boxNoteList[0].transform.localPosition.y;    //��Ʈ ��ġ
+            float t_notePosX = boxNoteList[0].transform.localPosition.x;   
+            float t_notePosY = boxNoteList[0].transform.localPosition.y;  
 
             // ���� ���� : Perfect -> Good -> Bad
             for (int j = 0; j < timingBoxs.Length; j++)

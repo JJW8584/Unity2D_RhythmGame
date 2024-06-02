@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool isClicked_1 = false;
 
     public bool isNotBoth = true;
+    public bool isNote = false;
 
     TimingManager theTimingManager;
     PlaySong PlaySong;
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
                     SoundManager.instance.PlaySound("JUMP");
                 //PlaySound("JUMP");
                 theTimingManager.CheckTiming0(); // 판정 체크
-                attackMotion0();
+                Motion(0);
             }
             if (isClicked_0 == true) //롱노트
             {
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
                     //Debug.Log("동시입력");
                     //PlaySound("JUMP");
                     theTimingManager.CheckTiming_Both();
-                    attackMotionBoth();
+                    Motion(2);
                 }
                 if (longNoteTime < elapsedTime_0)
                 {
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
                     SoundManager.instance.PlaySound("JUMP");
                 //PlaySound("JUMP");
                 theTimingManager.CheckTiming1(); // 판정 체크
-                attackMotion();
+                Motion(1);
             }
             if (isClicked_1 == true) //롱노트
             {
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour
                     //Debug.Log("동시입력");
                     //PlaySound("JUMP");
                     theTimingManager.CheckTiming_Both();
-                    attackMotionBoth();
+                    Motion(2);
                 }
                 if (longNoteTime < elapsedTime_1)
                 {
@@ -147,6 +148,69 @@ public class PlayerController : MonoBehaviour
         audioSource.Play();
     }
 
+    void Motion(int height)
+    {
+        if (isNotBoth && !isNote && height == 0)
+        {
+            animator.SetBool("isJump", true);
+        }
+        else if (isNotBoth && height == 1)
+        {
+            if (height == 1)
+            {
+                int attackType = UnityEngine.Random.Range(0, 2);
+                switch (attackType)
+                {
+                    case 0:
+                        //때리는 활성화
+                        animator.SetBool("isBodyShot", true);
+                        break;
+                    case 1:
+                        //때리는 모션 활성화
+                        animator.SetBool("isScratch", true);
+                        break;
+                }
+            }
+        }
+        else if (isNotBoth)
+        {
+            int attackType = UnityEngine.Random.Range(0, 2);
+            if (height == 0)
+            {
+                switch (attackType)
+                {
+                    case 0:
+                        //때리는 활성화
+                        animator.SetBool("isBodyShot0", true);
+                        break;
+                    case 1:
+                        //때리는 모션 활성화
+                        animator.SetBool("isScratch0", true);
+                        break;
+                }
+            }
+            if (height == 1)
+            {
+                switch (attackType)
+                {
+                    case 0:
+                        //때리는 활성화
+                        animator.SetBool("isBodyShot", true);
+                        break;
+                    case 1:
+                        //때리는 모션 활성화
+                        animator.SetBool("isScratch", true);
+                        break;
+                }
+            }
+        }
+        else if (!isNotBoth)
+        {
+            animator.SetBool("isUpperCut", true);
+        }
+    }
+
+    /*
 
     void attackMotion() //아래 모션   //코드작성 : 지재원
     {
@@ -194,13 +258,16 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isUpperCut", true);
         }
     }
-
+    */
+    
+    public void SetJump() { animator.SetBool("isJump", false); }
     public void SetBodyShot() { animator.SetBool("isBodyShot", false); }
     public void SetScratch() { animator.SetBool("isScratch", false); }
     public void SetBodyShot0() { animator.SetBool("isBodyShot0", false); }
     public void SetScratch0() { animator.SetBool("isScratch0", false); }
     public void SetUpperCut() { animator.SetBool("isUpperCut", false); }
     public void SetisNotBoth() { isNotBoth = true; }
+    public void SetisNote() { isNote = false; }
     public void SetHit() { animator.SetBool("isHit", false); }
 
 

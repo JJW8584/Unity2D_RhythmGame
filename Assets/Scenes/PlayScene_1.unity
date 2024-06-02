@@ -1805,6 +1805,7 @@ MonoBehaviour:
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1
+  isNote: 0
   JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
   AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
   HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
@@ -2698,7 +2699,7 @@ MonoBehaviour:
   notePerfectEffectPrefab: {fileID: 559819818609407839, guid: 2257bd7e80074274497c73312b53ba7f, type: 3}
   noteGoodEffectPrefab: {fileID: 4906122488551506449, guid: 54f5fa856174e194f9eddb5a924f186f, type: 3}
   noteBadEffectPrefab: {fileID: 3371627321732621997, guid: a49c21f28cbc4f941bbbf2eaeba8865a, type: 3}
-  HitEffectPrefab: {fileID: 6741148517177437127, guid: 352d1a55c8f4a1843aae0c41267e9b15, type: 3}
+  HitEffectPrefab: {fileID: 7167384496214312932, guid: 56a26f7863c89cb45b34bc65747e8a69, type: 3}
 --- !u!114 &841765275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5068,6 +5069,7 @@ MonoBehaviour:
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1
+  isNote: 0
   JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
   AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
   HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
@@ -5650,6 +5652,7 @@ MonoBehaviour:
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1
+  isNote: 0
   JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
   AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
   HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
