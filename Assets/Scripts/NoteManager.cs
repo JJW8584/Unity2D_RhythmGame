@@ -161,7 +161,7 @@ public class NoteManager : MonoBehaviour
             if (!targetPool[i].activeSelf)
             {
                 targetPool[i].SetActive(true);
-                Debug.Log("Note Create");
+                //Debug.Log("Note Create");
                 return targetPool[i];
             }
         }

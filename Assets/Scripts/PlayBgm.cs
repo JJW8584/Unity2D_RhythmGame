@@ -10,11 +10,6 @@ public class PlayBgm : MonoBehaviour
         PlayBgmMusic();
     }
 
-    void OnDisable()
-    {
-        StopBgmMusic();
-    }
-
     public void PlayBgmMusic()
     {
         BgmSong.time = 0;

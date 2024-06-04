@@ -65,8 +65,8 @@ public class Note : MonoBehaviour
 
         return a0 * p0 + a1 * p1 + a2 * p2 + a3 * p3;
     }
-    private void OnDestroy()
+   /* private void OnDestroy()
     {
         Debug.Log("³ëÆ®ÆÄ±«");
-    }
+    }*/
 }

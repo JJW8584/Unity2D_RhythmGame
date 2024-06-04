@@ -5,6 +5,7 @@ public class Click_Menu : MonoBehaviour
 {
     public GameObject[] charSet;
     public GameObject Menu;
+    public GameObject ObjectMenu;
 
     private void Update()
     {
@@ -18,20 +19,36 @@ public class Click_Menu : MonoBehaviour
         if (!Menu.activeSelf)
         {
             Menu.SetActive(true);
+            if (ObjectMenu)
+            {
+                ObjectMenu.SetActive(true);
+            }
         }
         else if (Menu.activeSelf)
         {
             Menu.SetActive(false);
+            if (ObjectMenu)
+            {
+                ObjectMenu.SetActive(false);
+            }
         }
     }
 
     public void btn_clicked()
     {
         Menu.SetActive(true);
+        if (ObjectMenu)
+        {
+            ObjectMenu.SetActive(true);
+        }
     }
     public void back_clicked()
     {
         Menu.SetActive(false);
+        if (ObjectMenu)
+        {
+            ObjectMenu.SetActive(false);
+        }
     }
     //코드작성 : 지재원
     //시작

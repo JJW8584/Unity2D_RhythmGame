@@ -71,7 +71,6 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             }
         }
         isMove = false; // 이동이 완료되면 isMove를 false로 설정
-        PlaySong();
     }
 
     void Update()
@@ -109,10 +108,10 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void OnDisable()
+    /*void OnDisable()
     {
         StopSong();
-    }
+    }*/
 
     public void PlaySong()
     {
