@@ -3423,7 +3423,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Into Space\u266B"
+  m_Text: "Game Time\u266B"
 --- !u!222 &487921846
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8549,7 +8549,6 @@ MonoBehaviour:
   PlaySong_audio_clips:
   - {fileID: 8300000, guid: 5a390228ccf43e54ca9524947ca54ae2, type: 3}
   - {fileID: 8300000, guid: e79870652612d62489aec451eda713b4, type: 3}
-  - {fileID: 8300000, guid: b92fd2c0f1176c84cb0dabb13e23fbc8, type: 3}
   - {fileID: 8300000, guid: 715d7e3bb00d44e4c81770cc0eac69e6, type: 3}
   audio_clips:
   - {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
@@ -10469,7 +10468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1494646334
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10640,7 +10639,6 @@ MonoBehaviour:
   - {fileID: 806435935}
   - {fileID: 1181162181}
   - {fileID: 92841492}
-  - {fileID: 1494646333}
   SongPos:
   - {fileID: 1308061433}
   - {fileID: 1060081777}
@@ -10664,7 +10662,6 @@ MonoBehaviour:
   - {fileID: 806435936}
   - {fileID: 1181162182}
   - {fileID: 92841493}
-  - {fileID: 1494646334}
   SelectSongBox: {fileID: 181059867}
   SelectUp: {fileID: 601508134}
   SelectDown: {fileID: 1173808211}

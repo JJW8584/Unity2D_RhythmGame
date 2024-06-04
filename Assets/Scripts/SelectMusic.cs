@@ -94,6 +94,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            StopSong();
             Click_Menu.startButton();
         }
     }

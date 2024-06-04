@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
 
     void Motion(int height)
     {
-        if (isNotBoth && !isNote && height == 0)
+        /*if (isNotBoth && !isNote && height == 0)
         {
             animator.SetBool("isJump", true);
         }
@@ -172,7 +172,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (isNotBoth)
+        else */
+        if (isNotBoth)
         {
             int attackType = UnityEngine.Random.Range(0, 2);
             if (height == 0)
