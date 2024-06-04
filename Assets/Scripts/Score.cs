@@ -68,7 +68,7 @@ public class Score : MonoBehaviour
         float _time = 0;
         while (true)
         {
-            _time += Time.deltaTime;
+            _time += Time.deltaTime * 3;
             if (_time > 1f)
                 break;
             rankTrans.localScale = new Vector3(Mathf.Lerp(0f, 1f, _time), Mathf.Lerp(0f, 1f, _time), 0);
