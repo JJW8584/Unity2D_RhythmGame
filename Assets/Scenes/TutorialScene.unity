@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSet: []
   Menu: {fileID: 0}
+  ObjectMenu: {fileID: 0}
 --- !u!114 &187420236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,6 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSet: []
   Menu: {fileID: 1335004570}
+  ObjectMenu: {fileID: 0}
 --- !u!114 &419756420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,6 +2354,7 @@ GameObject:
   - component: {fileID: 1038498867}
   - component: {fileID: 1038498866}
   - component: {fileID: 1038498865}
+  - component: {fileID: 1038498868}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2433,6 +2436,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038498868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038498864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e3cd3b1a3647042b61ca1b27bdf393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1045366503
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3239,7 @@ MonoBehaviour:
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1
+  isNote: 0
   JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
   AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
   HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}

@@ -39,7 +39,6 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     {
         while (playSongListBox[GameManager.instance.songType].transform.position.y != songTypePos.position.y)
         {
-        while(GameManager.instance.songType !=)
             if (playSongListBox[GameManager.instance.songType].transform.position.y > songTypePos.position.y)
             {
                 for (int i = 0; i < playSongListBox.Length; i++)
