@@ -25,6 +25,8 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
     Click_Menu Click_Menu;
 
+    public int songType;
+
     void Start()
     {
         Click_Menu = FindObjectOfType<Click_Menu>();
@@ -37,6 +39,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     {
         while (playSongListBox[GameManager.instance.songType].transform.position.y != songTypePos.position.y)
         {
+        while(GameManager.instance.songType !=)
             if (playSongListBox[GameManager.instance.songType].transform.position.y > songTypePos.position.y)
             {
                 for (int i = 0; i < playSongListBox.Length; i++)
@@ -75,18 +78,6 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
-        /*for (int i = 0; i < playSongListBox.Length; i++)
-        {
-            if (playSongListBox[i].transform.position.y >= SongPos[0].position.y || playSongListBox[i].transform.position.y <= SongPos[1].position.y)
-            {
-                playSongListBox[i].SetActive(false);
-            }
-            else
-            {
-                playSongListBox[i].SetActive(true);
-            }
-        }*/
-
         float wheelInput = Input.GetAxis("Mouse ScrollWheel");
 
         if (wheelInput > 0 || Input.GetKey(KeyCode.DownArrow) || isDown)
@@ -108,10 +99,6 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    /*void OnDisable()
-    {
-        StopSong();
-    }*/
 
     public void PlaySong()
     {

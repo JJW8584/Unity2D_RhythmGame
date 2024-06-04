@@ -4,6 +4,7 @@ using UnityEngine;
 public class Click_Menu : MonoBehaviour
 {
     public GameObject[] charSet;
+    public GameObject[] charTextSet;
     public GameObject Menu;
     public GameObject ObjectMenu;
 
@@ -73,14 +74,18 @@ public class Click_Menu : MonoBehaviour
     public void CharacterSelectLeft()
     {
         charSet[GameManager.instance.charType].SetActive(false);
+        charTextSet[GameManager.instance.charType].SetActive(false);
         GameManager.instance.charType = --GameManager.instance.charType < 0 ? 2 : GameManager.instance.charType;
         charSet[GameManager.instance.charType].SetActive(true);
+        charTextSet[GameManager.instance.charType].SetActive(true);
     }   
     public void CharacterSelectRight()
     {
         charSet[GameManager.instance.charType].SetActive(false);
+        charTextSet[GameManager.instance.charType].SetActive(false);
         GameManager.instance.charType = ++GameManager.instance.charType > 2 ? 0 : GameManager.instance.charType;
         charSet[GameManager.instance.charType].SetActive(true);
+        charTextSet[GameManager.instance.charType].SetActive(true);
     }
     public void Tutorial()
     {
