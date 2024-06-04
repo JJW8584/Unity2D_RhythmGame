@@ -7,7 +7,9 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 {
     public GameObject[] playSongListBox;
     public Transform[] SongPos;
+    private Vector3[] SongPosView;
     public Transform songTypePos;
+    private Vector3 songTypePosView;
     public float animationDuration_ = 0.3f; // 애니메이션 지속 시간
     public float animationDuration = 0.3f; // 애니메이션 지속 시간
     public float[] rotationAngles = { 0, 10, -10, 1, 0 }; // 애니메이션 중 각 회전 각도
@@ -24,16 +26,22 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     public AudioSource playSong;
 
     Click_Menu Click_Menu;
+    Camera mainCamera;
 
     void Start()
     {
+        /*mainCamera = Camera.main;
+        SongPosView[0] = mainCamera.WorldToViewportPoint(SongPos[0].transform.position);
+        SongPosView[1] = mainCamera.WorldToViewportPoint(SongPos[1].transform.position);
+        songTypePosView = mainCamera.WorldToViewportPoint(songTypePos.transform.position);*/
+
         Click_Menu = FindObjectOfType<Click_Menu>();
         GameManager.instance.firstSong = 0;
         GameManager.instance.lastSong = playSongListBox.Length - 1;
-        setting();
+        //setting();
     }
 
-    private void setting()
+    /*private void setting()
     {
         while (playSongListBox[GameManager.instance.songType].transform.position.y != songTypePos.position.y)
         {
@@ -71,7 +79,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             }
         }
         isMove = false; // 이동이 완료되면 isMove를 false로 설정
-    }
+    }*/
 
     void Update()
     {
@@ -108,10 +116,6 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    /*void OnDisable()
-    {
-        StopSong();
-    }*/
 
     public void PlaySong()
     {
