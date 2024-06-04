@@ -370,7 +370,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f0775eeff0bbf624e970b27a40e35dea, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5a390228ccf43e54ca9524947ca54ae2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1676,9 +1676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490a51d1679d9b144a2fa674a7a0b588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAudio: {fileID: 472114813}
+  mAudio: {fileID: 1196323359}
   filePath: X:\
-  fileName: game time.txt
+  fileName: intoSpace.txt
 --- !u!4 &2101979376
 Transform:
   m_ObjectHideFlags: 0

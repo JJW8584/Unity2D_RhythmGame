@@ -511,7 +511,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &59109727
@@ -1182,7 +1181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!1 &181059866
@@ -1937,7 +1935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 1773773516}
   ObjectMenu: {fileID: 0}
 --- !u!114 &290574628
@@ -2333,7 +2330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 1824367247}
   ObjectMenu: {fileID: 0}
 --- !u!114 &394688382
@@ -2552,7 +2548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 405989564}
   ObjectMenu: {fileID: 2069383666}
 --- !u!224 &405989566
@@ -2786,7 +2781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 441320577}
   ObjectMenu: {fileID: 0}
 --- !u!114 &430180464
@@ -3564,7 +3558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 2028888845}
   ObjectMenu: {fileID: 2092130100}
 --- !u!114 &512952360
@@ -5009,6 +5002,7 @@ GameObject:
   - component: {fileID: 757910390}
   - component: {fileID: 757910389}
   - component: {fileID: 757910388}
+  - component: {fileID: 757910391}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5090,6 +5084,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &757910391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757910387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e3cd3b1a3647042b61ca1b27bdf393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &780788615
 GameObject:
   m_ObjectHideFlags: 0
@@ -6334,7 +6340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 977275576}
   ObjectMenu: {fileID: 0}
 --- !u!114 &893146548
@@ -7214,7 +7219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 2028888845}
   ObjectMenu: {fileID: 2092130100}
 --- !u!114 &1031353428
@@ -7977,7 +7981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 406227946}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1073334255
@@ -9059,10 +9062,6 @@ MonoBehaviour:
   - {fileID: 1953884517}
   - {fileID: 707195492}
   - {fileID: 1117280158}
-  charTextSet:
-  - {fileID: 2033127616}
-  - {fileID: 742202035}
-  - {fileID: 114060890}
   Menu: {fileID: 405989564}
   ObjectMenu: {fileID: 0}
 --- !u!4 &1269190243
@@ -10092,7 +10091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 1773773516}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1452401681
@@ -10667,7 +10665,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1512510532
@@ -11378,7 +11375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 1824367247}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1599350072
@@ -12755,7 +12751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1733452664
@@ -13702,7 +13697,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 406227946}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1907704547
@@ -14152,7 +14146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 977275576}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1945548285
@@ -15138,7 +15131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 441320577}
   ObjectMenu: {fileID: 0}
 --- !u!114 &2037979522
@@ -15436,7 +15428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!1 &2092130100
@@ -15495,10 +15486,6 @@ MonoBehaviour:
   - {fileID: 1953884517}
   - {fileID: 707195492}
   - {fileID: 1117280158}
-  charTextSet:
-  - {fileID: 2033127616}
-  - {fileID: 742202035}
-  - {fileID: 114060890}
 --- !u!114 &2092130103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15512,7 +15499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
-  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!1 &2096853884

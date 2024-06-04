@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSet: []
   Menu: {fileID: 1946942843}
+  ObjectMenu: {fileID: 0}
 --- !u!114 &22450143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,7 +2476,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0.3
+  m_EdgeRadius: 0
 --- !u!212 &798635912
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2537,7 +2538,7 @@ Transform:
   m_GameObject: {fileID: 798635908}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.56, y: 6, z: 0}
+  m_LocalPosition: {x: -7.06, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2876,6 +2877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSet: []
   Menu: {fileID: 0}
+  ObjectMenu: {fileID: 0}
 --- !u!114 &841765278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,7 +2930,7 @@ MonoBehaviour:
   - {fileID: 1150054628}
   - {fileID: 663540853}
   - {fileID: 663540853}
-  songName: intoSpace1
+  songName: intoSpace
   notePos0: {fileID: 312620944}
   notePos1: {fileID: 1093168937}
   playSong: {fileID: 516977031}
@@ -4654,6 +4656,7 @@ GameObject:
   - component: {fileID: 1699468975}
   - component: {fileID: 1699468974}
   - component: {fileID: 1699468973}
+  - component: {fileID: 1699468976}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4735,6 +4738,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1699468976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699468972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e3cd3b1a3647042b61ca1b27bdf393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1703168303
 GameObject:
   m_ObjectHideFlags: 0
