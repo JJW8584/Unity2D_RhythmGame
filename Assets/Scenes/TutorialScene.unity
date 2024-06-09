@@ -150,7 +150,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.86, y: -1, z: 0}
-  m_LocalScale: {x: 0.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 949267129}
@@ -196,8 +196,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Sprite: {fileID: 1162020177, guid: 079b8af80039b844db3b4cbf215a9615, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &187420236
@@ -455,8 +456,7 @@ MonoBehaviour:
   - {fileID: 832996384}
   - {fileID: 1664340794}
   - {fileID: 827405005}
-  charSet:
-  - {fileID: 1316660484}
+  charSet: []
 --- !u!4 &187420241
 Transform:
   m_ObjectHideFlags: 0
@@ -866,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1335004570}
   ObjectMenu: {fileID: 0}
 --- !u!114 &419756420
@@ -1680,7 +1681,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.86, y: 2, z: 0}
-  m_LocalScale: {x: 0.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 949267129}
@@ -1726,8 +1727,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
+  m_Sprite: {fileID: 1162020177, guid: 079b8af80039b844db3b4cbf215a9615, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

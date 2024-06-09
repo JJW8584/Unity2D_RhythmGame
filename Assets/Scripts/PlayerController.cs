@@ -7,16 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     public int MaxHP = 250;
     public int HP;
-    public Image HPmeter;
-    private float longNoteTime = 0.5f;  //롱노트 기준
+    public Image HPmeter; //체력바 UI
     private float DoubleNoteTime = 0.3f; //더블 노트 기준
 
-    private float elapsedTime_0 = 0.0f; //위
-    public bool isClicked_0 = false;
-    private float elapsedTime_1 = 0.0f; //아래
-    public bool isClicked_1 = false;
+    private float elapsedTime_0 = 0.0f; //위 노트 클릭 시간
+    public bool isClicked_0 = false; //위 노트 클릭 여부
+    private float elapsedTime_1 = 0.0f; //아래 노트 클릭 시간
+    public bool isClicked_1 = false; //아래 노트 클릭 여부
 
-    public bool isNotBoth = true;
+    public bool isNotBoth = true; //더블노트 여부
     public bool isNote = false;
 
     TimingManager theTimingManager;
@@ -34,6 +33,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
+        //튜토리얼이 아닌 경우에만 체력 초기화
         if (!GameManager.instance.isTutorial)
         {
             HP = MaxHP;
@@ -43,42 +43,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //일시 정지가 아닌 경우
         if (!GameManager.instance.isPause)
         {
             //위
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1]))
             {
                 isClicked_0 = true;
-                //Debug.Log("위판정시작");
                 if (isNotBoth)
                     SoundManager.instance.PlaySound("JUMP");
-                //PlaySound("JUMP");
-                theTimingManager.CheckTiming0(); // 판정 체크
-                Motion(0);
+                theTimingManager.CheckTiming0(); //위 노트 판정 체크
+                Motion(0); //애니메이션 실행
             }
-            if (isClicked_0 == true) //롱노트
+            if (isClicked_0 == true)
             {
                 elapsedTime_0 += Time.deltaTime;
 
+                //더블 노트
                 if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1])))
                 {
-                    //Debug.Log("동시입력");
-                    //PlaySound("JUMP");
-                    theTimingManager.CheckTiming_Both();
-                    Motion(2);
-                }
-                if (longNoteTime < elapsedTime_0)
-                {
-                    //Debug.Log("long note");
-                    //롱노트 존재여부, 없으면 판정끝 hit 멈추기
+                    theTimingManager.CheckTiming_Both(); //더블 노트 판정 체크
+                    Motion(2); //애니메이션 실행
                 }
             }
             if (Input.GetKeyUp(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP1]))
             {
-                if (longNoteTime < elapsedTime_0)
-                {
-                    //Debug.Log("long note end");
-                }
                 isClicked_0 = false;
                 elapsedTime_0 = 0.0f;
             }
@@ -88,49 +77,40 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1]))
             {
                 isClicked_1 = true;
-                //Debug.Log("아래판정시작");
                 if (isNotBoth)
                     SoundManager.instance.PlaySound("JUMP");
-                //PlaySound("JUMP");
-                theTimingManager.CheckTiming1(); // 판정 체크
-                Motion(1);
+                theTimingManager.CheckTiming1(); //아래 노트 판정 체크
+                Motion(1); //애니메이션 실행
             }
-            if (isClicked_1 == true) //롱노트
+            if (isClicked_1 == true)
             {
                 elapsedTime_1 += Time.deltaTime;
 
-                if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
+                //더블 노트
+                if (DoubleNoteTime > elapsedTime_1 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
                 {
-                    //Debug.Log("동시입력");
-                    //PlaySound("JUMP");
-                    theTimingManager.CheckTiming_Both();
-                    Motion(2);
-                }
-                if (longNoteTime < elapsedTime_1)
-                {
-                    //Debug.Log("long note");
-                    //롱노트 존재여부, 없으면 판정끝 hit 멈추기
+                    theTimingManager.CheckTiming_Both(); //더블 노트 판정 체크
+                    Motion(2); //애니메이션 실행
                 }
             }
             if (Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN1]))
             {
-                if (longNoteTime < elapsedTime_1)
-                {
-                    //Debug.Log("long note end");
-                }
                 isClicked_1 = false;
                 elapsedTime_1 = 0.0f;
             }
+
+            //체력이 0이 되면
             if (HP <= 0)
             {
-                PlaySong.SongStop();
-                LoadingSceneManager.LoadScene("EndingScene");
+                PlaySong.SongStop(); //노래 멈춤
+                LoadingSceneManager.LoadScene("EndingScene"); //엔딩 씬으로 전환
             }
 
-            UpdateHealthBar();
+            UpdateHealthBar(); //체력바 업데이트
         }
     }
 
+    //사운드 재생
     public void PlaySound(string action)
     {
         switch(action)
@@ -148,31 +128,10 @@ public class PlayerController : MonoBehaviour
         audioSource.Play();
     }
 
+    //애니메이션 실행
     void Motion(int height)
     {
-        /*if (isNotBoth && !isNote && height == 0)
-        {
-            animator.SetBool("isJump", true);
-        }
-        else if (isNotBoth && height == 1)
-        {
-            if (height == 1)
-            {
-                int attackType = UnityEngine.Random.Range(0, 2);
-                switch (attackType)
-                {
-                    case 0:
-                        //때리는 활성화
-                        animator.SetBool("isBodyShot", true);
-                        break;
-                    case 1:
-                        //때리는 모션 활성화
-                        animator.SetBool("isScratch", true);
-                        break;
-                }
-            }
-        }
-        else */
+        //더블노트가 아니면
         if (isNotBoth)
         {
             int attackType = UnityEngine.Random.Range(0, 2);
@@ -181,11 +140,9 @@ public class PlayerController : MonoBehaviour
                 switch (attackType)
                 {
                     case 0:
-                        //때리는 활성화
                         animator.SetBool("isBodyShot0", true);
                         break;
                     case 1:
-                        //때리는 모션 활성화
                         animator.SetBool("isScratch0", true);
                         break;
                 }
@@ -195,71 +152,20 @@ public class PlayerController : MonoBehaviour
                 switch (attackType)
                 {
                     case 0:
-                        //때리는 활성화
                         animator.SetBool("isBodyShot", true);
                         break;
                     case 1:
-                        //때리는 모션 활성화
                         animator.SetBool("isScratch", true);
                         break;
                 }
             }
         }
+        //더블 노트면
         else if (!isNotBoth)
         {
             animator.SetBool("isUpperCut", true);
         }
     }
-
-    /*
-
-    void attackMotion() //아래 모션   //코드작성 : 지재원
-    {
-        int attackType = UnityEngine.Random.Range(0, 2);
-
-        if (isNotBoth)
-        {
-            switch (attackType)
-            {
-                case 0:
-                    //때리는 활성화
-                    animator.SetBool("isBodyShot", true);
-                    break;
-                case 1:
-                    //때리는 모션 활성화
-                    animator.SetBool("isScratch", true);
-                    break;
-            }
-        }
-    }
-
-    void attackMotion0() //위 모션
-    {
-        int attackType = UnityEngine.Random.Range(0, 2);
-
-        if (isNotBoth)
-        {
-            switch (attackType)
-            {
-                case 0:
-                    //때리는 활성화
-                    animator.SetBool("isBodyShot0", true);
-                    break;
-                case 1:
-                    //때리는 모션 활성화
-                    animator.SetBool("isScratch0", true);
-                    break;
-            }
-        }
-    }
-    void attackMotionBoth()
-    {
-        if (!isNotBoth)
-        {
-            animator.SetBool("isUpperCut", true);
-        }
-    }
-    */
     
     public void SetJump() { animator.SetBool("isJump", false); }
     public void SetBodyShot() { animator.SetBool("isBodyShot", false); }
@@ -271,12 +177,13 @@ public class PlayerController : MonoBehaviour
     public void SetisNote() { isNote = false; }
     public void SetHit() { animator.SetBool("isHit", false); }
 
-
+    //체력바 업데이트
     void UpdateHealthBar()
     {
         HPmeter.fillAmount = Mathf.Lerp(HPmeter.fillAmount, (float)HP / (float)MaxHP, Time.deltaTime*20);
     }
 
+    //데미지
     public void TakeDamage(int damage)
     {
         HP -= damage;
@@ -286,6 +193,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //충돌
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!GameManager.instance.isTutorial)

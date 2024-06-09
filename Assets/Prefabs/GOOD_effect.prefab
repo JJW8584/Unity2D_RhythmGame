@@ -19897,6 +19897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f677c9829fc9c2949afcd71e196963ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultLife: 1
   ParticleLife: 1
 --- !u!1 &6046618572539454559
 GameObject:
