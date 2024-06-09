@@ -4,6 +4,7 @@ using TMPro;
 public class TextTest : MonoBehaviour
 {
     public TMP_Text textComponent;
+
     void Update()
     {
         textComponent.ForceMeshUpdate();
@@ -20,7 +21,7 @@ public class TextTest : MonoBehaviour
 
             var verts = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
 
-            for (int j = 0; j < 3; ++j)
+            for (int j = 0; j < 4; ++j)
             {
                 var orig = verts[charInfo.vertexIndex + j];
                 verts[charInfo.vertexIndex + j] = orig + new Vector3(0, Mathf.Sin(Time.time * 2f + orig.x * 0.01f) * 10f, 0);
