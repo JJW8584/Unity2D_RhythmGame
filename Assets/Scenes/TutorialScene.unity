@@ -433,9 +433,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectPos0: {fileID: 670334820}
   effectPos1: {fileID: 1909103}
-  notePerfectEffectPrefab: {fileID: 559819818609407839, guid: 2257bd7e80074274497c73312b53ba7f, type: 3}
+  notePerfectEffectPrefab: {fileID: 1342196601426380788, guid: 2257bd7e80074274497c73312b53ba7f, type: 3}
   noteGoodEffectPrefab: {fileID: 4906122488551506449, guid: 54f5fa856174e194f9eddb5a924f186f, type: 3}
-  noteBadEffectPrefab: {fileID: 3371627321732621997, guid: a49c21f28cbc4f941bbbf2eaeba8865a, type: 3}
+  noteBadEffectPrefab: {fileID: 2994041713514075695, guid: a49c21f28cbc4f941bbbf2eaeba8865a, type: 3}
   HitEffectPrefab: {fileID: 6741148517177437127, guid: 352d1a55c8f4a1843aae0c41267e9b15, type: 3}
 --- !u!114 &187420239
 MonoBehaviour:

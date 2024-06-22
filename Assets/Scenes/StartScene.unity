@@ -10812,11 +10812,9 @@ MonoBehaviour:
   - {fileID: 806435936}
   - {fileID: 1181162182}
   - {fileID: 92841493}
-  SelectSongBox: {fileID: 181059867}
   SelectUp: {fileID: 601508134}
   SelectDown: {fileID: 1173808211}
   playSong: {fileID: 0}
-  songType: 0
 --- !u!224 &1511807992
 RectTransform:
   m_ObjectHideFlags: 0
