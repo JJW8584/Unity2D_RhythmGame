@@ -4,12 +4,6 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-    /*
-    [SerializeField] private AudioMixer m_AudioMixer;
-    [SerializeField] private Slider m_MusicMasterSlider;
-    [SerializeField] private Slider m_MusicBGMSlider;
-    [SerializeField] private Slider m_MusicSFXSlider;
-    */
 
     public AudioSource bgm_player;
     public AudioSource sfx_player;
@@ -19,7 +13,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] PlaySong_audio_clips;
     public AudioClip[] audio_clips;
 
-    //GameManager.instance.songType
     private void Awake()
     {
         //杭俘概聪历 教臂沛 积己
@@ -31,40 +24,7 @@ public class SoundManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
-        /*
-        m_MusicMasterSlider.onValueChanged.AddListener(SetMasterVolume);
-        m_MusicBGMSlider.onValueChanged.AddListener(SetMusicVolume);
-        m_MusicSFXSlider.onValueChanged.AddListener(SetSFXVolume);
-        */
-        //bgm_player = GameObject.Find("BGM Player").GetComponent<AudioSource>();
-        //sfx_player = GameObject.Find("Sfx Player").GetComponent<AudioSource>();
     }
-    /*
-    private void Start()
-    {
-        m_MusicMasterSlider.value = PlayerPrefs.GetFloat("Master", 0.75f);
-        m_MusicBGMSlider.value = PlayerPrefs.GetFloat("BGM", 0.75f);
-        m_MusicSFXSlider.value = PlayerPrefs.GetFloat("SFX", 0.75f);
-    }
-
-    public void SetMasterVolume(float volume)
-    {
-        m_AudioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
-        PlayerPrefs.GetFloat("Master", volume);
-    }
-
-    public void SetMusicVolume(float volume)
-    {
-        m_AudioMixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
-        PlayerPrefs.GetFloat("BGM", volume);
-    }
-
-    public void SetSFXVolume(float volume)
-    {
-        m_AudioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-        PlayerPrefs.GetFloat("SFX", volume);
-    }
-    */
     public void PlaySound(string type)
     {
         int index = 0;

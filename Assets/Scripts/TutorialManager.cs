@@ -41,7 +41,6 @@ public class TutorialManager : MonoBehaviour
         GameManager.instance.GameManagerReset();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isTutorial)

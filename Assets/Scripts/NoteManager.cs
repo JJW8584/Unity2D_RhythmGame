@@ -14,9 +14,6 @@ public class NoteManager : MonoBehaviour
     public GameObject longNoteMidPrefab;
     public GameObject longNoteEndPrefab;
     public GameObject startNotePrefab;
-    //public GameObject notePerfectEffectPrefab;
-    //public GameObject noteGoodEffectPrefab;
-    //public GameObject noteBadEffectPrefab;
 
     GameObject[] note0;
     GameObject[] note1;
@@ -26,9 +23,6 @@ public class NoteManager : MonoBehaviour
     GameObject[] longNoteMid;
     GameObject[] longNoteEnd;
     GameObject[] startNote;
-    //GameObject[] notePerfectEffect;
-    //GameObject[] noteGoodEffect;
-    //GameObject[] noteBadEffect;
 
     GameObject[] targetPool;
 
@@ -52,9 +46,6 @@ public class NoteManager : MonoBehaviour
         longNoteMid = new GameObject[30];
         longNoteEnd = new GameObject[5];
         startNote = new GameObject[1];
-        //notePerfectEffect = new GameObject[20];
-        //noteGoodEffect = new GameObject[20];
-        //noteBadEffect = new GameObject[20];
 
         Generate();
     }
@@ -100,21 +91,6 @@ public class NoteManager : MonoBehaviour
             startNote[i] = Instantiate(startNotePrefab);
             startNote[i].SetActive(false);
         }
-        /*for (int i = 0; i < notePerfectEffect.Length; i++)
-        {
-            notePerfectEffect[i] = Instantiate(notePerfectEffectPrefab);
-            notePerfectEffect[i].SetActive(false);
-        }
-        for (int i = 0; i < noteGoodEffect.Length; i++)
-        {
-            noteGoodEffect[i] = Instantiate(noteGoodEffectPrefab);
-            noteGoodEffect[i].SetActive(false);
-        }
-        for (int i = 0; i < noteBadEffect.Length; i++)
-        {
-            noteBadEffect[i] = Instantiate(noteBadEffectPrefab);
-            noteBadEffect[i].SetActive(false);
-        }*/
     }
 
     public GameObject MakeObj(string Type) //객체 생성하는 메소드
@@ -145,15 +121,6 @@ public class NoteManager : MonoBehaviour
             case "startNote":
                 targetPool = startNote;
                 break;
-            /*case "notePerfectEffect":
-                targetPool = notePerfectEffect;
-                break;
-            case "noteGoodEffect":
-                targetPool = noteGoodEffect;
-                break;
-            case "noteBadEffect":
-                targetPool = noteBadEffect;
-                break;*/
         }
 
         for (int i = 0; i < targetPool.Length; i++)
@@ -161,7 +128,6 @@ public class NoteManager : MonoBehaviour
             if (!targetPool[i].activeSelf)
             {
                 targetPool[i].SetActive(true);
-                //Debug.Log("Note Create");
                 return targetPool[i];
             }
         }
