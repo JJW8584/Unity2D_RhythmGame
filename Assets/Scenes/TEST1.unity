@@ -1818,7 +1818,6 @@ GameObject:
   - component: {fileID: 570998743}
   - component: {fileID: 570998742}
   - component: {fileID: 570998748}
-  - component: {fileID: 570998744}
   - component: {fileID: 570998741}
   - component: {fileID: 570998745}
   - component: {fileID: 570998746}
@@ -1918,28 +1917,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1510846201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &570998744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570998740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9849439010f1c4b96196ea85eb7808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
-  isClicked_0: 0
-  isClicked_1: 0
-  isNotBoth: 1
-  isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!82 &570998745
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5105,15 +5082,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
+  HP: 0
+  HPmeter: {fileID: 0}
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1
   isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
+  JumpSound: {fileID: 0}
+  AttackSound: {fileID: 0}
+  HitSound: {fileID: 0}
 --- !u!212 &1854671564
 SpriteRenderer:
   m_ObjectHideFlags: 0

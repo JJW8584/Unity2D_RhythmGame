@@ -88,6 +88,12 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
+        ComputerMode();
+    }
+
+
+    public void ComputerMode()
+    {
         float wheelInput = Input.GetAxis("Mouse ScrollWheel");
 
         if (wheelInput > 0 || Input.GetKey(KeyCode.DownArrow) || isDown)
@@ -109,6 +115,65 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
             Click_Menu.startButton(); //게임 시작
         }
     }
+
+    private Vector2 startTouchPosition;
+    private Vector2 currentTouchPosition;
+    public void MobileMode()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                //초기 터치 좌표 저장
+                startTouchPosition = touch.position;
+            }
+
+            else if (touch.phase == TouchPhase.Moved)
+            {
+                //현재 터치 좌표 저장
+                currentTouchPosition = touch.position;
+            }
+
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                Vector2 swipeDirection = currentTouchPosition - startTouchPosition;
+
+                if (Mathf.Abs(swipeDirection.y) > Mathf.Abs(swipeDirection.x))
+                {
+                    if (swipeDirection.y > 50) //위로 스와이프
+                    {
+                        isUp = false;
+                        ScrollUP(); //위로 스크롤
+                    }
+                    else if (swipeDirection.y < -50) //아래로 스와이프
+                    {
+                        isDown = false;
+                        ScrollDOWN(); //아래로 스크롤
+                    }
+                }
+            }
+        }
+    }
+
+
+    //클릭, 터치로 노래 선택 가능
+    bool isUp = false;
+    bool isDown = false;
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
+        if (clickedObject == SelectDown)
+        {
+            isDown = true;
+        }
+        if (clickedObject == SelectUp)
+        {
+            isUp = true;
+        }
+    }
+
 
     //노래 미리듣기
     public void PlaySong()
@@ -199,21 +264,9 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     }
 
 
-    //클릭으로 노래 선택 가능
-    bool isUp = false;
-    bool isDown = false;
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
-        if (clickedObject == SelectDown)
-        {
-            isDown=true;
-        }
-        if (clickedObject == SelectUp)
-        {
-            isUp=true;
-        }
-    }
+    
+
+
 
     //이동 시 부드러운 움직임 효과
     private IEnumerator AnimateMovement(Transform target, Vector3 offset)

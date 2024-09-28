@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1405502954}
   ObjectMenu: {fileID: 0}
 --- !u!114 &26790155
@@ -620,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1413782019}
   ObjectMenu: {fileID: 0}
 --- !u!114 &85188458
@@ -1632,6 +1634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 578229377}
   ObjectMenu: {fileID: 0}
 --- !u!114 &190195441
@@ -2133,6 +2136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &273522800
@@ -2294,6 +2298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1405502954}
   ObjectMenu: {fileID: 0}
 --- !u!114 &283621782
@@ -2955,6 +2960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1630491796}
   ObjectMenu: {fileID: 948030788}
 --- !u!114 &364332967
@@ -4283,6 +4289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 544027505}
   ObjectMenu: {fileID: 767898596}
 --- !u!224 &544027508
@@ -4364,6 +4371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &574184431
@@ -5427,6 +5435,7 @@ MonoBehaviour:
   - {fileID: 1832389478}
   - {fileID: 726252418}
   - {fileID: 534492358}
+  charTextSet: []
   Menu: {fileID: 544027505}
   ObjectMenu: {fileID: 0}
 --- !u!4 &717139406
@@ -5497,6 +5506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1787631300}
   ObjectMenu: {fileID: 0}
 --- !u!114 &726046871
@@ -6078,6 +6088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!4 &767898598
@@ -7045,6 +7056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1413782019}
   ObjectMenu: {fileID: 0}
 --- !u!114 &943675454
@@ -7285,6 +7297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &948030791
@@ -7303,6 +7316,7 @@ MonoBehaviour:
   - {fileID: 1832389478}
   - {fileID: 726252418}
   - {fileID: 534492358}
+  charTextSet: []
 --- !u!1 &954468441
 GameObject:
   m_ObjectHideFlags: 0
@@ -9497,6 +9511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1032592665}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1256383298
@@ -11164,6 +11179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 0}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1601486038
@@ -12697,7 +12713,6 @@ MonoBehaviour:
   - {fileID: 1630382203}
   - {fileID: 1170225188}
   - {fileID: 5475247}
-  SelectSongBox: {fileID: 184149491}
   SelectUp: {fileID: 939123016}
   SelectDown: {fileID: 161584486}
   playSong: {fileID: 0}
@@ -13875,6 +13890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1032592665}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1933073312
@@ -14052,6 +14068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 578229377}
   ObjectMenu: {fileID: 0}
 --- !u!114 &1987492968
@@ -14560,6 +14577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1630491796}
   ObjectMenu: {fileID: 948030788}
 --- !u!114 &2066128597
@@ -14746,6 +14764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSet: []
+  charTextSet: []
   Menu: {fileID: 1787631300}
   ObjectMenu: {fileID: 0}
 --- !u!114 &2066886411

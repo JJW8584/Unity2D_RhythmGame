@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //코드작성 : 권지수
-public class Click_Menu : MonoBehaviour
+public class TouchMenu_Test : MonoBehaviour
 {
     public GameObject[] charSet;
     public GameObject[] charTextSet;
@@ -10,27 +10,11 @@ public class Click_Menu : MonoBehaviour
 
     private void Update()
     {
-        TouchSound();
-    }
-
-    public void ClickSound()
-    {
         if (Input.GetMouseButtonDown(0))
         {
             SoundManager.instance.PlaySound("Click");
         }
     }
-    public void TouchSound()
-    {
-        if (Input.touchCount > 0)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                SoundManager.instance.PlaySound("Click");
-            }
-        }
-    }
-
     public void total_btn_clicked()
     {
         if (!Menu.activeSelf)
@@ -71,7 +55,7 @@ public class Click_Menu : MonoBehaviour
     //시작
     public void startButton()
     {
-        switch(GameManager.instance.songType)
+        switch (GameManager.instance.songType)
         {
             case 0:
                 LoadingSceneManager.LoadScene("PlayScene_0");
@@ -94,7 +78,7 @@ public class Click_Menu : MonoBehaviour
         GameManager.instance.charType = --GameManager.instance.charType < 0 ? 2 : GameManager.instance.charType;
         charSet[GameManager.instance.charType].SetActive(true);
         charTextSet[GameManager.instance.charType].SetActive(true);
-    }   
+    }
     public void CharacterSelectRight()
     {
         charSet[GameManager.instance.charType].SetActive(false);
