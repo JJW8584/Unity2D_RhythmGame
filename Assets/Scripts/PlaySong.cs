@@ -13,12 +13,14 @@ public class PlaySong : MonoBehaviour
         playSong = SoundManager.instance.PlayBgmSound(GameManager.instance.songType);
         playSong.time = 0;
         isSongPlaying = true;
+        GameManager.instance.isPlay = true;
     }
 
     private void Update()
     {
         if(!playSong.isPlaying && !isSongPlaying && !GameManager.instance.isPause)
         {
+            GameManager.instance.isPlay = false;
             LoadingSceneManager.LoadScene("EndingScene");
         }
     }

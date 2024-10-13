@@ -15,14 +15,14 @@ public class Click_Menu : MonoBehaviour
 
     public void ClickSound()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !GameManager.instance.isPlay)
         {
             SoundManager.instance.PlaySound("Click");
         }
     }
     public void TouchSound()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !GameManager.instance.isPlay)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {

@@ -44,6 +44,7 @@ public class Pause : MonoBehaviour
             PlayGame.playSong.Pause();
             PlaySong.playSong.Pause(); //노래 일시정지
             GameManager.instance.isPause = true;
+            GameManager.instance.isPlay = false;
             PausePanel.SetActive(true); //일시정지 패널 활성화
             return;
         }
@@ -53,6 +54,7 @@ public class Pause : MonoBehaviour
             PausePanel.SetActive(false); //일시정지 패널 비활성화
             Time.timeScale = 1f; //게임 시간 재개
             GameManager.instance.isPause = false;
+            GameManager.instance.isPlay = true;
             PlayGame.playSong.UnPause();
             PlaySong.playSong.UnPause(); //노래 재개
             return;
@@ -65,6 +67,7 @@ public class Pause : MonoBehaviour
         {
             Time.timeScale = 0f; //게임 시간 멈춤
             GameManager.instance.isPause = true;
+            GameManager.instance.isPlay = false;
             PausePanel.SetActive(true); //일시정지 패널 활성화
             return;
         }
@@ -74,6 +77,7 @@ public class Pause : MonoBehaviour
             PausePanel.SetActive(false); //일시정지 패널 비활성화
             Time.timeScale = 1f; //게임 시간 재개
             GameManager.instance.isPause = false;
+            GameManager.instance.isPlay = true;
             return;
         }
     }

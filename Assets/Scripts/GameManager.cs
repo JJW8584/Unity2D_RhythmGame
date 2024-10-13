@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int charType; //캐릭터 스킨
     public bool isPause;
     public bool isTutorial;
+    public bool isPlay;
 
     public int combo = 0;
 

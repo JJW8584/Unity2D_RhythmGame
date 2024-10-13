@@ -6,6 +6,7 @@ public class TimingManager : MonoBehaviour
 {
     CreateParticle CreateParticle;
     PlayerController playerController;
+    TouchTest touchTest;
 
     public List<GameObject> boxNoteList = new List<GameObject>(); //생성된 노트를 담을 리스트
 
@@ -21,6 +22,7 @@ public class TimingManager : MonoBehaviour
     {
         CreateParticle = FindObjectOfType<CreateParticle>();
         playerController = FindObjectOfType<PlayerController>();
+        touchTest = FindObjectOfType<TouchTest>();
 
         timingBoxs = new Vector2[timingRect.Length];
 
@@ -60,14 +62,14 @@ public class TimingManager : MonoBehaviour
                 boxNoteList.RemoveAt(0); //리스트에서 노트 제거
                 GameManager.instance.combo = 0; //콤보 실패
                 ++GameManager.instance.missCnt; //미스 카운트 증가
-                playerController.isNotBoth = true;
+                touchTest.isNotBoth = true;
                 //Debug.Log("miss");
             }
 
             //동시노트 확인
             if (timingBoxs[2].x <= t_notePosX && t_notePosX <= timingBoxs[2].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
             {
-                playerController.isNotBoth = false;
+                touchTest.isNotBoth = false;
             }
         }
     }
