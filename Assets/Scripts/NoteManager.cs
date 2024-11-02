@@ -9,6 +9,7 @@ public class NoteManager : MonoBehaviour
     public GameObject note0Prefab;
     public GameObject note1Prefab;
     public GameObject doubleNotePrefab;
+    //public GameObject flickNotePrefab;
     public GameObject wheelPrefab;
     public GameObject longNoteFrontPrefab;
     public GameObject longNoteMidPrefab;
@@ -18,6 +19,7 @@ public class NoteManager : MonoBehaviour
     GameObject[] note0;
     GameObject[] note1;
     GameObject[] doubleNote;
+    //GameObject[] flickNote;
     GameObject[] wheel;
     GameObject[] longNoteFront;
     GameObject[] longNoteMid;
@@ -41,6 +43,7 @@ public class NoteManager : MonoBehaviour
         note0 = new GameObject[40];
         note1 = new GameObject[40];
         doubleNote = new GameObject[30];
+        //flickNote = new GameObject[40];
         wheel = new GameObject[30];
         longNoteFront = new GameObject[5];
         longNoteMid = new GameObject[30];
@@ -66,6 +69,11 @@ public class NoteManager : MonoBehaviour
             doubleNote[i] = Instantiate(doubleNotePrefab);
             doubleNote[i].SetActive(false);
         }
+        /*for(int i = 0; i < flickNote.Length ; i++)
+        {
+            flickNote[i] = Instantiate(flickNotePrefab);
+            flickNote[i].SetActive(false);
+        }*/
         for (int i = 0; i < wheel.Length; i++)
         {
             wheel[i] = Instantiate(wheelPrefab);
@@ -106,6 +114,9 @@ public class NoteManager : MonoBehaviour
             case "doubleNote":
                 targetPool = doubleNote;
                 break;
+            /*case "flickNote":
+                targetPool = flickNote;
+                break;*/
             case "wheel":
                 targetPool = wheel;
                 break;

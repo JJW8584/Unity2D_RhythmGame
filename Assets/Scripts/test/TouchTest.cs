@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TouchTest : MonoBehaviour
 {
-    public int MaxHP = 250;
+    /*public int MaxHP = 250;
     public int HP;
-    public Image HPmeter; //체력바 UI
+    public Image HPmeter; //체력바 UI*/
     private float DoubleNoteTime = 0.3f; //더블 노트 기준
 
     private float elapsedTime_0 = 0.0f; //왼쪽 노트 클릭 시간
@@ -31,12 +32,12 @@ public class TouchTest : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-        //튜토리얼이 아닌 경우에만 체력 초기화
+        /*//튜토리얼이 아닌 경우에만 체력 초기화
         if (!GameManager.instance.isTutorial)
         {
             HP = MaxHP;
             HPmeter.fillAmount = (float)HP / (float)MaxHP;
-        }
+        }*/
     }
 
     void Update()
@@ -44,59 +45,64 @@ public class TouchTest : MonoBehaviour
         // 일시 정지가 아닌 경우
         if (!GameManager.instance.isPause)
         {
-            MobileTouchInput();  // 터치 입력 처리
-            Health();      // 체력 관리
+            PCTouchInput();  // 터치 입력 처리
+            //Health();      // 체력 관리
         }
     }
 
     void PCTouchInput()
     {
-        // 터치 입력이 있을 때
-        if (Input.GetMouseButtonDown(0))
+        //위
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1]))
         {
-            // 터치 위치 판정
-            Vector2 touchPosition = Input.mousePosition;
-
-            // 왼쪽 터치
-            if (touchPosition.x < Screen.width / 2)
-            {
-                isClicked_0 = true;
-                if (isNotBoth)
-                    SoundManager.instance.PlaySound("JUMP");
-                theTimingManager.CheckTiming0(); // 왼쪽 노트 판정 체크
-                Motion(0); // 애니메이션 실행
-
-                if (Input.GetMouseButtonUp(0))
-                {
-                    isClicked_0 = false;
-                    elapsedTime_0 = 0.0f;
-                }
-            }
-            // 오른쪽 터치
-            if (touchPosition.x >= Screen.width / 2)
-            {
-                isClicked_1 = true;
-                if (isNotBoth)
-                    SoundManager.instance.PlaySound("JUMP");
-                theTimingManager.CheckTiming1(); // 오른쪽 노트 판정 체크
-                Motion(1); // 애니메이션 실행
-
-                if (Input.GetMouseButtonUp(0))
-                {
-                    isClicked_1 = false;
-                    elapsedTime_1 = 0.0f;
-                }
-            }
-            
+            isClicked_0 = true;
+            if (isNotBoth)
+                //SoundManager.instance.PlaySound("JUMP");
+            theTimingManager.CheckTiming0(); //위 노트 판정 체크
+            Motion(0); //애니메이션 실행
         }
-        // 더블 노트 판정 (왼쪽과 오른쪽 동시에 터치)
-        if (isClicked_0 && isClicked_1)
+        if (isClicked_0 == true)
         {
-            if (DoubleNoteTime > elapsedTime_0 && DoubleNoteTime > elapsedTime_1)
+            elapsedTime_0 += Time.deltaTime;
+
+            //더블 노트
+            if (DoubleNoteTime > elapsedTime_0 && (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1])))
             {
-                theTimingManager.CheckTiming_Both(); // 더블 노트 판정 체크
-                Motion(2); // 애니메이션 실행
+                theTimingManager.CheckTiming_Both(); //더블 노트 판정 체크
+                Motion(2); //애니메이션 실행
             }
+        }
+        if (Input.GetKeyUp(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP1]))
+        {
+            isClicked_0 = false;
+            elapsedTime_0 = 0.0f;
+        }
+
+
+        //아래
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.DOWN1]))
+        {
+            isClicked_1 = true;
+            if (isNotBoth)
+                //SoundManager.instance.PlaySound("JUMP");
+            theTimingManager.CheckTiming1(); //아래 노트 판정 체크
+            Motion(1); //애니메이션 실행
+        }
+        if (isClicked_1 == true)
+        {
+            elapsedTime_1 += Time.deltaTime;
+
+            //더블 노트
+            if (DoubleNoteTime > elapsedTime_1 && (Input.GetKeyDown(KeySetting.keys[KeyAction.UP0]) || Input.GetKeyDown(KeySetting.keys[KeyAction.UP1])))
+            {
+                theTimingManager.CheckTiming_Both(); //더블 노트 판정 체크
+                Motion(2); //애니메이션 실행
+            }
+        }
+        if (Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN0]) || Input.GetKeyUp(KeySetting.keys[KeyAction.DOWN1]))
+        {
+            isClicked_1 = false;
+            elapsedTime_1 = 0.0f;
         }
     }
 
@@ -105,6 +111,9 @@ public class TouchTest : MonoBehaviour
         // 터치가 있는 경우에만 처리
         if (Input.touchCount > 0)
         {
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                return; //UI 터치가 감지됐을 경우
+
             for (int i = 0; i < Input.touchCount; i++)
             {
                 Touch touch = Input.GetTouch(i);
@@ -166,69 +175,7 @@ public class TouchTest : MonoBehaviour
         }
     }
 
-    void HandleTouchInput()
-    {
-        
-
-        // 터치 입력이 있을 때
-        if (Input.touchCount > 0)
-        {
-            foreach (Touch touch in Input.touches)
-            {
-                // 터치 위치 판정
-                Vector2 touchPosition = touch.position;
-
-                // 왼쪽 터치
-                if (touchPosition.x < Screen.width / 2)
-                {
-                    if (touch.phase == TouchPhase.Began)
-                    {
-                        isClicked_0 = true;
-                        if (isNotBoth)
-                            SoundManager.instance.PlaySound("JUMP");
-                        theTimingManager.CheckTiming0(); // 왼쪽 노트 판정 체크
-                        Motion(0); // 애니메이션 실행
-                    }
-
-                    if (touch.phase == TouchPhase.Ended)
-                    {
-                        isClicked_0 = false;
-                        elapsedTime_0 = 0.0f;
-                    }
-                }
-                // 오른쪽 터치
-                else if (touchPosition.x >= Screen.width / 2)
-                {
-                    if (touch.phase == TouchPhase.Began)
-                    {
-                        isClicked_1 = true;
-                        if (isNotBoth)
-                            SoundManager.instance.PlaySound("JUMP");
-                        theTimingManager.CheckTiming1(); // 오른쪽 노트 판정 체크
-                        Motion(1); // 애니메이션 실행
-                    }
-
-                    if (touch.phase == TouchPhase.Ended)
-                    {
-                        isClicked_1 = false;
-                        elapsedTime_1 = 0.0f;
-                    }
-                }
-            }
-
-            // 더블 노트 판정 (왼쪽과 오른쪽 동시에 터치)
-            if (isClicked_0 && isClicked_1)
-            {
-                if (DoubleNoteTime > elapsedTime_0 && DoubleNoteTime > elapsedTime_1)
-                {
-                    theTimingManager.CheckTiming_Both(); // 더블 노트 판정 체크
-                    Motion(2); // 애니메이션 실행
-                }
-            }
-        }
-    }
-
-    //체력이 0이 되면
+    /*//체력이 0이 되면
     void Health()
     {
         if (HP <= 0)
@@ -238,7 +185,7 @@ public class TouchTest : MonoBehaviour
         }
 
         UpdateHealthBar(); //체력바 업데이트
-    }
+    }*/
 
     //사운드 재생
     public void PlaySound(string action)
@@ -305,7 +252,7 @@ public class TouchTest : MonoBehaviour
     public void SetisNote() { isNote = false; }
     public void SetHit() { animator.SetBool("isHit", false); }
 
-    //체력바 업데이트
+    /*//체력바 업데이트
     void UpdateHealthBar()
     {
         HPmeter.fillAmount = Mathf.Lerp(HPmeter.fillAmount, (float)HP / (float)MaxHP, Time.deltaTime * 20);
@@ -332,5 +279,5 @@ public class TouchTest : MonoBehaviour
                 animator.SetBool("isHit", true);
             }
         }
-    }
+    }*/
 }

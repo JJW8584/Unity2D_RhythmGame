@@ -87,7 +87,7 @@ public class TimingManager : MonoBehaviour
             {
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY > centerValue + 0.5)
                 {
-                    SoundManager.instance.PlaySound("HIT"); //타격 효과음 재생
+                    //SoundManager.instance.PlaySound("HIT"); //타격 효과음 재생
                     CreateParticle.CreateHitEffect(0); //타격 이펙트 재생
                     boxNoteList[0].SetActive(false); //노트 비활성화
                     boxNoteList.RemoveAt(0); //리스트에서 노트 제거
@@ -134,7 +134,7 @@ public class TimingManager : MonoBehaviour
             {
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && t_notePosY < centerValue - 0.5)
                 {
-                    SoundManager.instance.PlaySound("HIT"); //타격 효과음 재생
+                    //SoundManager.instance.PlaySound("HIT"); //타격 효과음 재생
                     CreateParticle.CreateHitEffect(1); //타격 이펙트 재생
                     boxNoteList[0].SetActive(false); //노트 비활성화
                     boxNoteList.RemoveAt(0); //리스트에서 노트 제거
@@ -181,7 +181,7 @@ public class TimingManager : MonoBehaviour
             {
                 if (timingBoxs[j].x <= t_notePosX && t_notePosX <= timingBoxs[j].y && centerValue - 0.5 <= t_notePosY && t_notePosY <= centerValue + 0.5)
                 {
-                    SoundManager.instance.PlaySound("HIT"); //타격 효과음 재생
+                    //SoundManager.instance.PlaySound("HIT"); //타격 효과음 재생
                     CreateParticle.CreateHitEffect(2); //타격 이펙트 재생
                     boxNoteList[0].SetActive(false); //노트 비활성화
                     boxNoteList.RemoveAt(0); //리스트에서 노트 제거

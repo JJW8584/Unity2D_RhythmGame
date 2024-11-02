@@ -1901,7 +1901,6 @@ GameObject:
   m_Component:
   - component: {fileID: 570998743}
   - component: {fileID: 570998742}
-  - component: {fileID: 570998744}
   - component: {fileID: 570998741}
   - component: {fileID: 570998745}
   - component: {fileID: 570998746}
@@ -2002,28 +2001,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1510846201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &570998744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570998740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9849439010f1c4b96196ea85eb7808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
-  isClicked_0: 0
-  isClicked_1: 0
-  isNotBoth: 1
-  isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!82 &570998745
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2194,9 +2171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f56c77bc50220469543a66077013b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1
@@ -5074,7 +5048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1814977988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5143,7 +5117,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1854671565}
   - component: {fileID: 1854671564}
-  - component: {fileID: 1854671563}
   - component: {fileID: 1854671562}
   - component: {fileID: 1854671566}
   - component: {fileID: 1854671567}
@@ -5177,28 +5150,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1854671563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854671561}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9849439010f1c4b96196ea85eb7808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
-  isClicked_0: 0
-  isClicked_1: 0
-  isNotBoth: 1
-  isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!212 &1854671564
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5436,9 +5387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f56c77bc50220469543a66077013b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1
@@ -5749,7 +5697,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1966274744}
   - component: {fileID: 1966274743}
-  - component: {fileID: 1966274742}
   - component: {fileID: 1966274741}
   - component: {fileID: 1966274745}
   - component: {fileID: 1966274748}
@@ -5783,28 +5730,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1966274742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966274740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9849439010f1c4b96196ea85eb7808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
-  isClicked_0: 0
-  isClicked_1: 0
-  isNotBoth: 1
-  isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!212 &1966274743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6042,9 +5967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f56c77bc50220469543a66077013b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 250
-  HPmeter: {fileID: 2067660890}
   isClicked_0: 0
   isClicked_1: 0
   isNotBoth: 1

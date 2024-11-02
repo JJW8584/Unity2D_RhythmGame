@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 //코드작성 : 권지수
 public class Click_Menu : MonoBehaviour
@@ -24,6 +25,9 @@ public class Click_Menu : MonoBehaviour
     {
         if (Input.touchCount > 0 && !GameManager.instance.isPlay)
         {
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                return; //UI 터치가 감지됐을 경우
+
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 SoundManager.instance.PlaySound("Click");
