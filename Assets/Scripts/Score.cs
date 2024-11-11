@@ -32,19 +32,40 @@ public class Score : MonoBehaviour
         badCount.text = string.Format("{0:n0}", GameManager.instance.badCnt);
         missCount.text = string.Format("{0:n0}", GameManager.instance.missCnt);
         if (GameManager.instance.score >= GameManager.instance.maxScore * 95 / 10)
+        {
             Rank.text = "SS";
-        else if(GameManager.instance.score >= GameManager.instance.maxScore * 9)
+            Rank.color = new Color32(250, 60, 150, 250);
+        }
+        else if (GameManager.instance.score >= GameManager.instance.maxScore * 9)
+        {
             Rank.text = "S";
-        else if(GameManager.instance.score >= GameManager.instance.maxScore * 8)
+            Rank.color = new Color32(250, 195, 60, 250);
+        }
+        else if (GameManager.instance.score >= GameManager.instance.maxScore * 8)
+        {
             Rank.text = "A";
-        else if(GameManager.instance.score >= GameManager.instance.maxScore * 7)
+            Rank.color = new Color32(60, 150, 250, 250);
+        }
+        else if (GameManager.instance.score >= GameManager.instance.maxScore * 7)
+        {
             Rank.text = "B";
-        else if(GameManager.instance.score >= GameManager.instance.maxScore * 6)
+            Rank.color = new Color32(70, 240, 20, 250);
+        }
+        else if (GameManager.instance.score >= GameManager.instance.maxScore * 6)
+        {
             Rank.text = "C";
-        else if(GameManager.instance.score >= GameManager.instance.maxScore * 5)
+            Rank.color = new Color32(250, 230, 0, 250);
+        }
+        else if (GameManager.instance.score >= GameManager.instance.maxScore * 5)
+        {
             Rank.text = "D";
+            Rank.color = new Color32(150, 150, 150, 250);
+        }
         else
+        {
             Rank.text = "F";
+            Rank.color = new Color32(70, 60, 50, 250);
+        }
 
         StartCoroutine(ScoreText());
     }
