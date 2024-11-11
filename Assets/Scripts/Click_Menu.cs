@@ -75,7 +75,8 @@ public class Click_Menu : MonoBehaviour
     //Ω√¿€
     public void startButton()
     {
-        switch(GameManager.instance.songType)
+        Tutorial();
+        /*switch(GameManager.instance.songType)
         {
             case 0:
                 LoadingSceneManager.LoadScene("PlayScene_0");
@@ -86,10 +87,7 @@ public class Click_Menu : MonoBehaviour
             case 2:
                 LoadingSceneManager.LoadScene("PlayScene_2");
                 break;
-            case 3:
-                LoadingSceneManager.LoadScene("PlayScene_3");
-                break;
-        }
+        }*/
     }
     public void CharacterSelectLeft()
     {
@@ -127,10 +125,8 @@ public class Click_Menu : MonoBehaviour
             case 2:
                 LoadingSceneManager.LoadScene("PlayScene_2");
                 break;
-            case 3:
-                LoadingSceneManager.LoadScene("PlayScene_3");
-                break;
         }
+        GameManager.instance.isTutorial = false;
         GameManager.instance.GameManagerReset();
     }
     public void ReStart()

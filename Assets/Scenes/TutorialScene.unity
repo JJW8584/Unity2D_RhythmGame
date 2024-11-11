@@ -751,22 +751,22 @@ MonoBehaviour:
   - "\uB108\uB3C4 \uACE0\uC218\uAC00 \uB420 \uC218 \uC788\uB2E4\uB0E5!!"
   - "\uB178\uD2B8 \uC885\uB958\uB294 3\uAC00\uC9C0\uAC00 \uC788\uB2E4\uB0E5"
   - "\uC704\uC5D0\uC11C \uB178\uD2B8\uAC00 \uC62C \uB54C\uB294"
-  - "F\uB098 D\uB97C \uB204\uB974\uBA74 \uB41C\uB2E4\uB0E5"
+  - "\uD654\uBA74 \uC67C\uCABD\uC744 \uB204\uB974\uBA74 \uB41C\uB2E4\uB0E5"
   - "\uC544\uB798\uC5D0\uC11C \uC624\uB294 \uB178\uD2B8\uB294"
-  - "J\uB098 K\uB97C \uB204\uB974\uBA74 \uB41C\uB2E4\uB0E5"
+  - "\uD654\uBA74 \uC624\uB978\uCABD\uC744 \uB204\uB974\uBA74 \uB41C\uB2E4\uB0E5"
   - "\uAE38\uB2E4\uB780 \uAD6C\uB984\uC774 \uC62C \uB54C\uB294"
-  - "\uC704, \uC544\uB798\uB97C \uB3D9\uC2DC\uC5D0 \uB204\uB974\uBA74 \uB41C\uB2E4\uB0E5!!"
+  - "\uC67C\uCABD, \uC624\uB978\uCABD\uC744 \uB3D9\uC2DC\uC5D0 \uB204\uB974\uBA74
+    \uB41C\uB2E4\uB0E5!!"
   - "\uD55C \uBC88 \uD574\uBCF4\uC790\uB0E5!!!"
   - "\uADF8\uB7FC \uC2DC\uC791\uD55C\uB2E4\uB0E5!!!"
-  upNoteText: "F\uB098 D\uB97C \uB20C\uB7EC\uB77C\uB0E5!!"
-  downNoteText: "\uC774\uBC88\uC5D4 J\uB098 K\uB2E4\uB0E5!!"
-  doubleNoteText: "2\uAC1C\uB97C \uB3D9\uC2DC\uC5D0 \uB20C\uB7EC\uB77C\uB0E5!!"
+  upNoteText: "\uD654\uBA74 \uC67C\uCABD\uC744 \uB20C\uB7EC\uB77C\uB0E5!!"
+  downNoteText: "\uC774\uBC88\uC5D4 \uC624\uB978\uCABD\uC774\uB2E4\uB0E5!!"
+  doubleNoteText: "\uC591\uCABD\uC744 \uB3D9\uC2DC\uC5D0 \uB20C\uB7EC\uB77C\uB0E5!!"
   endingTextSet:
   - "\uC798\uD588\uB2E4\uB0E5!!"
   - "\uC0DD\uAC01\uBCF4\uB2E4 \uB354 \uC798\uD574\uC11C \uB180\uB790\uB2E4\uB0E5~"
   - "\uB108\uB3C4 \uC774\uC81C \uB0B4 \uCE5C\uAD6C\uB2E4\uB0E5!!"
-  - "\uC55E\uC73C\uB85C \uC798 \uBD80\uD0C1\uD55C\uB2E4\uB0E5~!"
-  - "\uC55E\uC73C\uB85C \uC798 \uBD80\uD0C1\uD55C\uB2E4\uB0E5~!"
+  - "\uC774\uC81C \uD55C \uBC88 \uD574\uBCF4\uC790\uB0E5!"
 --- !u!4 &245715320
 Transform:
   m_ObjectHideFlags: 0
@@ -825,7 +825,6 @@ GameObject:
   - component: {fileID: 419756422}
   - component: {fileID: 419756421}
   - component: {fileID: 419756420}
-  - component: {fileID: 419756419}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -850,25 +849,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 899, y: 469}
-  m_SizeDelta: {x: 70, y: 80}
+  m_AnchoredPosition: {x: 844.428, y: 464.8195}
+  m_SizeDelta: {x: 231.134, y: 150.3611}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &419756419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419756417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0c101744741c14eb49d08c5047483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charSet: []
-  charTextSet: []
-  Menu: {fileID: 1335004570}
-  ObjectMenu: {fileID: 0}
 --- !u!114 &419756420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,21 +896,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 419756419}
+      - m_Target: {fileID: 187420235}
         m_TargetAssemblyTypeName: Click_Menu, Assembly-CSharp
-        m_MethodName: total_btn_clicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 419756419}
-        m_TargetAssemblyTypeName: Click_Menu, Assembly-CSharp
-        m_MethodName: total_btn_clicked
+        m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -957,8 +928,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 900976937, guid: 634cd955505652e4f9f4d857bca60f61, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 1a2962418894a9443842a7db27e3d272, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3080,9 +3051,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1316660485}
   - component: {fileID: 1316660489}
-  - component: {fileID: 1316660488}
   - component: {fileID: 1316660487}
   - component: {fileID: 1316660486}
+  - component: {fileID: 1316660490}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -3222,28 +3193,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1316660488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316660484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9849439010f1c4b96196ea85eb7808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 250
-  HP: 0
-  HPmeter: {fileID: 0}
-  isClicked_0: 0
-  isClicked_1: 0
-  isNotBoth: 1
-  isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!212 &1316660489
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3296,6 +3245,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1316660490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316660484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f56c77bc50220469543a66077013b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClicked_0: 0
+  isClicked_1: 0
+  isNotBoth: 1
+  isNote: 0
+  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
+  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
+  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!1 &1335004570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,7 +3626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3667,11 +3635,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 81
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 119
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

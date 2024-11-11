@@ -262,7 +262,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
     }
 
     //흔들림 효과
-    private IEnumerator AnimateShake(RectTransform target)
+    public IEnumerator AnimateShake(RectTransform target)
     {
         float elapsedTime = 0f;
 
@@ -277,7 +277,7 @@ public class SelectMusic : MonoBehaviour, IPointerClickHandler
 
         target.localEulerAngles = new Vector3(0, 0, 0); //애니메이션 후 원래 각도로 복귀
     }
-    private float GetAngleAtKeyframe(float t)
+    public float GetAngleAtKeyframe(float t)
     {
         for (int i = 1; i < keyframes.Length; i++) //키프레임 배열을 순회
         {

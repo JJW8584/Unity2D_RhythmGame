@@ -39,6 +39,8 @@ public class TimingManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameManager.instance.isTutorial) return;
+
         for (int i = 0; i < charSet.Length; i++)
         {
             charSet[i].SetActive(false);
