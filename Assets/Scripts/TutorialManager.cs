@@ -158,7 +158,19 @@ public class TutorialManager : MonoBehaviour
             {
                 GameManager.instance.isTutorial = false;
                 GameManager.instance.GameManagerReset();
-                LoadingSceneManager.LoadScene("StartScene");
+                switch (GameManager.instance.songType)
+                {
+                    case 0:
+                        LoadingSceneManager.LoadScene("PlayScene_0");
+                        break;
+                    case 1:
+                        LoadingSceneManager.LoadScene("PlayScene_1");
+                        break;
+                    case 2:
+                        LoadingSceneManager.LoadScene("PlayScene_2");
+                        break;
+                }
+                //LoadingSceneManager.LoadScene("StartScene");
             }
         }
     }

@@ -1,9 +1,11 @@
 using UnityEngine;
 
+
 public class SelectCat : MonoBehaviour
 {
     public GameObject[] charSet;
     public GameObject[] charTextSet;
+    public RectTransform nameBox;
 
     private void OnEnable()
     {
