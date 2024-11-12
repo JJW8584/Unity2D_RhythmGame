@@ -1966,6 +1966,7 @@ MonoBehaviour:
   JumpSound: {fileID: 0}
   AttackSound: {fileID: 0}
   HitSound: {fileID: 0}
+  isPC: 1
 --- !u!1 &591209584
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,6 +5425,7 @@ MonoBehaviour:
   JumpSound: {fileID: 0}
   AttackSound: {fileID: 0}
   HitSound: {fileID: 0}
+  isPC: 1
 --- !u!1 &1946942843
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,6 +6006,7 @@ MonoBehaviour:
   JumpSound: {fileID: 0}
   AttackSound: {fileID: 0}
   HitSound: {fileID: 0}
+  isPC: 1
 --- !u!1 &1992920811
 GameObject:
   m_ObjectHideFlags: 0

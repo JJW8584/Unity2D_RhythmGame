@@ -25,6 +25,8 @@ public class TouchTest : MonoBehaviour
     public AudioClip AttackSound;
     public AudioClip HitSound;
 
+    public bool isPC = false;
+
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
@@ -45,7 +47,8 @@ public class TouchTest : MonoBehaviour
         // 일시 정지가 아닌 경우
         if (!GameManager.instance.isPause)
         {
-            MobileTouchInput();  // 터치 입력 처리
+            if (isPC) PCTouchInput();
+            else MobileTouchInput();  // 터치 입력 처리
             //Health();      // 체력 관리
         }
     }
