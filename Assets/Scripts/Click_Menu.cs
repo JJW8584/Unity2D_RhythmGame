@@ -23,6 +23,8 @@ public class Click_Menu : MonoBehaviour
     }
     public void TouchSound()
     {
+        if (GameManager.instance.isTutorial) return;
+
         if (Input.touchCount > 0 && !GameManager.instance.isPlay)
         {
             if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))

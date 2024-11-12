@@ -2175,9 +2175,6 @@ MonoBehaviour:
   isClicked_1: 0
   isNotBoth: 1
   isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!1 &591209584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,7 +2570,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 1.5
+  m_EdgeRadius: 1.7
 --- !u!212 &798635912
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5421,9 +5418,6 @@ MonoBehaviour:
   isClicked_1: 0
   isNotBoth: 1
   isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!1 &1946942843
 GameObject:
   m_ObjectHideFlags: 0
@@ -6001,9 +5995,6 @@ MonoBehaviour:
   isClicked_1: 0
   isNotBoth: 1
   isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!1 &1992920811
 GameObject:
   m_ObjectHideFlags: 0

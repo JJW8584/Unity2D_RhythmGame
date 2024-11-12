@@ -376,7 +376,6 @@ GameObject:
   - component: {fileID: 187420238}
   - component: {fileID: 187420237}
   - component: {fileID: 187420236}
-  - component: {fileID: 187420235}
   m_Layer: 0
   m_Name: Note Manager
   m_TagString: Untagged
@@ -384,22 +383,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &187420235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187420234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0c101744741c14eb49d08c5047483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charSet: []
-  charTextSet: []
-  Menu: {fileID: 0}
-  ObjectMenu: {fileID: 0}
 --- !u!114 &187420236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,6 +765,7 @@ MonoBehaviour:
   - "\uC0DD\uAC01\uBCF4\uB2E4 \uB354 \uC798\uD574\uC11C \uB180\uB790\uB2E4\uB0E5~"
   - "\uB108\uB3C4 \uC774\uC81C \uB0B4 \uCE5C\uAD6C\uB2E4\uB0E5!!"
   - "\uC774\uC81C \uD55C \uBC88 \uD574\uBCF4\uC790\uB0E5!"
+  - "\uC774\uC81C \uD55C \uBC88 \uD574\uBCF4\uC790\uB0E5!"
 --- !u!4 &245715320
 Transform:
   m_ObjectHideFlags: 0
@@ -840,6 +824,7 @@ GameObject:
   - component: {fileID: 419756422}
   - component: {fileID: 419756421}
   - component: {fileID: 419756420}
+  - component: {fileID: 419756423}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -911,7 +896,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 187420235}
+      - m_Target: {fileID: 419756423}
         m_TargetAssemblyTypeName: Click_Menu, Assembly-CSharp
         m_MethodName: Retry
         m_Mode: 1
@@ -961,6 +946,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419756417}
   m_CullTransparentMesh: 1
+--- !u!114 &419756423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419756417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0c101744741c14eb49d08c5047483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charSet: []
+  charTextSet: []
+  Menu: {fileID: 0}
+  ObjectMenu: {fileID: 0}
 --- !u!1 &475844654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +2938,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 187420235}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Click_Menu, Assembly-CSharp
         m_MethodName: ReStart
         m_Mode: 1
@@ -3291,9 +3292,6 @@ MonoBehaviour:
   isClicked_1: 0
   isNotBoth: 1
   isNote: 0
-  JumpSound: {fileID: 8300000, guid: 303d44c8d6ec943a38df8ec10b19d9c7, type: 3}
-  AttackSound: {fileID: 8300000, guid: 673e0c563e49943e983f44f0fb941436, type: 3}
-  HitSound: {fileID: 8300000, guid: 0d5dab2d9e8a04cb8a1b06c583193e55, type: 3}
 --- !u!1 &1335004570
 GameObject:
   m_ObjectHideFlags: 0

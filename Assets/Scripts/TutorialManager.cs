@@ -147,7 +147,7 @@ public class TutorialManager : MonoBehaviour
             curTextDelay = 0f;
         }
     }
-    void TutorialExit()
+    public void TutorialExit()
     {
         curTextDelay += Time.deltaTime;
         if (curTextDelay >= maxTextDelay)

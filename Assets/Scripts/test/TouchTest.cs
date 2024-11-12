@@ -20,17 +20,17 @@ public class TouchTest : MonoBehaviour
     TimingManager theTimingManager;
     PlaySong PlaySong;
     Animator animator;
-    /*AudioSource audioSource;
+    AudioSource audioSource;
     public AudioClip JumpSound;
     public AudioClip AttackSound;
-    public AudioClip HitSound;*/
+    public AudioClip HitSound;
 
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
         PlaySong = FindObjectOfType<PlaySong>();
         animator = GetComponent<Animator>();
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         /*//튜토리얼이 아닌 경우에만 체력 초기화
         if (!GameManager.instance.isTutorial)
@@ -188,7 +188,7 @@ public class TouchTest : MonoBehaviour
     }*/
 
     //사운드 재생
-    /*public void PlaySound(string action)
+    public void PlaySound(string action)
     {
         switch (action)
         {
@@ -203,7 +203,7 @@ public class TouchTest : MonoBehaviour
                 break;
         }
         audioSource.Play();
-    }*/
+    }
 
     //애니메이션 실행
     void Motion(int height)
