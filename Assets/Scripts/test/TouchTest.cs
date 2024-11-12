@@ -20,17 +20,17 @@ public class TouchTest : MonoBehaviour
     TimingManager theTimingManager;
     PlaySong PlaySong;
     Animator animator;
-    AudioSource audioSource;
+    /*AudioSource audioSource;
     public AudioClip JumpSound;
     public AudioClip AttackSound;
-    public AudioClip HitSound;
+    public AudioClip HitSound;*/
 
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
         PlaySong = FindObjectOfType<PlaySong>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
 
         /*//튜토리얼이 아닌 경우에만 체력 초기화
         if (!GameManager.instance.isTutorial)
@@ -45,7 +45,7 @@ public class TouchTest : MonoBehaviour
         // 일시 정지가 아닌 경우
         if (!GameManager.instance.isPause)
         {
-            PCTouchInput();  // 터치 입력 처리
+            MobileTouchInput();  // 터치 입력 처리
             //Health();      // 체력 관리
         }
     }
@@ -127,7 +127,7 @@ public class TouchTest : MonoBehaviour
                         isClicked_0 = true;
                         elapsedTime_0 = 0.0f; // 터치가 시작되었으므로 시간을 초기화
                         if (isNotBoth)
-                            SoundManager.instance.PlaySound("JUMP");
+                            //SoundManager.instance.PlaySound("JUMP");
                         theTimingManager.CheckTiming0(); // 왼쪽 노트 판정 체크
                         Motion(0); // 애니메이션 실행
                     }
@@ -147,7 +147,7 @@ public class TouchTest : MonoBehaviour
                         isClicked_1 = true;
                         elapsedTime_1 = 0.0f; // 터치가 시작되었으므로 시간을 초기화
                         if (isNotBoth)
-                            SoundManager.instance.PlaySound("JUMP");
+                            //SoundManager.instance.PlaySound("JUMP");
                         theTimingManager.CheckTiming1(); // 오른쪽 노트 판정 체크
                         Motion(1); // 애니메이션 실행
                     }
@@ -188,7 +188,7 @@ public class TouchTest : MonoBehaviour
     }*/
 
     //사운드 재생
-    public void PlaySound(string action)
+    /*public void PlaySound(string action)
     {
         switch (action)
         {
@@ -203,7 +203,7 @@ public class TouchTest : MonoBehaviour
                 break;
         }
         audioSource.Play();
-    }
+    }*/
 
     //애니메이션 실행
     void Motion(int height)
